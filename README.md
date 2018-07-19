@@ -1,4 +1,4 @@
 # pforquesato.github.io
 Personal website
 
-Still in (slow) preparation, please disregard. For real information on myself, go to: www.pedroforquesato.com.
+For potentially more updated information on myself, go to: www.pedroforquesato.com. (Which should display this website soon.)
