@@ -5149,8 +5149,16 @@ input[type="button"].btn-block {
   background-color: #1d2124;
 }
 
+.wrap {
+  width: 100%;
+  max-width: 72em;
+  margin: 0 auto;
+  padding: 0.25em 0.625em;
+}
+
 .jumbotron {
   padding: 1rem 1rem;
+  margin-top: 0.2rem;
   margin-bottom: 0.2rem;
   background-color: #cff7eb;
   border-radius: 0.6rem;
@@ -5163,8 +5171,8 @@ input[type="button"].btn-block {
     max-width: 100%}
 @media screen and (min-width:768px) {
     .jumbotron {
-    padding-top: 0.3rem;
-    padding-bottom: 0.3rem;
+    padding-top: 2rem;
+    padding-bottom: 0.2rem;
 }
 .container .jumbotron {
     padding-left: 0.3rem;
