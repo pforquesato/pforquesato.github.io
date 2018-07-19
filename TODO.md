@@ -1,2 +1,1 @@
-- Some broken links.
-- Try to fix images.
+More frequent updates, hopefully.
