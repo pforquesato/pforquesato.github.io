@@ -1,6 +1,6 @@
 ## Ativismo Judicial e a Preservação das Instituições
 
-É quase um lugar-comum hoje em dia dizer que o determinante central do desenvolvimento é a qualidade das instituições. Instituições restringem o uso do poder público em benefício particular, e permitem a provisão mais eficiente de bens essenciais ao crescimento, como educação e a garantia da propriedade privada.
+É quase um lugar-comum hoje em dia dizer que o determinante central do desenvolvimento é a qualidade das instituições. Instituições restringem o uso do poder público em benefício particular e permitem a provisão mais eficiente de bens essenciais ao crescimento, como educação e a garantia da propriedade privada.
 
 Pouca gente discordaria dessa afirmação, e ainda assim o que vemos hoje é um contínuo desgaste das instituições pelos próprios responsáveis por protegê-las. E tudo isso, diga-se, plausivelmente com boas intenções. Pois veja: a preservação das instituições requer o pensamento de longo prazo, sem contorcê-las para ganhos imediatos, e sem comprometê-las na tentativa de evitar um “mau pior”.
 
