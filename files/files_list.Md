@@ -1,1 +1,2 @@
 pedro_bernardo.jpeg
+pedro_bernardo_hd.jpg
