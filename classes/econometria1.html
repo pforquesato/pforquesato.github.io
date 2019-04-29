@@ -1326,9 +1326,7 @@ h6 {
 </style>
 
 
-</head>
 
-<body>
 
 <style type="text/css">
 .main-container {
@@ -1359,8 +1357,6 @@ summary {
 </style>
 
 
-
-<div class="container-fluid main-container">
 
 <!-- tabsets -->
 
@@ -1519,6 +1515,16 @@ div.tocify {
 
 </style>
 
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
 <!-- setup 3col/9col grid for toc_float and main content  -->
 <div class="row-fluid">
 <div class="col-xs-12 col-sm-4 col-md-3">
@@ -1536,8 +1542,8 @@ div.tocify {
 
 
 <h1 class="title toc-ignore">Econometria I - Parte 2</h1>
-<h4 class="author"><em>Pedro Forquesato (<a href="mailto:pforquesato@usp.br" class="email">pforquesato@usp.br</a>) - Universidade de São Paulo</em></h4>
-<h4 class="date"><em>Primeiro semestre - 2019</em></h4>
+<h4 class="author">Pedro Forquesato (<a href="mailto:pforquesato@usp.br" class="email">pforquesato@usp.br</a>) - Universidade de São Paulo</h4>
+<h4 class="date">Primeiro semestre - 2019</h4>
 
 </div>
 
@@ -1604,6 +1610,424 @@ div.tocify {
 <p>[25/06/2019] - Prova.</p>
 <hr />
 <hr />
+</div>
+</div>
+<div id="lista-1" class="section level1">
+<h1>Lista 1</h1>
+<p><br />
+</p>
+<div id="m-estimadores-parte-i-least-absolute-deviations-lad" class="section level3">
+<h3>M-Estimadores Parte I: Least absolute deviations (LAD)</h3>
+<p><br />
+</p>
+<p>Considere o problema de estimar os parâmetros verdadeiros <span class="math inline">\(\theta_0\)</span> que satisfazem uma equação estrutural para a mediana de <span class="math inline">\(y|x\)</span> : <span class="math inline">\(Med(y|x)=x \theta_0\)</span>, onde <span class="math inline">\(x\)</span> contém uma constante.</p>
+<ol style="list-style-type: decimal">
+<li>Mostre que <span class="math inline">\(\theta_0\)</span> minimiza <span class="math inline">\(\mathbb{E} \left[ \left| y - x \theta \right| \right]\)</span> sobre <span class="math inline">\(\Theta\)</span>.</li>
+<li>Use (a) (e o princípio da analogia) para derivar um estimador-M para <span class="math inline">\(\theta_0\)</span>. Esse é o estimador LAD. (Torcemos.)</li>
+<li>Mostre se podemos (ou não) aplicar os Teoremas vistos em sala para afirmar a consistência e normalidade assintótica do estimador de LAD. Precisamos de suposições adicionais para obter esses resultados? Quais?</li>
+<li>Assuma consistência e normalidade assintótica. Calcule o score e mostre que a esperança condicional do score é zero.</li>
+<li>Qual é a Hessiana da função objetivo (onde é definida)? (Mesmo assim) calcule a variância assintótica do estimador de LAD.</li>
+</ol>
+<hr />
+<p><br />
+</p>
+</div>
+<div id="m-estimadores-parte-ii-teste-de-score-ou-de-multiplicador-de-lagrange---lm." class="section level3">
+<h3>M-Estimadores Parte II: Teste de score (ou de Multiplicador de Lagrange - LM).</h3>
+<p><br />
+</p>
+<p>Seja um M-estimador obtido pela solução do análogo amostral de <span class="math inline">\(\theta_0 = \text{arg} \min \mathbb{E}\left[ q(w, \theta) \right]\)</span>, isto é, <span class="math inline">\(\hat{\theta} = \text{arg}\min N^{-1} \sum_{i=1}^N q(w_i, \theta)\)</span>.</p>
+<p>Considere <span class="math inline">\(Q\)</span> restrições <span class="math inline">\(c(\theta)\)</span>, e escreva-as da forma <span class="math inline">\(d: \mathbb{R}^{P-Q} \rightarrow \mathbb{R}^P\)</span>, onde <span class="math inline">\(P\)</span> é a dimensão do vetor de parâmetros e <span class="math inline">\(Q\)</span> o número de restrições <span class="math inline">\(C^1\)</span>, isto é, <span class="math inline">\(H_0 : \theta_0 = d(\lambda_0)\)</span>, de dimensão <span class="math inline">\(P-Q\)</span>.</p>
+<p>Se <span class="math inline">\(\tilde{\lambda}\)</span> é a solução do problema restringido <span class="math inline">\(\min_\lambda N^{-1} \sum_{i=1}^N q(w_i, d(\lambda))\)</span> e <span class="math inline">\(d(\tilde{\lambda}) \equiv \tilde{\theta}\)</span>, então o teste de score parte do princípio que como <span class="math inline">\(N^{-1} \sum_{i=1}^N s(w_i, \hat{\theta}) = 0\)</span> (pelas condições de primeira ordem), então se as restrições são válidas (i.e., sob a hipótese nula), também deve ser verdade que <span class="math inline">\(S \equiv N^{-1} \sum_{i=1}^N s(w_i, \tilde{\theta}) \sim 0\)</span>. Derive:</p>
+<ol style="list-style-type: decimal">
+<li>O limite assintótico de <span class="math inline">\(S\)</span>.</li>
+<li>A variância assintótica de <span class="math inline">\(S\)</span> e a estatística de score LM, obtida a partir de <span class="math inline">\(S\)</span> e que segue distribuição chi-quadrado.</li>
+</ol>
+<hr />
+<p><br />
+</p>
+</div>
+<div id="maxima-verossimilhanca-parte-i-regressao-de-poisson" class="section level3">
+<h3>Máxima-verossimilhança Parte I: Regressão de Poisson</h3>
+<p><br />
+</p>
+<p>Suponha que <span class="math inline">\(y | x\)</span> siga uma distribuição Poisson, isto é:</p>
+<p><span class="math display">\[f(y|x) = \frac{e^{-\mu (x)} \mu(x)^y}{y!}\]</span></p>
+<p>Esse modelo é muito usado em modelos de resposta de contagem. (Número discreto arbitrário na variável dependente, como número de bens vendidos por uma firma, número de filhos de um casal, etc.) Embora <span class="math inline">\(\mu (x) \equiv \mathbb{E}\left[ y | x \right]\)</span> pode ser parametrizada arbitrariamente, a parametrização mais comum é <span class="math inline">\(\mu (x) = \exp{x \beta}\)</span>. A estimação pode ser feita por NLS, mas ela é mais eficiente por MLE.</p>
+<ol style="list-style-type: decimal">
+<li>Derive a função objetivo do M-estimador de máxima verossimilhança.</li>
+<li>Prove a consistência do estimador de MLE.</li>
+<li>Calcule o score, a esperança condicional da Hessiana e a matriz de variância-covariância assintótica robusta.</li>
+<li>Uma proprieda da distribuição Poisson (chequem no Wikipedia) é que <span class="math inline">\(\mathbb{E}\left[ y | x \right] \equiv \mu (x) = \text{Var} \ (y | x)\)</span>. Calcule a matriz de variância-covariância com essa hipótese. (Ou seja, não robusta.)</li>
+</ol>
+<hr />
+<p><br />
+</p>
+</div>
+<div id="parte-aplicada-nls-exponencial" class="section level3">
+<h3>Parte Aplicada: NLS Exponencial</h3>
+<p><br />
+</p>
+<p><strong>A base de dados está disponível <a href="pforquesato.github.io/files/classes/econometria1/lista1_df.csv">aqui</a>.</strong> Esta base foi adaptada do Censo 2000 e do DATASUS.</p>
+<p>Considere um problema em que a equação estrutural é <span class="math inline">\(y_i = exp\{ x_i \beta \} + u_i\)</span>, onde a variável independente é: mortalidade infantil per capita em per mil, e as variáveis dependentes são: log renda pc, tx. de urbanização, acesso à agua canalizada, prop. de domicilios sem banheiro, acesso a esgoto e coleta de lixo. (Ver abaixo!)</p>
+<p>O M-estimador de <span class="math inline">\(\beta_0\)</span>, <span class="math inline">\(\hat{\beta}_{NLS}\)</span>, resolve o análogo amostral de <span class="math inline">\(\min_{\beta} \mathbb{E}\left[ (y_i - exp\{x_i\beta \})^2 \right]\)</span>. Usando um software de cálculo numérico:</p>
+<ol style="list-style-type: decimal">
+<li>Calcule a estimativa de NLS.</li>
+<li>Calcule a estimativa da matriz assintótica de variância-covariância dos estimadores NLS.</li>
+<li>Interprete os resultados. Compare-os com os de OLS (que eu calculei) e interprete a comparação.</li>
+<li>Use a estatística de Wald para testar a <span class="math inline">\(H_0 :\beta_{1} = \beta_4\)</span>. (Isto é, que o coeficiente de log renda pc = coeficiente de esgoto.)</li>
+<li>Use o teste de score (Questão 2) para calcular <span class="math inline">\(H_0: \delta=0\)</span> no modelo estrutural extendido <span class="math inline">\(y_i = exp\{ x_i \beta + \delta (x_i \beta)^2 \} + u_i\)</span>.</li>
+<li>Faça um teste de LR sobre as hipóteses de (4).</li>
+</ol>
+<hr />
+<p><br />
+</p>
+<p><strong>Observação importante:</strong> O exercício é simples exatamente para possibilitar o não-uso de funções pré-programadas nos softwares estatísticos. Use as equações vistas em aula/no livro diretamente.</p>
+<p>A resposta da aplicação envolve:</p>
+<ol style="list-style-type: decimal">
+<li>as respostas em si;</li>
+<li>explicação (sucinta) do método de estimação utilizado;</li>
+<li>o código utilizado.</li>
+</ol>
+<p>O ponto (3) deve ser enviado por e-mail.</p>
+<p>Pontos extras (de reputação) para quem:</p>
+<ol style="list-style-type: decimal">
+<li>entregar a resposta em (p. ex. R-)Markdown;</li>
+<li>fazer uma função organizada para calcular cada item.</li>
+</ol>
+<hr />
+<p><br />
+</p>
+<div id="preparacao-dos-dados" class="section level4">
+<h4>Preparação dos dados:</h4>
+<p><br />
+</p>
+<pre class="r"><code>URL_PATH &lt;- &quot;http://www.pedroforquesato.com//files/classes/econometria1/&quot;
+
+lista1.df &lt;- readr::read_csv(
+  file.path(URL_PATH, &quot;lista1_df.csv&quot;)
+) %&gt;% filter(complete.cases(.))</code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   municipality = col_double(),
+##   urban = col_double(),
+##   renda_dom_pc = col_double(),
+##   population = col_double(),
+##   agua_canalizada = col_double(),
+##   sem_banheiro = col_double(),
+##   esgoto_rede = col_double(),
+##   esgoto_fossa = col_double(),
+##   lixo_coleta = col_double(),
+##   mort_1to4yrs = col_double(),
+##   mort_less1yr = col_double(),
+##   mort_total = col_double()
+## )</code></pre>
+<pre class="r"><code>set.seed(20191)
+lista1.df &lt;- lista1.df %&gt;% sample_n(1000)
+
+lista1.df &lt;- lista1.df %&gt;% mutate(
+  mort_less1yr_pop = mort_less1yr/population * 1000,
+  mort_1to4yrs_pop = mort_1to4yrs/population * 1000,
+  mort_total_pop = mort_total/population * 1000,
+  esgoto = esgoto_rede + esgoto_fossa,
+  log_renda_pc = log(renda_dom_pc),
+  constant = 1
+)
+
+nls_results &lt;- nls(
+  mort_less1yr_pop ~ exp(b0 * constant + b1 * log_renda_pc + b2 * urban + b3 * sem_banheiro + b4 * esgoto + b5 * lixo_coleta + b6 * agua_canalizada),
+  data=lista1.df,
+  start=list(b0 = 1, b1 = 1, b2 = 1, b3 = 1, b4 = 1, b5 = 1, b6 = 1)
+  )
+summary(nls_results)</code></pre>
+<pre><code>## 
+## Formula: mort_less1yr_pop ~ exp(b0 * constant + b1 * log_renda_pc + b2 * 
+##     urban + b3 * sem_banheiro + b4 * esgoto + b5 * lixo_coleta + 
+##     b6 * agua_canalizada)
+## 
+## Parameters:
+##     Estimate Std. Error t value Pr(&gt;|t|)    
+## b0 -0.489600   0.301945  -1.621  0.10523    
+## b1 -0.211317   0.079205  -2.668  0.00775 ** 
+## b2  0.942856   0.236185   3.992 7.03e-05 ***
+## b3  0.906879   0.124595   7.279 6.85e-13 ***
+## b4 -0.611528   0.226257  -2.703  0.00699 ** 
+## b5 -0.004529   0.281604  -0.016  0.98717    
+## b6 -0.004812   0.223321  -0.022  0.98281    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.2716 on 993 degrees of freedom
+## 
+## Number of iterations to convergence: 19 
+## Achieved convergence tolerance: 3.36e-06</code></pre>
+<pre class="r"><code>ols_results &lt;- lm(
+  mort_less1yr_pop ~ log_renda_pc + urban + sem_banheiro + esgoto + lixo_coleta + agua_canalizada,
+  data=lista1.df
+)
+coeftest(ols_results, vcov=vcovHC(ols_results, type=&quot;HC1&quot;))</code></pre>
+<pre><code>## 
+## t test of coefficients:
+## 
+##                  Estimate Std. Error t value  Pr(&gt;|t|)    
+## (Intercept)      0.387333   0.101016  3.8344 0.0001338 ***
+## log_renda_pc    -0.033952   0.024924 -1.3622 0.1734289    
+## urban            0.254757   0.093460  2.7259 0.0065263 ** 
+## sem_banheiro     0.390303   0.062621  6.2327 6.765e-10 ***
+## esgoto          -0.179239   0.147063 -1.2188 0.2232117    
+## lixo_coleta      0.032176   0.104918  0.3067 0.7591554    
+## agua_canalizada -0.056617   0.102127 -0.5544 0.5794435    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Acima já calculei o NLS usando os pacotes estatísticos, e comparei com o OLS. Começando o exercício:</p>
+<pre class="r"><code>X.df &lt;- lista1.df %&gt;% select(
+  constant,
+  log_renda_pc,
+  urban,
+  sem_banheiro,
+  esgoto,
+  lixo_coleta,
+  agua_canalizada
+)
+
+X.mtrx &lt;- data.matrix(X.df)
+
+y.df &lt;- lista1.df %&gt;% select(mort_less1yr_pop)
+
+y.mtrx &lt;- data.matrix(y.df)
+
+str(X.mtrx)</code></pre>
+<pre><code>##  num [1:1000, 1:7] 1 1 1 1 1 1 1 1 1 1 ...
+##  - attr(*, &quot;dimnames&quot;)=List of 2
+##   ..$ : NULL
+##   ..$ : chr [1:7] &quot;constant&quot; &quot;log_renda_pc&quot; &quot;urban&quot; &quot;sem_banheiro&quot; ...</code></pre>
+<pre class="r"><code>str(y.mtrx)</code></pre>
+<pre><code>##  num [1:1000, 1] 0.128 0.573 0.248 0.49 0 ...
+##  - attr(*, &quot;dimnames&quot;)=List of 2
+##   ..$ : NULL
+##   ..$ : chr &quot;mort_less1yr_pop&quot;</code></pre>
+<p>E o resto é com vocês… :)</p>
+<hr />
+<hr />
+<p><br />
+</p>
+</div>
+</div>
+</div>
+<div id="lista-2" class="section level1">
+<h1>Lista 2</h1>
+<p><br />
+</p>
+<div id="resposta-binaria-parte-i-logit" class="section level3">
+<h3>Resposta Binária Parte I: Logit</h3>
+<p><br />
+</p>
+<p>Na aula, derivamos o score, a Hessiana condicional, e a distribuição assintótica (inclusive a variância assintótica) do estimador de Probit. Faça o mesmo para o Logit.</p>
+<hr />
+<p><br />
+</p>
+</div>
+<div id="resposta-binaria-parte-ii-funcao-controle-ou-limited-information-maximum-likelihood-liml." class="section level3">
+<h3>Resposta Binária Parte II: Função Controle ou Limited Information Maximum Likelihood (LIML).</h3>
+<p><br />
+</p>
+<p>Considere agora o problema de estimar o modelo de variável latente: <span class="math inline">\(y_1 = 1 \left[ y^*_1 &gt; 0 \right]\)</span>, com <span class="math inline">\(y_1^* = y_2 \alpha + z_1 \delta_1 + u_1\)</span> e <span class="math inline">\(y_2 = z \delta_2 + v_2\)</span>.</p>
+<p>Suponha que a variável endógena <span class="math inline">\(y_2\)</span> é contínua, <span class="math inline">\((u_1, v_2)\)</span> segue distribuição Normal bivariada com média zero, <span class="math inline">\(z\)</span> (e portanto <span class="math inline">\(z_1 \subset z\)</span>) é independente de <span class="math inline">\(u_1\)</span> e <span class="math inline">\(v_2\)</span>, e os dois erros são possivelmente correlacionados (endogeneidade de <span class="math inline">\(y_2\)</span>). Normalize <span class="math inline">\(\text{Var}(u_1) = 1\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li>Escreva <span class="math inline">\(u_1\)</span> como função de <span class="math inline">\(v_2\)</span>. Chame o desvio de <span class="math inline">\(e_1\)</span>.</li>
+<li>Use a equação acima para transformar as duas esquações estruturais em uma.</li>
+<li>Qual a distribuição de <span class="math inline">\(e_1\)</span>?</li>
+<li>Termine a estimação de <span class="math inline">\(y_1\)</span> sob essas condições.</li>
+<li>Derive um teste de exogeneidade de <span class="math inline">\(y_2\)</span>. (Isto é, <span class="math inline">\(H_0 : y_2\)</span> é exógeno.) Sob que condições ele vai ser apropriado?</li>
+</ol>
+<hr />
+<p><br />
+</p>
+</div>
+<div id="resposta-binaria-parte-iii-iv-probit" class="section level3">
+<h3>Resposta Binária Parte III: IV Probit</h3>
+<p><br />
+</p>
+<p>[Continuação.] Consideremos agora uma forma mais direta de atacar o problema da questão anterior, estimando diretamente a CMLE de <span class="math inline">\(f(y_1, y_2 | z)\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li>Escreva <span class="math inline">\(f(y_1, y_2 | z)\)</span> como função das densidades condicionais de <span class="math inline">\(y_1\)</span> e <span class="math inline">\(y_2\)</span> (dado <span class="math inline">\(z\)</span>).</li>
+<li>Use (1) para derivar <span class="math inline">\(f(y_1, y_2 | z)\)</span> (dadas as suposições do exercício anterior).</li>
+<li>Defina o estimador de MLE para <span class="math inline">\(f(y_1, y_2 | z)\)</span>. Calcule a variância assintótica do estimador. Este estimador é o IV Probit.</li>
+<li>Qual estimador usa mais informação, o IV Probit ou a Função Controle?</li>
+<li>Qual seria um bom teste de exogeneidade nesse cenário? Derive sua distribuição.</li>
+</ol>
+<hr />
+<p><br />
+</p>
+</div>
+<div id="modelo-de-resposta-de-canto-modelo-de-normal-truncada." class="section level3">
+<h3>Modelo de Resposta de Canto: Modelo de Normal Truncada.</h3>
+<p><br />
+</p>
+<p>Como vimos em aula, o modelo Tobit Tipo I implica efeitos parciais similares (em sinal e relativos) nas margens intensiva e extensiva de participação, o que pode ser indesejável em alguns casos. A forma mais simples de extender o Tobit Tipo I para permitir efeitos parciais diferentes em diferentes margens é assumir que dadas as covariadas, a decisão de participação é independente da decisão do montante escolhido, e portanto podem ser efetivamente tratadas como escolhas diferentes.</p>
+<p>Considere o modelo <span class="math inline">\(y = sw^*\)</span>, onde <span class="math inline">\(s \in \{ 0, 1 \}\)</span> e <span class="math inline">\(w^* \in \mathbb{R}_+\)</span> só é observável quando <span class="math inline">\(s = 1\)</span>. Assuma que <span class="math inline">\(\text{Pr}(s = 1 | x) = \Phi (x\gamma)\)</span>, e que <span class="math inline">\(w^* = x\beta + u\)</span>, com <span class="math inline">\(u\)</span> seguindo uma distribuição Normal truncada em <span class="math inline">\(-x\beta\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li>Derive <span class="math inline">\(f(y | x, y&gt;0)\)</span>.</li>
+<li>Derive <span class="math inline">\(f(y | x)\)</span> e a função objetivo do estimador de MLE.</li>
+<li>Calcule as esperanças condicionais (<span class="math inline">\(| x\)</span> e <span class="math inline">\(| x, y&gt;0\)</span>) e os efeitos parciais.</li>
+<li>Que modo você pode testar se as margens intensiva e extensiva são diferentes?</li>
+</ol>
+<hr />
+<p><br />
+</p>
+</div>
+<div id="parte-aplicada-probit" class="section level3">
+<h3>Parte Aplicada: Probit</h3>
+<p><br />
+</p>
+<p><strong>A base de dados está disponível <a href="pforquesato.github.io/files/classes/econometria1/lista1_df.csv">aqui</a>.</strong> Esta base foi adaptada do Censo 2000 e do DATASUS.</p>
+<p>Para esse exercício, usaremos a mesma base de dados da Lista 1. (No link acima.) Crie uma variável chamada alta_mortalidade, que toma valor 1 se mort_less1yr for maior que 0.33, e 0 c.c. (Ver abaixo.)</p>
+<p>Queremos estimar um modelo com equação estrutural da forma <span class="math inline">\(y_i = 1\{x_i \beta + u_i &gt; 0\}\)</span>, com <span class="math inline">\(y_i\)</span> sendo alta_mortalidade, acima, e <span class="math inline">\(x_i\)</span> contendo: log renda pc, tx. de urbanização, acesso à agua canalizada, prop. de domicilios sem banheiro, acesso a esgoto e coleta de lixo. (Exatamente como no exercício anterior.) Assuma que <span class="math inline">\(u_i\)</span> segue uma distribuição Normal padrão (i.i.d.).</p>
+<ol style="list-style-type: decimal">
+<li>Estime os coeficientes <span class="math inline">\(\beta\)</span> por MLE (Probit).</li>
+<li>Estime a matriz de variância-covariância (assintótica) e cheque quais coeficientes são estatísticamente diferentes de zero.</li>
+<li>Estime os efeitos parciais na média e média dos efeitos marginais, assim como a sua variância (assintótica).</li>
+<li>Interprete os resultados.</li>
+<li>Qual modelo você usaria em um artigo empírico, o da Lista 1 ou da Lista 2? Por que?</li>
+</ol>
+<hr />
+<p><br />
+</p>
+<p><strong>Observação importante:</strong> O exercício é simples exatamente para possibilitar o não-uso de funções pré-programadas nos softwares estatísticos. Use as equações vistas em aula/no livro diretamente.</p>
+<p>A resposta da aplicação envolve:</p>
+<ol style="list-style-type: decimal">
+<li>as respostas em si;</li>
+<li>explicação (sucinta) do método de estimação utilizado;</li>
+<li>o código utilizado.</li>
+</ol>
+<p>O ponto (3) deve ser enviado por e-mail.</p>
+<p>Pontos extras (de reputação) para quem:</p>
+<ol style="list-style-type: decimal">
+<li>entregar a resposta em (p. ex. R-)Markdown;</li>
+<li>fazer uma função organizada para calcular cada item.</li>
+</ol>
+<hr />
+<p><br />
+</p>
+<div id="preparacao-dos-dados-1" class="section level4">
+<h4>Preparação dos dados:</h4>
+<p><br />
+</p>
+<pre class="r"><code>URL_PATH &lt;- &quot;http://www.pedroforquesato.com//files/classes/econometria1/&quot;
+
+lista2.df &lt;- readr::read_csv(
+   file.path(URL_PATH, &quot;lista1_df.csv&quot;)
+ ) %&gt;% filter(complete.cases(.))</code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   municipality = col_double(),
+##   urban = col_double(),
+##   renda_dom_pc = col_double(),
+##   population = col_double(),
+##   agua_canalizada = col_double(),
+##   sem_banheiro = col_double(),
+##   esgoto_rede = col_double(),
+##   esgoto_fossa = col_double(),
+##   lixo_coleta = col_double(),
+##   mort_1to4yrs = col_double(),
+##   mort_less1yr = col_double(),
+##   mort_total = col_double()
+## )</code></pre>
+<pre class="r"><code>set.seed(20192)
+lista2.df &lt;- lista2.df %&gt;% sample_n(1000)
+
+lista2.df &lt;- lista2.df %&gt;% mutate(
+  mort_less1yr_pop = mort_less1yr/population * 1000,
+  mort_1to4yrs_pop = mort_1to4yrs/population * 1000,
+  mort_total_pop = mort_total/population * 1000,
+  esgoto = esgoto_rede + esgoto_fossa,
+  log_renda_pc = log(renda_dom_pc),
+  constant = 1
+)
+
+# Um jeito preguiçoso de adicionar uma variável dependente é fazer y = 1 se x &gt; quantil q
+# e zero c.c.. Aqui faremos com q = 0.6.
+quantile(lista2.df$mort_less1yr_pop, probs = seq(0, 1, 0.1))</code></pre>
+<pre><code>##         0%        10%        20%        30%        40%        50% 
+## 0.00000000 0.00000000 0.09843586 0.16273792 0.20620010 0.25997152 
+##        60%        70%        80%        90%       100% 
+## 0.32092105 0.38205597 0.47493750 0.62347717 3.56188780</code></pre>
+<pre class="r"><code>lista2.df &lt;- lista2.df %&gt;% mutate(
+  alta_mortalidade = mort_less1yr_pop &gt; 0.33
+)
+
+# Agora rodemos o Probit
+probit_results &lt;- glm(alta_mortalidade ~ log_renda_pc + urban + sem_banheiro + esgoto + lixo_coleta + agua_canalizada, 
+                      data=lista2.df, 
+                      family = binomial(link = &quot;probit&quot;)
+)
+summary(probit_results)</code></pre>
+<pre><code>## 
+## Call:
+## glm(formula = alta_mortalidade ~ log_renda_pc + urban + sem_banheiro + 
+##     esgoto + lixo_coleta + agua_canalizada, family = binomial(link = &quot;probit&quot;), 
+##     data = lista2.df)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -2.0213  -0.8438  -0.6648   1.0838   1.9563  
+## 
+## Coefficients:
+##                 Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept)       1.5168     0.5152   2.944  0.00324 ** 
+## log_renda_pc     -0.5278     0.1297  -4.071 4.69e-05 ***
+## urban             0.7641     0.3971   1.924  0.05431 .  
+## sem_banheiro      1.2484     0.2462   5.071 3.95e-07 ***
+## esgoto            0.4881     0.3964   1.231  0.21826    
+## lixo_coleta      -0.2070     0.4756  -0.435  0.66334    
+## agua_canalizada  -0.2379     0.3849  -0.618  0.53653    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 1336.6  on 999  degrees of freedom
+## Residual deviance: 1191.6  on 993  degrees of freedom
+## AIC: 1205.6
+## 
+## Number of Fisher Scoring iterations: 4</code></pre>
+<pre class="r"><code># Esses são coeficientes apenas! Não tem interpretação. Queremos os efeitos marginais.
+probitmfx(alta_mortalidade ~ log_renda_pc + urban + sem_banheiro + esgoto + lixo_coleta + agua_canalizada, data=lista2.df, atmean=TRUE) # Efeitos marginais na média</code></pre>
+<pre><code>## Call:
+## probitmfx(formula = alta_mortalidade ~ log_renda_pc + urban + 
+##     sem_banheiro + esgoto + lixo_coleta + agua_canalizada, data = lista2.df, 
+##     atmean = TRUE)
+## 
+## Marginal Effects:
+##                     dF/dx Std. Err.       z     P&gt;|z|    
+## log_renda_pc    -0.200576  0.049171 -4.0792 4.520e-05 ***
+## urban            0.290344  0.150875  1.9244    0.0543 .  
+## sem_banheiro     0.474397  0.093755  5.0600 4.193e-07 ***
+## esgoto           0.185469  0.150620  1.2314    0.2182    
+## lixo_coleta     -0.078677  0.180739 -0.4353    0.6633    
+## agua_canalizada -0.090396  0.146268 -0.6180    0.5366    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<pre class="r"><code>probitmfx(alta_mortalidade ~ log_renda_pc + urban + sem_banheiro + esgoto + lixo_coleta + agua_canalizada, data=lista2.df, atmean=FALSE) # Média dos efeitos marginais</code></pre>
+<pre><code>## Call:
+## probitmfx(formula = alta_mortalidade ~ log_renda_pc + urban + 
+##     sem_banheiro + esgoto + lixo_coleta + agua_canalizada, data = lista2.df, 
+##     atmean = FALSE)
+## 
+## Marginal Effects:
+##                     dF/dx Std. Err.       z     P&gt;|z|    
+## log_renda_pc    -0.178657  0.042861 -4.1683 3.068e-05 ***
+## urban            0.258615  0.133694  1.9344   0.05307 .  
+## sem_banheiro     0.422554  0.080045  5.2789 1.299e-07 ***
+## esgoto           0.165200  0.133918  1.2336   0.21735    
+## lixo_coleta     -0.070079  0.160956 -0.4354   0.66328    
+## agua_canalizada -0.080517  0.130195 -0.6184   0.53629    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Acima eu calculei usando os pacotes estatísticos padrão no R. Não vou repetir o começo do código que coloquei na lista anterior.</p>
+<hr />
+<hr />
+</div>
 </div>
 </div>
 
