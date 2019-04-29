@@ -1617,7 +1617,7 @@ div.tocify {
 <p><br />
 </p>
 <div id="m-estimadores-parte-i-least-absolute-deviations-lad" class="section level3">
-<h3>M-Estimadores Parte I: Least absolute deviations (LAD)</h3>
+<h3>M-Estimadores parte I: least absolute deviations (LAD)</h3>
 <p><br />
 </p>
 <p>Considere o problema de estimar os parâmetros verdadeiros <span class="math inline">\(\theta_0\)</span> que satisfazem uma equação estrutural para a mediana de <span class="math inline">\(y|x\)</span> : <span class="math inline">\(Med(y|x)=x \theta_0\)</span>, onde <span class="math inline">\(x\)</span> contém uma constante.</p>
@@ -1633,7 +1633,7 @@ div.tocify {
 </p>
 </div>
 <div id="m-estimadores-parte-ii-teste-de-score-ou-de-multiplicador-de-lagrange---lm." class="section level3">
-<h3>M-Estimadores Parte II: Teste de score (ou de Multiplicador de Lagrange - LM).</h3>
+<h3>M-Estimadores parte II: teste de score (ou de multiplicador de Lagrange - LM).</h3>
 <p><br />
 </p>
 <p>Seja um M-estimador obtido pela solução do análogo amostral de <span class="math inline">\(\theta_0 = \text{arg} \min \mathbb{E}\left[ q(w, \theta) \right]\)</span>, isto é, <span class="math inline">\(\hat{\theta} = \text{arg}\min N^{-1} \sum_{i=1}^N q(w_i, \theta)\)</span>.</p>
@@ -1648,7 +1648,7 @@ div.tocify {
 </p>
 </div>
 <div id="maxima-verossimilhanca-parte-i-regressao-de-poisson" class="section level3">
-<h3>Máxima-verossimilhança Parte I: Regressão de Poisson</h3>
+<h3>Máxima-verossimilhança parte I: regressão de Poisson</h3>
 <p><br />
 </p>
 <p>Suponha que <span class="math inline">\(y | x\)</span> siga uma distribuição Poisson, isto é:</p>
@@ -1664,8 +1664,22 @@ div.tocify {
 <p><br />
 </p>
 </div>
+<div id="maxima-verossimilhanca-parte-ii-estimadores-em-dois-estagios" class="section level3">
+<h3>Máxima-verossimilhança parte II: estimadores em dois estágios</h3>
+<p>Em várias aplicações, como em funções controle (ver Lista 2) ou Tobit Tipo II, usamos um primeiro estágio para a estimação de um parâmetro auxiliar <span class="math inline">\(\gamma_0\)</span>, que usamos no segundo estágio para a estimação do parâmetro de interesse <span class="math inline">\(\theta_0\)</span>.</p>
+<p>Considere o problema de resolver: <span class="math display">\[\hat{\theta}_{2E} = \text{arg}\max_{\theta \in \Theta} \sum_{i=1}^{N} \log f(y_i | x_i; \theta, \hat{\gamma})\]</span></p>
+<p>Onde <span class="math inline">\(\hat{\gamma} \rightarrow \gamma_0\)</span> e <span class="math inline">\(\theta_0 = \text{arg}\max_{\theta \in \Theta} \sum_{i=1}^{N} \log f(y_i | x_i; \theta, \gamma_0)\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li>Mostre que <span class="math inline">\(\hat{\theta}_{2E}\)</span> é consistente para <span class="math inline">\(\theta_0\)</span>.</li>
+<li>Calcule a distribuição de <span class="math inline">\(\sqrt{N} (\hat{\theta} - \theta)\)</span>.</li>
+<li>Quando que usar <span class="math inline">\(\hat{\gamma}\)</span> e <span class="math inline">\(\gamma_0\)</span> na estimação é (assintóticamente) igual?</li>
+<li>Mostre que se <span class="math inline">\(x_i = (w_i , z_i)\)</span>, <span class="math inline">\(\hat{\gamma} = \text{arg}\max_{\gamma \in \Gamma} \sum_{i=1}^{N} \log h(y_i | z_i; \gamma)\)</span>, onde <span class="math inline">\(h\)</span> é a densidade de <span class="math inline">\(D(y_i | z_i)\)</span>, e que <span class="math inline">\(D(y_i | w_i , z_i) = D(y_i | z_i)\)</span> (independência condicional), então a variância assintótica de <span class="math inline">\(\hat{\theta}_{2E}\)</span> é menor que <span class="math inline">\(\hat{\theta}\)</span> usando <span class="math inline">\(\gamma_0\)</span>. Qual a intuição que você dá para isso?</li>
+</ol>
+<p><br />
+</p>
+</div>
 <div id="parte-aplicada-nls-exponencial" class="section level3">
-<h3>Parte Aplicada: NLS Exponencial</h3>
+<h3>Parte aplicada: NLS Exponencial</h3>
 <p><br />
 </p>
 <p><strong>A base de dados está disponível <a href="pforquesato.github.io/files/classes/econometria1/lista1_df.csv">aqui</a>.</strong> Esta base foi adaptada do Censo 2000 e do DATASUS.</p>
@@ -1696,6 +1710,8 @@ div.tocify {
 <li>fazer uma função organizada para calcular cada item.</li>
 </ol>
 <hr />
+<p><br />
+</p>
 <p><br />
 </p>
 <div id="preparacao-dos-dados" class="section level4">
@@ -1819,7 +1835,7 @@ str(X.mtrx)</code></pre>
 <p><br />
 </p>
 <div id="resposta-binaria-parte-i-logit" class="section level3">
-<h3>Resposta Binária Parte I: Logit</h3>
+<h3>Resposta binária parte I: Logit</h3>
 <p><br />
 </p>
 <p>Na aula, derivamos o score, a Hessiana condicional, e a distribuição assintótica (inclusive a variância assintótica) do estimador de Probit. Faça o mesmo para o Logit.</p>
@@ -1828,7 +1844,7 @@ str(X.mtrx)</code></pre>
 </p>
 </div>
 <div id="resposta-binaria-parte-ii-funcao-controle-ou-limited-information-maximum-likelihood-liml." class="section level3">
-<h3>Resposta Binária Parte II: Função Controle ou Limited Information Maximum Likelihood (LIML).</h3>
+<h3>Resposta binária parte II: função controle ou Limited Information Maximum Likelihood (LIML).</h3>
 <p><br />
 </p>
 <p>Considere agora o problema de estimar o modelo de variável latente: <span class="math inline">\(y_1 = 1 \left[ y^*_1 &gt; 0 \right]\)</span>, com <span class="math inline">\(y_1^* = y_2 \alpha + z_1 \delta_1 + u_1\)</span> e <span class="math inline">\(y_2 = z \delta_2 + v_2\)</span>.</p>
@@ -1845,7 +1861,7 @@ str(X.mtrx)</code></pre>
 </p>
 </div>
 <div id="resposta-binaria-parte-iii-iv-probit" class="section level3">
-<h3>Resposta Binária Parte III: IV Probit</h3>
+<h3>Resposta binária parte III: IV Probit</h3>
 <p><br />
 </p>
 <p>[Continuação.] Consideremos agora uma forma mais direta de atacar o problema da questão anterior, estimando diretamente a CMLE de <span class="math inline">\(f(y_1, y_2 | z)\)</span>.</p>
@@ -1861,7 +1877,7 @@ str(X.mtrx)</code></pre>
 </p>
 </div>
 <div id="modelo-de-resposta-de-canto-modelo-de-normal-truncada." class="section level3">
-<h3>Modelo de Resposta de Canto: Modelo de Normal Truncada.</h3>
+<h3>Modelo de resposta de canto: modelo de normal truncada.</h3>
 <p><br />
 </p>
 <p>Como vimos em aula, o modelo Tobit Tipo I implica efeitos parciais similares (em sinal e relativos) nas margens intensiva e extensiva de participação, o que pode ser indesejável em alguns casos. A forma mais simples de extender o Tobit Tipo I para permitir efeitos parciais diferentes em diferentes margens é assumir que dadas as covariadas, a decisão de participação é independente da decisão do montante escolhido, e portanto podem ser efetivamente tratadas como escolhas diferentes.</p>
@@ -1877,7 +1893,7 @@ str(X.mtrx)</code></pre>
 </p>
 </div>
 <div id="parte-aplicada-probit" class="section level3">
-<h3>Parte Aplicada: Probit</h3>
+<h3>Parte aplicada: Probit</h3>
 <p><br />
 </p>
 <p><strong>A base de dados está disponível <a href="pforquesato.github.io/files/classes/econometria1/lista1_df.csv">aqui</a>.</strong> Esta base foi adaptada do Censo 2000 e do DATASUS.</p>
@@ -1901,11 +1917,6 @@ str(X.mtrx)</code></pre>
 <li>o código utilizado.</li>
 </ol>
 <p>O ponto (3) deve ser enviado por e-mail.</p>
-<p>Pontos extras (de reputação) para quem:</p>
-<ol style="list-style-type: decimal">
-<li>entregar a resposta em (p. ex. R-)Markdown;</li>
-<li>fazer uma função organizada para calcular cada item.</li>
-</ol>
 <hr />
 <p><br />
 </p>
@@ -2027,7 +2038,62 @@ probitmfx(alta_mortalidade ~ log_renda_pc + urban + sem_banheiro + esgoto + lixo
 <p>Acima eu calculei usando os pacotes estatísticos padrão no R. Não vou repetir o começo do código que coloquei na lista anterior.</p>
 <hr />
 <hr />
+<p><br />
+</p>
 </div>
+</div>
+</div>
+<div id="lista-3" class="section level1">
+<h1>Lista 3</h1>
+<p><br />
+</p>
+<div id="metodos-dos-momentos-simulados-o-lendario-blp" class="section level3">
+<h3>Métodos dos momentos simulados: o lendário BLP</h3>
+<p><br />
+</p>
+<p>Derivaremos a versão (muito) simplificada do famoso paper de Berry, Levinsohn and Pakes (1995). Considere uma cross-section de indivíduos <span class="math inline">\(i \leq I\)</span> escolhendo entre vários produtos (carros) <span class="math inline">\(j \leq J\)</span> aquele que lhe dá a maior utilidade: <span class="math display">\[U (\zeta_i , p_j , \eta_j ; \theta ) = x_j \bar{\beta} - \alpha p_j + \eta_j + \sum_{k\leq K}  x_{jk} \nu_{ik} + \epsilon_{ij}\]</span> Onde <span class="math inline">\(x_j\)</span> tem dimensão <span class="math inline">\(K\)</span>, e <span class="math inline">\(\zeta_i = (\nu_{i1}, ..., \nu_{iK})\)</span> é o vetor de preferências idiossincráticas de <span class="math inline">\(i\)</span> em relação a cada característica <span class="math inline">\(k\)</span> dos produtos consumidos, e são assumidos ter média zero, variância <span class="math inline">\(\sigma^2_k\)</span>, e distribuição conhecida, assim como <span class="math inline">\(\epsilon_{ij}\)</span>. (Esse é um modelo de coeficientes aleatórios.)</p>
+<ol style="list-style-type: decimal">
+<li>Qual é a utilidade média (entre os indivíduos) gerada pelo produto <span class="math inline">\(j\)</span> (chame-a de <span class="math inline">\(\delta_j\)</span>)?</li>
+<li>Qual é o erro (total) não observável <span class="math inline">\(u_{ij}\)</span>?</li>
+<li>Você acha que o preço é correlacionado com <span class="math inline">\(u_{ij}\)</span>? Com que parte de <span class="math inline">\(u_{ij}\)</span> (ou nenhuma)? Por quê?</li>
+<li>Dada a exogeneidade de <span class="math inline">\(p_j\)</span>, ou caso contrário, um instrumento <span class="math inline">\(z_j\)</span> para o preço, use (3) para descrever um momento que pode ser usado para a estimação dos coeficientes <span class="math inline">\(\theta\)</span>, e descreva a função objetivo a ser minimizada.</li>
+<li>Calcule as market-shares (<span class="math inline">\(s_j\)</span>) de cada produto <span class="math inline">\(j\)</span>. Assuma que os erros <span class="math inline">\(\epsilon_{ij}\)</span> são distribuição de valor extremo (a mesma do logit).</li>
+<li>Como você calcularia os market-shares em (4)?</li>
+</ol>
+<p>Como <span class="math inline">\(\delta = \delta + \ln (s_j) - \ln (s_j (p, x, \delta, P_{ns}; \theta )\)</span>, o operador <span class="math inline">\(T(s, \delta, P) = \delta + \ln (s_j) - \ln (s_j (p, x, \delta, P; \theta )\)</span> é uma contração e gera uma solução <span class="math inline">\(\delta_j (\theta , s, P)\)</span>, onde <span class="math inline">\(P\)</span> é a distribuição de <span class="math inline">\(\nu_{ik}\)</span>. (Para detalhes, ver o paper ou um livro-texto.)</p>
+<ol start="7" style="list-style-type: decimal">
+<li>Como você usaria o resultado acima para recuperar o não observável de cada produto <span class="math inline">\(\eta_j\)</span>?</li>
+<li>Finalmente, usando (1-7), descreva como você faria a estimação do modelo BLP.</li>
+</ol>
+<p>Se você chegou até aqui, conseguiu derivar uma versão simplificada de uma das principais contribuições ao estudo da Organização Industrial nas últimas décadas.</p>
+<hr />
+<p><br />
+</p>
+</div>
+<div id="parte-aplicada-bootstrap." class="section level3">
+<h3>Parte Aplicada: Bootstrap.</h3>
+<p><br />
+</p>
+<p>Para o modelo e base de dados da lista 2, calcule:</p>
+<ol style="list-style-type: decimal">
+<li><p>O desvio-padrão do estimador MLE de <span class="math inline">\(\beta\)</span> por bootstrap não-paramétrico e bootstrap paramétrico.</p></li>
+<li><p>Um intervalo de confiança de 5%, e os bootstrap p-values. Use o método do percentil-t. Compare com os resultados da lista anterior.</p></li>
+</ol>
+<p><strong>A base de dados está disponível <a href="pforquesato.github.io/files/classes/econometria1/lista1_df.csv">aqui</a>.</strong> Esta base foi adaptada do Censo 2000 e do DATASUS.</p>
+<hr />
+<p><br />
+</p>
+<p><strong>Observação importante:</strong> O exercício é simples exatamente para possibilitar o não-uso de funções pré-programadas nos softwares estatísticos. Use as equações vistas em aula/no livro diretamente.</p>
+<p>A resposta da aplicação envolve:</p>
+<ol style="list-style-type: decimal">
+<li>as respostas em si;</li>
+<li>explicação (sucinta) do método de estimação utilizado;</li>
+<li>o código utilizado.</li>
+</ol>
+<p>O ponto (3) deve ser enviado por e-mail.</p>
+<hr />
+<p><br />
+</p>
 </div>
 </div>
 
