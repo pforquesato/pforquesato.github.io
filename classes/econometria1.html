@@ -1682,7 +1682,7 @@ div.tocify {
 <h3>Parte aplicada: NLS Exponencial</h3>
 <p><br />
 </p>
-<p><strong>A base de dados está disponível <a href="pforquesato.github.io/files/classes/econometria1/lista1_df.csv">aqui</a>.</strong> Esta base foi adaptada do Censo 2000 e do DATASUS.</p>
+<p><strong>A base de dados está disponível <a href="http://www.pedroforquesato.com/files/classes/econometria1/lista1_df.csv">aqui</a>.</strong> Esta base foi adaptada do Censo 2000 e do DATASUS.</p>
 <p>Considere um problema em que a equação estrutural é <span class="math inline">\(y_i = exp\{ x_i \beta \} + u_i\)</span>, onde a variável independente é: mortalidade infantil per capita em per mil, e as variáveis dependentes são: log renda pc, tx. de urbanização, acesso à agua canalizada, prop. de domicilios sem banheiro, acesso a esgoto e coleta de lixo. (Ver abaixo!)</p>
 <p>O M-estimador de <span class="math inline">\(\beta_0\)</span>, <span class="math inline">\(\hat{\beta}_{NLS}\)</span>, resolve o análogo amostral de <span class="math inline">\(\min_{\beta} \mathbb{E}\left[ (y_i - exp\{x_i\beta \})^2 \right]\)</span>. Usando um software de cálculo numérico:</p>
 <ol style="list-style-type: decimal">
@@ -1896,7 +1896,7 @@ str(X.mtrx)</code></pre>
 <h3>Parte aplicada: Probit</h3>
 <p><br />
 </p>
-<p><strong>A base de dados está disponível <a href="pforquesato.github.io/files/classes/econometria1/lista1_df.csv">aqui</a>.</strong> Esta base foi adaptada do Censo 2000 e do DATASUS.</p>
+<p><strong>A base de dados está disponível <a href="http://www.pedroforquesato.com/files/classes/econometria1/lista1_df.csv">aqui</a>.</strong> Esta base foi adaptada do Censo 2000 e do DATASUS.</p>
 <p>Para esse exercício, usaremos a mesma base de dados da Lista 1. (No link acima.) Crie uma variável chamada alta_mortalidade, que toma valor 1 se mort_less1yr for maior que 0.33, e 0 c.c. (Ver abaixo.)</p>
 <p>Queremos estimar um modelo com equação estrutural da forma <span class="math inline">\(y_i = 1\{x_i \beta + u_i &gt; 0\}\)</span>, com <span class="math inline">\(y_i\)</span> sendo alta_mortalidade, acima, e <span class="math inline">\(x_i\)</span> contendo: log renda pc, tx. de urbanização, acesso à agua canalizada, prop. de domicilios sem banheiro, acesso a esgoto e coleta de lixo. (Exatamente como no exercício anterior.) Assuma que <span class="math inline">\(u_i\)</span> segue uma distribuição Normal padrão (i.i.d.).</p>
 <ol style="list-style-type: decimal">
@@ -1968,8 +1968,8 @@ quantile(lista2.df$mort_less1yr_pop, probs = seq(0, 1, 0.1))</code></pre>
 )
 
 # Agora rodemos o Probit
-probit_results &lt;- glm(alta_mortalidade ~ log_renda_pc + urban + sem_banheiro + esgoto + lixo_coleta + agua_canalizada, 
-                      data=lista2.df, 
+probit_results &lt;- glm(alta_mortalidade ~ log_renda_pc + urban + sem_banheiro + esgoto + lixo_coleta + agua_canalizada,
+                      data=lista2.df,
                       family = binomial(link = &quot;probit&quot;)
 )
 summary(probit_results)</code></pre>
@@ -2079,7 +2079,7 @@ probitmfx(alta_mortalidade ~ log_renda_pc + urban + sem_banheiro + esgoto + lixo
 <li><p>O desvio-padrão do estimador MLE de <span class="math inline">\(\beta\)</span> por bootstrap não-paramétrico e bootstrap paramétrico.</p></li>
 <li><p>Um intervalo de confiança de 5%, e os bootstrap p-values. Use o método do percentil-t. Compare com os resultados da lista anterior.</p></li>
 </ol>
-<p><strong>A base de dados está disponível <a href="pforquesato.github.io/files/classes/econometria1/lista1_df.csv">aqui</a>.</strong> Esta base foi adaptada do Censo 2000 e do DATASUS.</p>
+<p><strong>A base de dados está disponível <a href="http://www.pedroforquesato.com/files/classes/econometria1/lista1_df.csv">aqui</a>.</strong> Esta base foi adaptada do Censo 2000 e do DATASUS.</p>
 <hr />
 <p><br />
 </p>
