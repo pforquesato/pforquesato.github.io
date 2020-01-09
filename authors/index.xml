@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Authors | Pedro Forquesato</title>
+    <link>https://www.pedroforquesato.com/authors/</link>
+      <atom:link href="https://www.pedroforquesato.com/authors/index.xml" rel="self" type="application/rss+xml" />
+    <description>Authors</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>MIT License - Copyright © 2020 Pedro Forquesato</copyright><lastBuildDate>Tue, 05 Feb 2019 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://www.pedroforquesato.com/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>Authors</title>
+      <link>https://www.pedroforquesato.com/authors/</link>
+    </image>
+    
+    <item>
+      <title></title>
+      <link>https://www.pedroforquesato.com/authors/admin/</link>
+      <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
+      <guid>https://www.pedroforquesato.com/authors/admin/</guid>
+      <description>&lt;p&gt;I will be joining in the first semester of 2020 as professor of economics at the School of Economics, Business and Accounting of University of São Paulo (FEA-USP).&lt;/p&gt;
+&lt;p&gt;Previously, I have been post-doctoral researcher at the Pontifical Catholic University of Rio de Janeiro (2016-2018, with a Capes scholarship) and at USP (2018-2020, with a Fapesp scholarship). In 2014 I was a visiting scholar at the Harvard Kennedy School of Government (Capes scholarship).&lt;/p&gt;
+&lt;p&gt;My research interests include patronage and the efficiency of municipal bureaucracry and optimal social insurance and taxation in developing economies. As hobbies, I like to play capoeira, rowing, and literature. Also, I have a wonderful wife and a cute baby son.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Fernanda Brollo</title>
+      <link>https://www.pedroforquesato.com/authors/fernanda-brollo/</link>
+      <pubDate>Thu, 30 Nov 2017 00:00:00 +0000</pubDate>
+      <guid>https://www.pedroforquesato.com/authors/fernanda-brollo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Juan Carlos Gozzi</title>
+      <link>https://www.pedroforquesato.com/authors/juan-carlos-gozzi/</link>
+      <pubDate>Thu, 30 Nov 2017 00:00:00 +0000</pubDate>
+      <guid>https://www.pedroforquesato.com/authors/juan-carlos-gozzi/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
