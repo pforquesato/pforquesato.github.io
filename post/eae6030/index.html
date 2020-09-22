@@ -31,7 +31,7 @@
   <meta name="description" content="A graduate half-semester course in econometrics, covering non-linear estimation methods, as part of the core sequence (PT-BR)">
 
   
-  <link rel="alternate" hreflang="en-us" href="/post/eae6030/">
+  <link rel="alternate" hreflang="en-us" href="https://www.pedroforquesato.com/post/eae6030/">
 
   
 
@@ -216,7 +216,7 @@
   <link rel="icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_32x32_fill_lanczos_center_2.png">
   <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png">
 
-  <link rel="canonical" href="/post/eae6030/">
+  <link rel="canonical" href="https://www.pedroforquesato.com/post/eae6030/">
 
   
   
@@ -233,10 +233,10 @@
   <meta property="twitter:creator" content="@pforquesato">
   
   <meta property="og:site_name" content="Pedro Forquesato">
-  <meta property="og:url" content="/post/eae6030/">
+  <meta property="og:url" content="https://www.pedroforquesato.com/post/eae6030/">
   <meta property="og:title" content="EAE6030 - Econometria II | Pedro Forquesato">
-  <meta property="og:description" content="A graduate half-semester course in econometrics, covering non-linear estimation methods, as part of the core sequence (PT-BR)"><meta property="og:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png">
-  <meta property="twitter:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="en-us">
+  <meta property="og:description" content="A graduate half-semester course in econometrics, covering non-linear estimation methods, as part of the core sequence (PT-BR)"><meta property="og:image" content="https://www.pedroforquesato.com/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png">
+  <meta property="twitter:image" content="https://www.pedroforquesato.com/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="en-us">
   
     
       <meta property="article:published_time" content="2020-05-01T00:00:00&#43;00:00">
@@ -267,7 +267,7 @@
   "@type": "BlogPosting",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "/post/eae6030/"
+    "@id": "https://www.pedroforquesato.com/post/eae6030/"
   },
   "headline": "EAE6030 - Econometria II",
   
@@ -284,7 +284,7 @@
     "name": "University of São Paulo",
     "logo": {
       "@type": "ImageObject",
-      "url": "img//"
+      "url": "img/https://www.pedroforquesato.com"
     }
   },
   "description": "A graduate half-semester course in econometrics, covering non-linear estimation methods, as part of the core sequence (PT-BR)"
@@ -622,278 +622,8 @@
 <li>Greene, William H. Econometric Analysis. Prentice Hall, 6th edition, 2008.</li>
 <li>Newey, W.K. And Mcfadden, D.L. Large sample estimation and hypothesis testing. In: Handbook of Econometrics, vol IV, ch. 36, 1994.</li>
 </ul>
-<h3 id="avaliação">Avaliação</h3>
-<p>Uma prova, 3 (três) listas de exercício e 3 (três) listas aplicadas.</p>
-<p>Listas de exercício serão avaliadas em satisfatórias (S) ou não-satisfatórias (NS). Listas <em>entregues na data certa</em> (para listas 1 e 2) serão corrigidas e devolvidas, e se consideradas NS, podem ser refeitas. Todas as listas (originais ou refeitas) podem ser entregues até duas semanas depois da prova final. <em>Não serão aceitas listas de exercício entregues após a definição dos conceitos</em>.</p>
-<p>Para a obtenção do conceito A é obrigatória a entrega de <strong>todas</strong> as listas de exercício e listas aplicadas (com avaliação S). Para alunos sem desempenho ótimo na prova, a entrega de <strong>todas</strong> as listas (com avaliação S) também é pré-requisito para a aprovação no curso.</p>
-<p><em>O plágio de listas é absolutamente inaceitável</em> e acarretará avaliação NS não-retratável na lista.</p>
-<h3 id="office-hours">Office Hours</h3>
-<p>Agendamento por e-mail. (Ou passar na sala 19C/FEA2 e ver se eu estou lá.)</p>
-<hr>
-<h1 id="lista-1">Lista 1</h1>
-<h3 id="m-estimadores-parte-i-least-absolute-deviations-lad">M-Estimadores parte I: least absolute deviations (LAD)</h3>
-<p>Considere o problema de estimar os parâmetros verdadeiros $\theta_0$ que satisfazem uma equação estrutural para a mediana de $Y | X = x$ : $Med(Y | X = x) = x \theta_0$, onde $x$ contém uma constante.</p>
-<ol>
-<li>Mostre que $\theta_0$ minimiza $\mathbb{E}_Y\left[ \left| Y - X \theta \right|  | X = x\right]$ sobre $\theta \in \Theta$.</li>
-<li>Use (a) (e o princípio da analogia) para derivar um estimador-M para $\theta_0$. Esse é o estimador LAD. (Torcemos.)</li>
-<li>Mostre se podemos (ou não) aplicar os Teoremas vistos em sala para afirmar a consistência e normalidade assintótica do estimador de LAD. Precisamos de suposições adicionais para obter esses resultados? Quais?</li>
-<li>Assuma consistência e normalidade assintótica. Calcule o score e mostre que a esperança condicional do score é zero.</li>
-<li>Qual é a Hessiana da função objetivo (onde é definida)? (Mesmo assim) calcule a variância assintótica do estimador de LAD.</li>
-</ol>
-<h3 id="m-estimadores-parte-ii-teste-de-score-ou-de-multiplicador-de-lagrange---lm">M-Estimadores parte II: teste de score (ou de multiplicador de Lagrange - LM).</h3>
-<p>Seja um M-estimador obtido pela solução do análogo amostral de $\theta_0 = \text{arg} \min_{\theta} \mathbb{E}\left[ q(W, \theta) \right]$, isto é:
-$$\hat{\theta} = \text{arg}\min_{\theta} \frac{1}{N} \sum_{i=1}^N q(w_i, \theta)$$</p>
-<p>Considere $Q$ restrições $c(\theta)$, e escreva-as da forma $d: \mathbb{R}^{P-Q} \rightarrow \mathbb{R}^P$, onde $P$ é a dimensão do vetor de parâmetros e $Q$ o número de restrições $C^1$, isto é, $H_0 : \theta_0 = d(\lambda_0)$, de dimensão $P-Q$.</p>
-<p>Se $\tilde{\lambda}$ é a solução do problema restringido:
-$$\min_\lambda \frac{1}{N} \sum_{i=1}^N q(w_i, d(\lambda)),$$
-e $d(\tilde{\lambda}) \equiv \tilde{\theta}$, então o teste de score parte do princípio que pelas condições de primeira ordem:
-$$\frac{1}{N} \sum_{i=1}^N s(w_i, \hat{\theta}) = 0.$$</p>
-<p>Então se as restrições são válidas (i.e., sob a hipótese nula), também deve ser verdade que:
-$$S \equiv N^{-1} \sum_{i=1}^N s(w_i, \tilde{\theta}) \sim 0.$$</p>
-<p>Derive:</p>
-<ol>
-<li>O limite assintótico de $S$.</li>
-<li>A variância assintótica de $S$ e a estatística de score LM, obtida a partir de $S$ e que segue distribuição chi-quadrado.</li>
-</ol>
-<h3 id="máxima-verossimilhança-parte-i-regressão-de-poisson">Máxima-verossimilhança parte I: regressão de Poisson</h3>
-<p>Suponha que $Y | X = x$ siga uma distribuição Poisson, isto é:</p>
-<p>$$f(y|X = x) = \frac{e^{-\mu (x)} \mu(x)^y}{y!}$$</p>
-<p>Esse modelo é muito usado em modelos de resposta de contagem. (Número discreto e irrestrito na variável dependente, como número de bens vendidos por uma firma, número de filhos de um casal, etc.) Embora $\mu (x) \equiv \mathbb{E}\left[ Y | X = x \right]$ possa ser parametrizada arbitrariamente, a parametrização mais comum é $\mu (x) = e^{x \beta}$. A estimação pode ser feita por NLS, mas ela é mais eficiente por MLE.</p>
-<ol>
-<li>Derive a função objetivo do M-estimador de máxima verossimilhança.</li>
-<li>Prove a consistência do estimador de MLE.</li>
-<li>Calcule o score, a esperança condicional da Hessiana e a matriz de variância-covariância assintótica robusta.</li>
-<li>Uma proprieda da distribuição Poisson (chequem no Wikipedia ou no Casella e Berger) é que $\mathbb{E}\left[ Y | X = x \right] \equiv \mu (x) = \text{Var} \ (Y | X = x)$. Calcule a matriz de variância-covariância com essa hipótese. (Ou seja, não robusta.)</li>
-</ol>
-<h3 id="máxima-verossimilhança-parte-ii-estimadores-em-dois-estágios">Máxima-verossimilhança parte II: estimadores em dois estágios</h3>
-<p>Em várias aplicações, como em funções controle (ver Lista 2) ou Tobit Tipo II, usamos um primeiro estágio para a estimação de um parâmetro auxiliar $\gamma_0$, que usamos no segundo estágio para a estimação do parâmetro de interesse $\theta_0$.</p>
-<p>Considere o problema de resolver:</p>
-<p>$$\widehat{\theta_{2E}} = arg \max_{\theta \in \Theta} \frac{1}{N} \sum_{i=1}^{N} log f(y_i | X = x_i; \theta, \hat{\gamma})$$</p>
-<p>Onde $\hat{\gamma} \rightarrow_p \gamma_0$, e seja $\widehat{\theta_{T}} = arg \max_{\theta \in \Theta} \frac{1}{N} \sum_{i=1}^{N} log f(y_i | X = x_i ; \theta, \gamma_0)$, ou seja, o estimador de $\theta_0$ caso conheçamos o verdadeiro $\gamma_0$.</p>
-<ol>
-<li>Mostre que $\hat{\theta}_{2E}$ é consistente para $\theta_0$.</li>
-<li>Calcule a distribuição de $\sqrt{N} (\hat{\theta}_{2E} - \theta)$.</li>
-<li>Quando que usar $\hat{\gamma}$ e $\gamma_0$ na estimação é (assintóticamente) igual (isto é, $\widehat{\theta_{V}} \sim_{ass} \widehat{\theta_{2E}}$?</li>
-<li>Mostre que se $x_i = (w_i , z_i)$, $\hat{\gamma} = \text{arg}\max_{\gamma \in \Gamma} \sum_{i=1}^{N} \log h(y_i | z_i; \gamma)$, onde $h$ é a densidade de $Y | Z = z_i$, e que $D(y_i | W = w_i , Z = z_i) = D(y_i | Z = z_i)$ (independência condicional), então a variância assintótica de $\hat{\theta}_{2E}$ é *menor* que $\hat{\theta}_{V}$. Qual a intuição que você dá para isso?</li>
-</ol>
-<hr>
-<h3 id="parte-aplicada-nls-exponencial">Parte aplicada: NLS Exponencial</h3>
-<p>Considere um problema em que a equação estrutural é $Y = e^{ X \beta}  + U$. O M-estimador de $\beta_0$, $\hat{\beta}<em>{NLS}$, resolve o análogo amostral de $\min</em>{\beta} \mathbb{E}\left[ (Y - e^{X\beta})^2 | X = x \right]$. Considere, na base de dados simulada abaixo, o problema de estimar o salário futuro (<em>wage</em>) de um candidato como função da renda municipal (<em>income</em>), proporção de votos recebidos (<em>vote_share</em>), idade (<em>age</em>) e raça/cor (<em>race</em>). Usando um software de cálculo <strong>numérico</strong> (recomendo R):</p>
-<ol>
-<li>Calcule a estimativa de NLS.</li>
-<li>Calcule a estimativa da matriz assintótica de variância-covariância dos estimadores NLS.</li>
-<li>Interprete os resultados. Compare-os com os de OLS (que eu calculei) e interprete a comparação. Compare com os valores verdadeiros (ver abaixo).</li>
-<li>Use a estatística de Wald para testar a $H_0 :\beta_{1} = \beta_3$. (Isto é, que o coeficiente de *income* = coeficiente de *age*.)</li>
-<li>Use o teste de score (Questão 2) para calcular $H_0: \delta=0$ no modelo estrutural extendido:
-$$Y = e^{ X \beta + \delta (X \beta)^2} + U.$$</li>
-<li>Compare os coeficientes obtidos nesta estimação com os da estimação original e com os valores verdadeiros.</li>
-</ol>
-<p><strong>Observação importante:</strong> O exercício é simples exatamente para possibilitar o não-uso de funções pré-programadas nos softwares estatísticos. Use as equações vistas em aula/no livro diretamente.</p>
-<p>A resposta da aplicação envolve:</p>
-<ol>
-<li>as respostas em si;</li>
-<li>explicação (sucinta) do método de estimação utilizado;</li>
-<li>o código utilizado.</li>
-</ol>
-<p>Pontos extras (de reputação) para quem:</p>
-<ol>
-<li>entregar a resposta em (p. ex. R-)Markdown;</li>
-<li>fazer uma função organizada para calcular cada item.</li>
-</ol>
-<hr>
-<h4 id="preparação-dos-dados">Preparação dos dados:</h4>
-<pre><code class="language-{r">knitr::opts_chunk$set(echo = TRUE)
-</code></pre>
-<pre><code class="language-{r"># Required packages (for all lists)
-require(mfx)
-require(tidyverse)
-require(haven)
-require(sandwich)
-require(lmtest)
-require(fastDummies)
-require(knitr)
-require(kableExtra)
-require(ggplot2)
-</code></pre>
-<pre><code class="language-{r"># ALWAYS SET SEED
-set.seed(20201)
-
-# Simulate independent variables
-X &lt;- data.frame(
-  # Normal with 4 different groups of means and std.
-  income = rnorm(n = 1000, mean = c(20, 30, 40, 50), sd = c(6, 6, 9, 9)), 
-  vote_share = runif(n = 1000, min = 0, max = 1), # U[0, 1]
-  age = rpois(n = 1000, lambda = 50), # Poisson
-  race = rep(letters[1:4], times = 250) # Factor variable with groups having different incomes
-)
-
-# True parameters
-true_beta = c(0.05, 0.2, 0.04, 0.06, 0.08, 0.1)
-true_delta = 0.0
-
-# We need to turn the groups into dummies. 
-X_dummy &lt;- fastDummies::dummy_cols(X)
-
-# Now we create the dependent variable given the structural model
-
-# Heteroskedastic Normal errors
-U &lt;- rnorm(n = 1000, mean = 0, sd = 0.0002 * X_dummy$income^2) 
-
-# This is X * beta
-X_beta &lt;- X_dummy$income * true_beta[1] + X_dummy$vote_share * true_beta[2] + 
-  X_dummy$age * true_beta[3] + X_dummy$race_b * true_beta[4] + 
-  X_dummy$race_c * true_beta[5] + X_dummy$race_d * true_beta[6]
-
-# The true equation has delta 0.
-wage = exp(X_beta + true_delta * X_beta^2 + U)
-df &lt;- cbind(X_dummy, wage)
-knitr::kable(head(df)) %&gt;% kableExtra::kable_styling()
-</code></pre>
-<p>Criados os dados simulados, podemos aplicar os métodos de estimação. Aqui usarei os métodos já programados em pacotes estatísticos, para exemplo e comparação. O exercício é calcular diretamente com o seu próprio método.</p>
-<pre><code class="language-{r">nls_results &lt;- nls(
- wage ~ exp(b1 * income + b2 * vote_share + 
-  b3 * age + b4 * race_b + b5 * race_c + b6 * race_d),
- data=df,
- start=list(b1 = 0.01, b2 = 0.01, b3 = 0.01, 
-            b4 = 0.01, b5 = 0.01, b6 = 0.01)
- )
-kable(summary(nls_results)$coef, digits = 2) %&gt;% kable_styling()
-
-ols_results &lt;- lm(wage ~ income + vote_share + age + race, data=df)
-kable(summary(ols_results)$coef, digits = 2) %&gt;% kable_styling()
-
-</code></pre>
-<p>Uma maneira que podemos comparar o NLS com o OLS é fazer um gráfico com os valores previstos.</p>
-<pre><code class="language-{r"># Predicted values
-df$ols_predict &lt;- predict(ols_results)
-df$nls_predict &lt;- predict(nls_results)
-
-# Plot the predicted values
-ggplot(df, aes(x=income, y=value, color=variable)) + 
-  geom_point(aes(y = wage, col=&quot;wage&quot;)) +
-  geom_point(aes(y = ols_predict, col=&quot;OLS&quot;)) + 
-  geom_point(aes(y = nls_predict, col=&quot;NLS&quot;))
-
-</code></pre>
-<p>Agora é com vocês&hellip; :)</p>
-<hr>
-<hr>
-<h1 id="lista-2">Lista 2</h1>
-<h3 id="resposta-binária-parte-i-logit">Resposta binária parte I: Logit</h3>
-<p>Na aula, derivamos o score, a Hessiana condicional, e a distribuição assintótica (inclusive a variância assintótica) do estimador de Probit. Faça o mesmo para o Logit.</p>
-<h3 id="resposta-binária-parte-ii-função-controle-ou-limited-information-maximum-likelihood-liml">Resposta binária parte II: função controle ou Limited Information Maximum Likelihood (LIML).</h3>
-<p>Considere agora o problema de estimar o modelo de variável latente:
-$Y_1 = 1 \left[ Y_1^* &gt; 0 \right]$, com $Y_1^* = Y_2 \alpha + Z_1 \delta_1 + U$ e $Y_2 = Z \delta_2 + V$.</p>
-<p>Suponha que a variável endógena $Y_2$ é contínua, $(U, V)$ seguem distribuição Normal bivariada com média zero, $Z$ (e portanto $Z_1 \subset Z$) é independente de $U$ e $V$, e os dois erros são possivelmente correlacionados (endogeneidade de $Y_2$). Normalize $\text{Var}(U) = 1$.</p>
-<ol>
-<li>Escreva $U$ como função de $V$. Chame o desvio de $E$.</li>
-<li>Use a equação acima para transformar as duas esquações estruturais em uma.</li>
-<li>Qual a distribuição de $E$?</li>
-<li>Termine a estimação de $Y_1$ sob essas condições.</li>
-<li>Derive um teste de exogeneidade de $Y_2$. (Isto é, $H_0 : U  \perp V | Z = z$.) Sob que condições ele vai ser apropriado?</li>
-</ol>
-<h3 id="resposta-binária-parte-iii-iv-probit">Resposta binária parte III: IV Probit</h3>
-<p>[Continuação.] Consideremos agora uma forma mais direta de atacar o problema da questão anterior, estimando diretamente a função de verossimilhança condicional de $f(y_1, y_2 | Z = z)$.</p>
-<ol>
-<li>Escreva $f(y_1, y_2 \ | Z = z)$ como função das densidades condicionais de $Y_1$ e $Y_2$ (dado $Z = z$).</li>
-<li>Use (1) para derivar $f(y_1, y_2 | Z = z)$ (dadas as suposições do exercício anterior).</li>
-<li>Defina o estimador de MLE para $f(y_1, y_2 | Z = z)$. Calcule a variância assintótica do estimador. Este estimador é o IV Probit.</li>
-<li>Qual estimador usa mais informação, o IV Probit ou a Função Controle? Por que?</li>
-<li>Qual seria um teste natural de exogeneidade nesse cenário? Derive sua distribuição.</li>
-</ol>
-<h3 id="modelo-de-resposta-de-canto-modelo-de-normal-truncada">Modelo de resposta de canto: modelo de normal truncada.</h3>
-<p>Como vimos em aula, o modelo Tobit Tipo I implica efeitos parciais similares (em sinal e relativos) nas margens intensiva e extensiva de participação, o que pode ser indesejável em alguns casos. A forma mais simples de extender o Tobit Tipo I para permitir efeitos parciais diferentes em diferentes margens é assumir que dadas as covariadas, a decisão de participação é independente da decisão do montante escolhido, e portanto podem ser efetivamente tratadas como escolhas diferentes.</p>
-<p>Considere o modelo $Y = SW^{*}$, onde $S \in { 0, 1 }$ e $W^* \in \mathbb{R}_+$ só é observável quando $S = 1$. Assuma que $\text{Pr}(S = 1 | X = x) = \Phi (x\gamma)$, e que $W^* = X\beta + U$, com $U | X = x$ seguindo uma distribuição Normal truncada em $-x\beta$.</p>
-<ol>
-<li>Derive $f(y  \ | X = x, Y &gt; 0)$.</li>
-<li>Derive $f(y \ | X = x)$ e a função objetivo do estimador de MLE.</li>
-<li>Calcule as esperanças condicionais ($| X = x$ e  $| X = x, Y &gt; 0$) e os efeitos parciais.</li>
-<li>Que modo você pode testar se as margens intensiva e extensiva são diferentes?</li>
-</ol>
-<h3 id="parte-aplicada-probit">Parte aplicada: Probit</h3>
-<p>Queremos estimar um modelo com equação estrutural da forma $Y = 1{X \beta + U &gt; 0}$, com $Y$ sendo estar empregado (<em>employed</em>) e $X$ contendo as mesmas variáveis independentes da Lista 1. Assuma que $U$ segue uma distribuição Normal padrão (i.i.d.), e portanto a equação estrutural é $\Pr (Y = 1 | X = x) = \Phi (x \beta)$.</p>
-<ol>
-<li>Estime os coeficientes $\beta$ por MLE (Probit). Estime a matriz de variância-covariância (assintótica) e cheque quais coeficientes são estatísticamente diferentes de zero.</li>
-<li>Estime os efeitos parciais na média e média dos efeitos marginais, assim como a sua variância (assintótica). Interprete os resultados.</li>
-<li>Estime um OLS (usando o método &ldquo;lm&rdquo;) e compare os resultados.</li>
-<li>Realize um teste de Razão de Verossimilhança (LR) sobre a hipótese da idade (&ldquo;age&rdquo;) afetar a probabilidade de estar empregado.</li>
-<li>Realize um teste de Vuong (1989) sobre se o modelo Probit que você estimou é mais corretamente especificado que um Logit. (Para estimar o modelo Logit vocês podem usar funções automatizadas.)</li>
-</ol>
-<p><strong>Observação importante:</strong> O exercício é simples exatamente para possibilitar o não-uso de funções pré-programadas nos softwares estatísticos. Use as equações vistas em aula/no livro diretamente.</p>
-<p>A resposta da aplicação envolve:</p>
-<ol>
-<li>as respostas em si;</li>
-<li>explicação (sucinta) do método de estimação utilizado;</li>
-<li>o código utilizado.</li>
-</ol>
-<hr>
-<h4 id="preparação-dos-dados-1">Preparação dos dados:</h4>
-<pre><code class="language-{r">
-# We need to add the dependent variable to the data
-
-# True parameters
-true_beta = c(-25.0, 0.3, 8.0, -0.05, 13.0, 16.0, 22.0)
-
-# Now we build the binary outcome variable
-# Note that the true DGP is logistic
-U &lt;- rlogis(n = 1000, location = 0, scale = 10)
-df$employed = ifelse(true_beta[1] + df$income * true_beta[2] + df$vote_share * true_beta[3] + df$age * true_beta[4] + 
-          df$race_b * true_beta[5] + df$race_c * true_beta[6] + df$race_d * true_beta[7] + U &gt; 0, 1, 0)
-
-</code></pre>
-<p>Acima simulamos os dados para a Lista 2 (para além dos dados da Lista 1, que continuam a ser usados).</p>
-<pre><code class="language-{r"># Agora rodemos o Probit
-probit_results &lt;- glm(employed ~ income + vote_share + age + race,
-                     data=df,
-                     family = binomial(link = &quot;probit&quot;)
-)
-kable(summary(probit_results)$coef, digits = 2) %&gt;% kable_styling()
- 
-# Esses são coeficientes apenas! Não tem interpretação. Queremos os efeitos marginais.
-probitmfx(employed ~ income + vote_share + age + race, data=df, atmean=TRUE) # Efeitos marginais na média
-probitmfx(employed ~ income + vote_share + age + race, data=df, atmean=FALSE) # Média dos efeitos marginais
- 
-</code></pre>
-<p>Acima eu calculei usando os pacotes estatísticos padrão no R. Não vou repetir o começo do código que coloquei na lista anterior.</p>
-<hr>
-<hr>
-<h1 id="lista-3">Lista 3</h1>
-<h3 id="método-dos-momentos-parte-i-o-gmm-probit">Método dos momentos parte I: o GMM Probit.</h3>
-<p>Na aula derivamos os estimadores do Probit e Logit por MLE, que é reconhecidamente o método mais comum. Mas certamente não é o único!</p>
-<ol>
-<li>Descreva o estimador de Logit por GMM dada a especicaçãao correta da esperança condicional de $Y | X = x$. (Observação: Vimos em sala que podemos escrever todo MLE como um MM (ou GMM). Estou pedindo o estimador de informação limitada usando momentos da esperança condicional.) Faça o mesmo para o Probit. Eles são iguais ao estimador de MLE?</li>
-<li>Se $X = (X_1; X_2)$ e $X_1$ for endógeno, e se tivermos um instrumento adequado Z (que inclua $X_2$), a princípio poderíamos tentar estimar um Probit com instrumentos usando momentos análogos ao de (a), mas com Z ao invés de X. (Isto é, de forma análoga à relação do IV com o OLS.) Acontece que esse estimador não é consistente. Demonstre esse resultado.</li>
-</ol>
-<h3 id="método-dos-momentos-parte-ii-o-estimador-de-distância-mínima-clássico">Método dos momentos parte II: o estimador de distância mínima clássico</h3>
-<p>Considere um problema de regressão com a equação estrutural não-linear nos parâmetros:</p>
-<p>$$Y = X g(\theta_0) + U $$
-onde $g:\mathbb{R}^P \rightarrow \mathbb{R}^K$ é uma função conhecida e continuamente diferenciável. Responda:</p>
-<ol>
-<li>Como você estimaria $\theta_0$ usando método dos momentos?</li>
-<li>E usando o estimador de distância mínima (clássico)?</li>
-</ol>
-<h3 id="bootstrap-parte-i-consistência">Bootstrap parte I: consistência</h3>
-<p>Para um estimador arbitrário $\hat{\theta}(x)$, onde $x = (x_1, &hellip;, x_N)$ é uma amostra aleatória, o estimador de Bootstrap da variância de $\hat{\theta}(x)$, calculado em $B$ reamostragens com reposição, é dado por:</p>
-<p>$$\widehat{Var_{B}}(\hat{\theta}) = \frac{1}{B - 1} \sum_{b = 1}^{B} ( \hat{\theta}^b_B - \bar{\hat{\theta}}_B )^2$$</p>
-<p>Use a Lei dos Grandes Números para mostrar que quando $B \rightarrow \infty$, $\widehat{\text{Var}_{B}}(\hat{\theta})$ converge para o estimador de Bootstrap de amostra completa:</p>
-<p>$$Var^*(\hat{\theta}) = \frac{1}{N^N - 1} \sum_{i = 1}^{N} ( \hat{\theta}^i_B - \bar{\hat{\theta}}_B )^2,$$
-onde $\bar{\hat{\theta}}_B = N^{-N} \sum_{i=1}^{N^N} \hat{\theta}^i_B$ é a média do estimador entre todas as $N^N$ possíveis reamostragens.</p>
-<hr>
-<h3 id="parte-aplicada-bootstrap">Parte Aplicada: Bootstrap.</h3>
-<p>Para o modelo e base de dados da Lista 2, calcule:</p>
-<ol>
-<li>O desvio-padrão do estimador MLE de $\beta$ por bootstrap não-paramétrico e bootstrap paramétrico.</li>
-<li>Um intervalo de confiança de 5%, e os bootstrap p-values. Use o método do percentil-t. Compare com os resultados da lista anterior.</li>
-</ol>
-<p><strong>Observação importante:</strong> O exercício é simples exatamente para possibilitar o não-uso de funções pré-programadas nos softwares estatísticos. Use as equações vistas em aula/no livro diretamente.</p>
-<p>A resposta da aplicação envolve:</p>
-<ol>
-<li>as respostas em si;</li>
-<li>explicação (sucinta) do método de estimação utilizado;</li>
-<li>o código utilizado.</li>
-</ol>
-<hr>
-<hr>
+<p>Toda a comunicação se dará pelo <a href="https://edisciplinas.usp.br">Moodle</a>.</p>
+<p>Mais detalhes e as listas de exercício na <a href="econometria1-2020-1b.html">ementa</a>.</p>
 
     </div>
 
@@ -916,7 +646,7 @@ onde $\bar{\hat{\theta}}_B = N^{-N} \sum_{i=1}^{N^N} \hat{\theta}^i_B$ é a méd
       
       
       <li>
-        <a href="https://twitter.com/intent/tweet?url=/post/eae6030/&amp;text=EAE6030%20-%20Econometria%20II" target="_blank" rel="noopener" class="share-btn-twitter">
+        <a href="https://twitter.com/intent/tweet?url=https://www.pedroforquesato.com/post/eae6030/&amp;text=EAE6030%20-%20Econometria%20II" target="_blank" rel="noopener" class="share-btn-twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
@@ -929,7 +659,7 @@ onde $\bar{\hat{\theta}}_B = N^{-N} \sum_{i=1}^{N^N} \hat{\theta}^i_B$ é a méd
       
       
       <li>
-        <a href="https://www.facebook.com/sharer.php?u=/post/eae6030/&amp;t=EAE6030%20-%20Econometria%20II" target="_blank" rel="noopener" class="share-btn-facebook">
+        <a href="https://www.facebook.com/sharer.php?u=https://www.pedroforquesato.com/post/eae6030/&amp;t=EAE6030%20-%20Econometria%20II" target="_blank" rel="noopener" class="share-btn-facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
@@ -942,7 +672,7 @@ onde $\bar{\hat{\theta}}_B = N^{-N} \sum_{i=1}^{N^N} \hat{\theta}^i_B$ é a méd
       
       
       <li>
-        <a href="mailto:?subject=EAE6030%20-%20Econometria%20II&amp;body=/post/eae6030/" target="_blank" rel="noopener" class="share-btn-email">
+        <a href="mailto:?subject=EAE6030%20-%20Econometria%20II&amp;body=https://www.pedroforquesato.com/post/eae6030/" target="_blank" rel="noopener" class="share-btn-email">
           <i class="fas fa-envelope"></i>
         </a>
       </li>
@@ -955,7 +685,7 @@ onde $\bar{\hat{\theta}}_B = N^{-N} \sum_{i=1}^{N^N} \hat{\theta}^i_B$ é a méd
       
       
       <li>
-        <a href="https://www.linkedin.com/shareArticle?url=/post/eae6030/&amp;title=EAE6030%20-%20Econometria%20II" target="_blank" rel="noopener" class="share-btn-linkedin">
+        <a href="https://www.linkedin.com/shareArticle?url=https://www.pedroforquesato.com/post/eae6030/&amp;title=EAE6030%20-%20Econometria%20II" target="_blank" rel="noopener" class="share-btn-linkedin">
           <i class="fab fa-linkedin-in"></i>
         </a>
       </li>
@@ -968,7 +698,7 @@ onde $\bar{\hat{\theta}}_B = N^{-N} \sum_{i=1}^{N^N} \hat{\theta}^i_B$ é a méd
       
       
       <li>
-        <a href="https://web.whatsapp.com/send?text=EAE6030%20-%20Econometria%20II%20/post/eae6030/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+        <a href="https://web.whatsapp.com/send?text=EAE6030%20-%20Econometria%20II%20https://www.pedroforquesato.com/post/eae6030/" target="_blank" rel="noopener" class="share-btn-whatsapp">
           <i class="fab fa-whatsapp"></i>
         </a>
       </li>
@@ -981,7 +711,7 @@ onde $\bar{\hat{\theta}}_B = N^{-N} \sum_{i=1}^{N^N} \hat{\theta}^i_B$ é a méd
       
       
       <li>
-        <a href="https://service.weibo.com/share/share.php?url=/post/eae6030/&amp;title=EAE6030%20-%20Econometria%20II" target="_blank" rel="noopener" class="share-btn-weibo">
+        <a href="https://service.weibo.com/share/share.php?url=https://www.pedroforquesato.com/post/eae6030/&amp;title=EAE6030%20-%20Econometria%20II" target="_blank" rel="noopener" class="share-btn-weibo">
           <i class="fab fa-weibo"></i>
         </a>
       </li>
@@ -1020,7 +750,7 @@ onde $\bar{\hat{\theta}}_B = N^{-N} \sum_{i=1}^{N^N} \hat{\theta}^i_B$ é a méd
     
 
     <div class="media-body">
-      <h5 class="card-title"><a href="/">Pedro Forquesato</a></h5>
+      <h5 class="card-title"><a href="https://www.pedroforquesato.com">Pedro Forquesato</a></h5>
       <h6 class="card-subtitle">Professor of Economics</h6>
       <p class="card-text">I am interested in using good data and econometrics to learn how to improve economic policies in middle-income countries.</p>
       <ul class="network-icon" aria-hidden="true">
@@ -1201,10 +931,8 @@ onde $\bar{\hat{\theta}}_B = N^{-N} \sum_{i=1}^{N^N} \hat{\theta}^i_B$ é a méd
   
   <p class="powered-by">
     
-      <a href="/privacy/">Privacy Policy</a>
     
-    
-       &middot; 
+      
       <a href="/terms/">Terms</a>
     
   </p>
