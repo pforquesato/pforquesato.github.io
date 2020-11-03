@@ -16,6 +16,22 @@
 
 <title>EAE6060 - Economia do Setor Público I</title>
 
+<script>// Hide empty <a> tag within highlighted CodeBlock for screen reader accessibility (see https://github.com/jgm/pandoc/issues/6352#issuecomment-626106786) -->
+// v0.0.1
+// Written by JooYoung Seo (jooyoung@psu.edu) and Atsushi Yasumoto on June 1st, 2020.
+
+document.addEventListener('DOMContentLoaded', function() {
+  const codeList = document.getElementsByClassName("sourceCode");
+  for (var i = 0; i < codeList.length; i++) {
+    var linkList = codeList[i].getElementsByTagName('a');
+    for (var j = 0; j < linkList.length; j++) {
+      if (linkList[j].innerHTML === "") {
+        linkList[j].setAttribute('aria-hidden', 'true');
+      }
+    }
+  }
+});
+</script>
 
 
 
@@ -107,6 +123,7 @@
 <p>Serrato, J. and O. Zidar (2016). “Who Benefits from State Corporate Tax Cuts? A Local Labor Markets Approach with Heterogeneous Firms,” American Economic Review 106, 2582-2624.</p>
 <p>Harju, J., Kosonen, T., and O. Skans (2018). “Firm Types, Price-Setting Strategies, and Consumption Tax Incidence?,” Journal of Public Economics 165, 48-72.</p>
 <p>Sachs, D., Tsyvinski, A. and N. Werquin (2020). “Nonlinear tax incidence and optimal taxation in general equilibrium,” Econometrica, 88(2), 469-493.</p>
+<p>Benzarti, Y., Carloni, D., Harju, J. and T. Kosonen (forthcoming). “What Goes Up May Not Come Down: Asymmetric Incidence of Value-Added Taxes,” Journal of Political Economy.</p>
 </div>
 </div>
 <div id="custos-de-eficiência-da-taxação" class="section level3">
@@ -141,7 +158,6 @@
 <h4>Leitura obrigatória:</h4>
 <p>Salanié, cap. 4.</p>
 <p>Saez, E. (2001). “Using Elasticities to Derive Optimal Income Tax Rates,” Review of Economics Studies, 68, 205-229.</p>
-<p>Rothschild, C. and F. Scheuer (2013). “Redistributive taxation in the Roy model,” The Quarterly Journal of Economics, 128(2), 623-668.</p>
 <p>Piketty, T., Saez, E., and S. Stantcheva (2014). “Optimal Taxation of Top Labor Incomes: A Tale of Three Elasticities,” American Economic Journal: Economic Policy, 6(1), 230-71.</p>
 <p>Akcigit, U., Baslandze, S., and S. Stantcheva (2016). “Taxation and the international mobility of inventors,” American Economic Review, 106(10), 2930-81.</p>
 </div>
@@ -157,6 +173,7 @@
 <p>Kleven, H., Kreiner, C. and E. Saez (2009). “The Optimal Income Taxation of Couples,” Econometrica, 77, pp. 537–560.</p>
 <p>Chetty, R., Friedman, J., Olsen, T. and L. Pistaferri (2011). “Adjustment Costs, Firm Responses, and Micro vs. Macro Labor Supply Elasticities: Evidence from Danish Tax Records,” Quarterly Journal of Economics 126, 749-804.</p>
 <p>Keane, M. (2011). “Labor Supply and Taxes: A Survey,” Journal of Economic Literature, 49 , 961-1075.</p>
+<p>Rothschild, C. and F. Scheuer (2013). “Redistributive taxation in the Roy model,” The Quarterly Journal of Economics, 128(2), 623-668.</p>
 <p>Kleven, H., Landais, C., Saez, E. and E. Schultz (2014). “Migration and Wage Effects of Taxing Top Earners: Evidence from the Foreigners’ Tax Scheme in Denmark,” Quarterly Journal of Economics 129, 333-378.</p>
 <p>Stantcheva, S. (2014). “Optimal income taxation with adverse selection in the labour market,” Review of Economic Studies, 81(3), 1296-1329.</p>
 <p>Ales, L. and C. Sleet (2016). “Taxing top CEO incomes,” American Economic Review, 106(11), 3331-66.</p>
@@ -186,16 +203,40 @@
 <!-- Besley, T. and Coate, S. (1992). “Workfare versus Welfare: Incentives Arguments for Work Requirements in Poverty-Alleviation Programs,” American Economic Review, Vol. 82, pp. 249–261. -->
 </div>
 </div>
-<div id="imposto-de-renda-tópicos" class="section level3">
-<h3>5. Imposto de renda: tópicos</h3>
+<div id="impostos-indiretos" class="section level3">
+<h3>5. Impostos indiretos</h3>
 <div id="leitura-obrigatória-4" class="section level4">
+<h4>Leitura obrigatória:</h4>
+<p>Salanié, caps. 3 e 5.</p>
+<p>Naritomi, J. (2019). “Consumers as Tax Auditors,” American Economic Review 109, 3031-3072.</p>
+<p>Alcott, H., Lockwood, B. and D. Taubinsky (2019). “Regressive Sin Taxes with an Application to the Optimal Soda Tax,” Quarterly Journal of Economics 134, 1557-1626.</p>
+<p>Bachas, P. J., Gadenne, L. and A. Jensen (2020). “Informality, Consumption Taxes and Redistribution,” World Bank Policy Research Working Paper n. 9267.</p>
+</div>
+<div id="leitura-recomendada-4" class="section level4">
+<h4>Leitura recomendada:</h4>
+<p>Mirrlees review, cap. 4</p>
+<p>Gordon, R. and S. Nielsen (1997). “Tax evasion in an open economy:: Value-added vs. income taxation,” Journal of Public Economics, 66(2), 173-197.</p>
+<p>Gruber, J. and B. Köszegi (2001). “Is addiction “rational”? Theory and evidence,&quot; The Quarterly Journal of Economics, 116(4), 1261-1303.</p>
+<p>O’Donoghue, T. and M. Rabin (2006). “Optimal Sin Taxes,” Journal of Public Economics 90: 1825-1849.</p>
+<p>Carbonnier, C. (2007). “Who pays sales taxes? Evidence from French VAT reforms, 1987–1999,” Journal of Public Economics, 91(5-6), 1219-1229.</p>
+<p>Boadway, R. and M. Sato (2009). “Optimal Tax Design and Enforcement with an Informal Sector.” American Economic Journal: Economic Policy, 1(1): 1–27.</p>
+<p>De Paula, A. and J. Scheinkman (2010). “Value-added taxes, chain effects, and informality,” American Economic Journal: Macroeconomics, 2(4), 195-221.</p>
+<p>Keen, M. and B. Lockwood (2010). “The value added tax: Its causes and consequences,” Journal of Development Economics, 92(2), 138-151.</p>
+<p>Besley, T., Meads, N. and P. Surico (2014). “The Incidence of Transactions Taxes: Evidence from a Stamp Duty Holiday,” Journal of Public Economics 119, 61-70.</p>
+<p>Pomeranz, D. (2015). “No Taxation without Information: Deterrence and Self-Enforcement in the Value Added Tax,” American Economic Review, 105(8), pp. 2539–69.</p>
+<p>Keen, M. and J. Slemrod (2017). “Optimal Tax Administration,” Journal of Public Economics 152, 133-142.</p>
+</div>
+</div>
+<div id="tópicos-em-teoria-da-taxação" class="section level3">
+<h3>6. Tópicos em teoria da taxação</h3>
+<div id="leitura-obrigatória-5" class="section level4">
 <h4>Leitura obrigatória:</h4>
 <p>Chetty, R. (2009). “Is the Taxable Income Elasticity Sufficient to Calculate Deadweight Loss? The Implications of Evasion and Avoidance,” American Economic Journal: Economic Policy: 1(2): 31–52.</p>
 <p>Chetty, R., Looney, A. and K. Kroft (2009). “Salience and Taxation: Theory and Evidence,” American Economic Review 99, 1145-1177.</p>
 <p>Best, M., Brockmeyer, A., Kleven, H., Spinnewijn, J. and M. Waseem (2015). “Production versus revenue efficiency with limited tax capacity: theory and evidence from Pakistan,” Journal of Political Economy, 123(6), 1311-1355.</p>
 <p>Mortenson, J. and A. Whitten (2020). “Bunching to Maximize Tax Credits: Evidence from Kinks in the US Tax Schedule,” American Economic Journal: Economic Policy, 12 (3): 402-32.</p>
 </div>
-<div id="leitura-recomendada-4" class="section level4">
+<div id="leitura-recomendada-5" class="section level4">
 <h4>Leitura recomendada:</h4>
 <p>Feldstein, M. (1999). “Tax Avoidance and the Deadweight Loss of the Income Tax,” Review of Economics and Statistics, 81(4), 674-680.</p>
 <p>Gruber, J. and E. Saez (2002). “The elasticity of taxable income: evidence and implications,” Journal of Public Economics, 84(1), 1-32.</p>
@@ -211,31 +252,8 @@
 <p>Best, M., Cloyne, J., Ilzetzki, E. and H. Kleven (2020). “Estimating the elasticity of intertemporal substitution using mortgage notches,” The Review of Economic Studies, 87(2), 656-690.</p>
 <p>Kroft, K., Laliberté, J., Vizcaíno, R. and M. Notowidigdo (2020). “Salience and Taxation with Imperfect Competition,” National Bureau of Economic Research No. w27409.</p>
 <p>Farhi, E. and X. Gabaix (2020). “Optimal taxation with behavioral agents,” American Economic Review, 110(1), 298-336.</p>
+<p>Bradley, S. and N. Feldman (2020). “Hidden Baggage: Behavioral Responses to Changes in Airline Ticket Tax Disclosure,” American Economic Journal: Economic Policy, 12 (4): 58-87.</p>
 <!-- R. Chetty, J. Friedman, and E. Saez, "Using Differences in Knowledge Across Neighborhoods to Uncover the Impacts of the EITC on Earnings," American Economic Review 103 (2013), 2683-2721. -->
-</div>
-</div>
-<div id="impostos-indiretos" class="section level3">
-<h3>6. Impostos indiretos</h3>
-<div id="leitura-obrigatória-5" class="section level4">
-<h4>Leitura obrigatória:</h4>
-<p>Salanié, caps. 3 e 5.</p>
-<p>Naritomi, J. (2019). “Consumers as Tax Auditors,” American Economic Review 109, 3031-3072.</p>
-<p>Alcott, H., Lockwood, B. and D. Taubinsky (2019). “Regressive Sin Taxes with an Application to the Optimal Soda Tax,” Quarterly Journal of Economics 134, 1557-1626.</p>
-<p>Bachas, P. J., Gadenne, L. and A. Jensen (2020). “Informality, Consumption Taxes and Redistribution,” World Bank Policy Research Working Paper n. 9267.</p>
-</div>
-<div id="leitura-recomendada-5" class="section level4">
-<h4>Leitura recomendada:</h4>
-<p>Mirrlees review, cap. 4</p>
-<p>Gordon, R. and S. Nielsen (1997). “Tax evasion in an open economy:: Value-added vs. income taxation,” Journal of Public Economics, 66(2), 173-197.</p>
-<p>Gruber, J. and B. Köszegi (2001). “Is addiction “rational”? Theory and evidence,&quot; The Quarterly Journal of Economics, 116(4), 1261-1303.</p>
-<p>O’Donoghue, T. and M. Rabin (2006). “Optimal Sin Taxes,” Journal of Public Economics 90: 1825-1849.</p>
-<p>Carbonnier, C. (2007). “Who pays sales taxes? Evidence from French VAT reforms, 1987–1999,” Journal of Public Economics, 91(5-6), 1219-1229.</p>
-<p>Boadway, R. and M. Sato (2009). “Optimal Tax Design and Enforcement with an Informal Sector.” American Economic Journal: Economic Policy, 1(1): 1–27.</p>
-<p>De Paula, A. and J. Scheinkman (2010). “Value-added taxes, chain effects, and informality,” American Economic Journal: Macroeconomics, 2(4), 195-221.</p>
-<p>Keen, M. and B. Lockwood (2010). “The value added tax: Its causes and consequences,” Journal of Development Economics, 92(2), 138-151.</p>
-<p>Besley, T., Meads, N. and P. Surico (2014). “The Incidence of Transactions Taxes: Evidence from a Stamp Duty Holiday,” Journal of Public Economics 119, 61-70.</p>
-<p>Pomeranz, D. (2015). “No Taxation without Information: Deterrence and Self-Enforcement in the Value Added Tax,” American Economic Review, 105(8), pp. 2539–69.</p>
-<p>Keen, M. and J. Slemrod (2017). “Optimal Tax Administration,” Journal of Public Economics 152, 133-142.</p>
 <p><br />
 </p>
 </div>
