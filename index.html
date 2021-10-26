@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Pedro Forquesato</title>
+
+<script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link rel="icon" type="image/png" href="./files/flood-fill.png"/>
+<div class="hero-image"> 
+        <div class="image-text">
+          <div class="top-text">Pedro Forquesato</div>
+            <div class="bottom-text">Assistant Professor of Economics, FEA-USP</div>
+        </div>
+</div>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Pedro Forquesato</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="index.html#bio">Bio</a>
+</li>
+<li>
+  <a href="index.html#teach">Teaching</a>
+</li>
+<li>
+  <a href="index.html#research">Research</a>
+</li>
+<li>
+  <a href="index.html#opinion">Opinion</a>
+</li>
+<li>
+  <a href="index.html#contact">Contact</a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Pedro Forquesato</h1>
+
+</div>
+
+
+<div id="bio" class="section level3">
+<h3>Bio<sup><a href="https://orcid.org/0000-0001-7168-2983"><img src="files/icone_orcid.png" width="12" /></a></sup></h3>
+<div class="row">
+<div class="col-md-8">
+<p>I am an Assistant Professor of Economics at the School of Economics, Business and Accounting in the University of São Paulo (FEA-USP) and researcher at <strong><a href="https://sites.usp.br/labpub/">LabPub</a></strong>.</p>
+<p>Previously, I was a post-doctoral researcher at University of São Paulo (2018-2019) and Pontifical Catholic University of Rio de Janeiro (2016-2018), where I also earned my Doctorate in Economics in 2016. In 2014 I was a visiting scholar at Harvard Kennedy School of Government. You can find more detailed information about my professional activities in my <a href="http://lattes.cnpq.br/2303696880059306">[Lattes CV]</a> or <a href="https://scholar.google.com/citations?user=RKkWSagAAAAJ&amp;hl=en">[Google Scholar profile]</a>.</p>
+<p>My research interests are in the field of political and public sector economics. Currently, I am involved in projects studying patronage and the efficiency of municipal bureaucracy, as well as studying characteristics of taxation in low-income and middle-income countries.</p>
+<p>As hobbies, I (used to?) like to play capoeira, rowing, and literature. I have a wonderful wife and a cute baby son.</p>
+</div>
+<div class="col-md-4">
+<img src="files/avatar.jpg" />
+</div>
+</div>
+<hr />
+</div>
+<div id="contact" class="section level3">
+<h3>Contact</h3>
+<p><strong>pforquesato [at] usp [dot] br<br></strong> Avenida Professor Luciano Gualberto, 908<br>FEA 2 Building 19C, University of São Paulo <br>São Paulo, SP 05508-010<br>Brazil</p>
+<hr />
+</div>
+<div id="teach" class="section level3">
+<h3>Teaching</h3>
+<p><strong><a href="./pages/eae6060-2021.html">EAE6060 - Economia do Setor Público I</a></strong>: (2021/2) A graduate half-semester course in public economics, focusing on contemporary research on economics of taxation. (PT-BR).</p>
+<p><strong><a href="./pages/eae6030-2021.html">EAE6030 - Econometria II</a></strong>: (2021/1) A graduate half-semester course in econometrics, covering non-linear estimation methods, as part of the core sequence (PT-BR).</p>
+<p><strong><a href="./pages/eae0115-2021.html">EAE0115 - Clássicos do Pensamento Econômico</a></strong>: (2021/1) An introduction to the work of the most important economists of the XVII-XXth centuries for first year undergraduate students (PT-BR).</p>
+<hr />
+</div>
+<div id="research" class="section level3">
+<h3>Research</h3>
+<p><img src="files/victor-featured.jpg" style="width:20.0%" /></p>
+<p><strong><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3028937">To the Victor Belongs the Spoils? Party Membership and Public Sector Employment in Brazil</a></strong>, <em>with Fernanda Brollo and Juan Carlos Gozzi</em>. We analyze how parties winning a mayoral election affects the number of their affiliates in the municipal bureaucracy, using close races in Brazil. We find an increase of 40% in the number of members of the winning party working in the municipal bureaucracy. Na mídia: <a href="https://www.nexojornal.com.br/colunistas/2020/Reforma-no-setor-p%C3%BAblico-como-melhorar-o-Estado-brasileiro">[Nexo Jornal]</a>.</p>
+<p><br />
+</p>
+<p><img src="files/norms-featured.jpg" style="width:20.0%" /></p>
+<p><strong><a href="https://doi.org/10.1016/j.jebo.2016.05.012">Social norms of work ethic and incentives in organizations</a></strong>. <a href="https://www.dropbox.com/s/tmgd1xvht5m2a3b/work_ethic_final.pdf?dl=0">[Preprint]</a> I model how incentive choice by firms and cultural values of work effort affect each other. Intuitively, firms will choose steeper incentives when agents are willing to engage in high effort, and conversely, intergenerational transmission of work values will be more profitable when incentives are higher powered.</p>
+<hr />
+</div>
+<div id="opinion" class="section level3">
+<h3>Opinion writing</h3>
+<p><strong><a href="https://jornal.usp.br/artigos/afinal-a-taxacao-de-dividendos-reduz-o-investimento/">Afinal, a taxação de dividendos reduz o investimento?</a></strong>. Jornal da USP, 19/07/2021. (PT-BR).</p>
+</div>
+
+&nbsp;
+<hr />
+<p style="text-align: center;">Created by Pedro Forquesato. Last updated: October, 2021.</p>
+<p style="text-align: center;"><span style="color: #707070;">MIT License - Copyright © 2021. </span></p>
+
+<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- Add font awesome icons -->
+<p style="text-align: center;">
+    <a href="https://twitter.com/pforquesato" class="fa fa-twitter"></a>
+    <a href="https://www.linkedin.com/in/pedro-forquesato/" class="fa fa-linkedin"></a>
+    <a href="https://github.com/pforquesato" class="fa fa-github"></a>
+</p>
+
+&nbsp;
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
