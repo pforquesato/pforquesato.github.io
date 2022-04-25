@@ -13,7 +13,7 @@
 
 <title>Pedro Forquesato</title>
 
-<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.13/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
@@ -64,6 +64,7 @@ if (window.hljs) {
 
 
 
+
 <link rel="stylesheet" href="style.css" type="text/css" />
 
 
@@ -88,6 +89,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -240,7 +244,7 @@ $(document).ready(function () {
 <div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -282,13 +286,30 @@ $(document).ready(function () {
 
 
 <div id="bio" class="section level3">
-<h3>Bio<sup><a href="https://orcid.org/0000-0001-7168-2983"><img src="files/icone_orcid.png" width="12" /></a></sup></h3>
+<h3>Bio<sup><a href="https://orcid.org/0000-0001-7168-2983"><img
+src="files/icone_orcid.png" width="12" /></a></sup></h3>
 <div class="row">
 <div class="col-md-8">
-<p>I am an Assistant Professor of Economics at the School of Economics, Business and Accounting in the University of São Paulo (FEA-USP) and researcher at <strong><a href="https://labpub.fea.usp.br/">LabPub</a></strong>.</p>
-<p>Previously, I was a post-doctoral researcher at University of São Paulo (2018-2019) and Pontifical Catholic University of Rio de Janeiro (2016-2018), where I also earned my Doctorate in Economics in 2016. In 2014 I was a visiting scholar at Harvard Kennedy School of Government. You can find more detailed information about my professional activities in my <a href="http://lattes.cnpq.br/2303696880059306">[Lattes CV]</a> or <a href="https://scholar.google.com/citations?user=RKkWSagAAAAJ&amp;hl=en">[Google Scholar profile]</a>.</p>
-<p>My research interests are in the field of political and public sector economics. Currently, I am involved in projects studying patronage and the efficiency of municipal bureaucracy, as well as studying characteristics of taxation in low-income and middle-income countries.</p>
-<p>As hobbies, I (used to?) like to play capoeira, rowing, and chess. I have a wonderful wife and a cute baby son.</p>
+<p>I am an Assistant Professor of Economics at the School of Economics,
+Business and Accounting in the University of São Paulo (FEA-USP) and
+researcher at <strong><a
+href="https://labpub.fea.usp.br/">LabPub</a></strong>.</p>
+<p>Previously, I was a post-doctoral researcher at University of São
+Paulo (2018-2019) and Pontifical Catholic University of Rio de Janeiro
+(2016-2018), where I also earned my Doctorate in Economics in 2016. In
+2014 I was a visiting scholar at Harvard Kennedy School of Government.
+You can find more detailed information about my professional activities
+in my <a href="http://lattes.cnpq.br/2303696880059306">[Lattes CV]</a>
+or <a
+href="https://scholar.google.com/citations?user=RKkWSagAAAAJ&amp;hl=en">[Google
+Scholar profile]</a>.</p>
+<p>My research interests are in the field of political and public sector
+economics. Currently, I am involved in projects studying patronage and
+the efficiency of municipal bureaucracy, as well as studying
+characteristics of taxation in low-income and middle-income
+countries.</p>
+<p>As hobbies, I (used to?) like to play capoeira, rowing, and chess. I
+have a wonderful wife and a cute baby son.</p>
 </div>
 <div class="col-md-4">
 <img src="files/avatar.jpg" />
@@ -298,40 +319,90 @@ $(document).ready(function () {
 </div>
 <div id="contact" class="section level3">
 <h3>Contact</h3>
-<p><strong>pforquesato [at] usp [dot] br<br></strong> Avenida Professor Luciano Gualberto, 908<br>FEA 2 Building 19C, University of São Paulo <br>São Paulo, SP 05508-010<br>Brazil</p>
+<p><strong>pforquesato [at] usp [dot] br<br></strong> Avenida Professor
+Luciano Gualberto, 908<br>FEA 2 Building 19C, University of São Paulo
+<br>São Paulo, SP 05508-010<br>Brazil</p>
 <hr />
 </div>
 <div id="teach" class="section level3">
 <h3>Teaching</h3>
-<p><strong><a href="./pages/eae0310-2022.html">Economia do Setor Público (EAE0310)</a></strong>: (2022-) An undergraduate course in public economics for advanced students, covering public goods and externalities, social insurance and taxation (PT-BR).</p>
-<p><strong><a href="./pages/eae6060-2022.html">Public Finance (EAE6060/78)</a></strong>: (2020-) A graduate course in public economics, focusing on contemporary research on economics of taxation and related topics (EN).</p>
-<p><strong><a href="./pages/eae6030-2021.html">Econometria II (EAE6030)</a></strong>: (2019-2021) A graduate half-semester course in econometrics, covering non-linear estimation methods, as part of the core sequence (PT-BR).</p>
-<p><strong><a href="./pages/eae0115-2021.html">Clássicos do Pensamento Econômico (EAE0115)</a></strong>: (2020-2021) An introduction to the work of the most important economists of the XVII-XXth centuries for first year undergraduate students (PT-BR).</p>
+<p><strong><a href="./pages/eae0310-2022.html">Economia do Setor Público
+(EAE0310)</a></strong>: (2022-) An undergraduate course in public
+economics for advanced students, covering public goods and
+externalities, social insurance and taxation (PT-BR).</p>
+<p><strong><a href="./pages/eae6060-2022.html">Public Finance
+(EAE6060/78)</a></strong>: (2020-) A graduate course in public
+economics, focusing on contemporary research on economics of taxation
+and related topics (EN).</p>
+<p><strong><a href="./pages/eae6030-2021.html">Econometria II
+(EAE6030)</a></strong>: (2019-2021) A graduate half-semester course in
+econometrics, covering non-linear estimation methods, as part of the
+core sequence (PT-BR).</p>
+<p><strong><a href="./pages/eae0115-2021.html">Clássicos do Pensamento
+Econômico (EAE0115)</a></strong>: (2020-2021) An introduction to the
+work of the most important economists of the XVII-XXth centuries for
+first year undergraduate students (PT-BR).</p>
 <hr />
 </div>
 <div id="research" class="section level3">
 <h3>Research</h3>
 <p><img src="files/classification_tree.png" style="width:20.0%" /></p>
-<p><strong>Who benefits from political connections? Heterogeneous effects of patronage in Brazilian municipalities</strong>. [Working paper available upon request] We contribute to a recent literature documenting patronage in public sector employment, by establishing what type of workers benefit the most from this phenomenon. Under the (empirically supported) assumption that in close elections the result of the election is as good as random, we employ a causal forest estimation technique to identify heterogeneity in the treatment effect (conditional average treatment effect) of being affiliated to the party of the winning mayor.<br />
+<p><strong><a href="https://arxiv.org/abs/2204.09450">Who Benefits from
+Political Connections in Brazilian Municipalities</a></strong> Under the
+(empirically supported) assumption that in close elections the result of
+the election is as good as random, I estimate a causal forest to
+identify heterogeneity in the conditional average treatment effect of
+being affiliated to the party of the winning mayor on public
+employment.</p>
+<p><br />
 </p>
 <p><img src="files/victor-featured.jpg" style="width:20.0%" /></p>
-<p><strong><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3028937">To the Victor Belongs the Spoils? Party Membership and Public Sector Employment in Brazil</a></strong>, <em>with Fernanda Brollo and Juan Carlos Gozzi</em>. We analyze how parties winning a mayoral election affects the number of their affiliates in the municipal bureaucracy, using close races in Brazil. We find an increase of 40% in the number of members of the winning party working in the municipal bureaucracy. Na mídia: <a href="https://www.nexojornal.com.br/colunistas/2020/Reforma-no-setor-p%C3%BAblico-como-melhorar-o-Estado-brasileiro">[Nexo Jornal]</a>.</p>
+<p><strong><a
+href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3028937">To
+the Victor Belongs the Spoils? Party Membership and Public Sector
+Employment in Brazil</a></strong>, <em>with Fernanda Brollo and Juan
+Carlos Gozzi</em>. We analyze how parties winning a mayoral election
+affects the number of their affiliates in the municipal bureaucracy,
+using close races in Brazil. We find an increase of 40% in the number of
+members of the winning party working in the municipal bureaucracy. Na
+mídia: <a
+href="https://www.nexojornal.com.br/colunistas/2020/Reforma-no-setor-p%C3%BAblico-como-melhorar-o-Estado-brasileiro">[Nexo
+Jornal]</a>.</p>
 <p><br />
 </p>
 <p><img src="files/norms-featured.jpg" style="width:20.0%" /></p>
-<p><strong><a href="https://doi.org/10.1016/j.jebo.2016.05.012">Social norms of work ethic and incentives in organizations</a></strong>. <a href="https://www.dropbox.com/s/tmgd1xvht5m2a3b/work_ethic_final.pdf?dl=0">[Preprint]</a> I model how incentive choice by firms and cultural values of work effort affect each other. Intuitively, firms will choose steeper incentives when agents are willing to engage in high effort, and conversely, intergenerational transmission of work values will be more profitable when incentives are higher powered.</p>
+<p><strong><a href="https://doi.org/10.1016/j.jebo.2016.05.012">Social
+norms of work ethic and incentives in organizations</a></strong>. <a
+href="https://www.dropbox.com/s/tmgd1xvht5m2a3b/work_ethic_final.pdf?dl=0">[Preprint]</a>
+I model how incentive choice by firms and cultural values of work effort
+affect each other. Intuitively, firms will choose steeper incentives
+when agents are willing to engage in high effort, and conversely,
+intergenerational transmission of work values will be more profitable
+when incentives are higher powered.</p>
 <hr />
 </div>
 <div id="opinion" class="section level3">
 <h3>Opinion writing</h3>
-<p><strong><a href="https://valor.globo.com/opiniao/coluna/atencao-aos-gastos-tributarios.ghtml">Atenção aos gastos tributários</a></strong>, <em>with Fabiana Rocha and Luis Meloni.</em> Valor Econômico, 03/02/2022. (PT-BR). <a href="./files/gastos-tributarios.png">[img]</a></p>
-<p><strong><a href="https://valor.globo.com/opiniao/coluna/para-entender-um-pouco-sobre-os-paraisos-fiscais.ghtml">Para entender um pouco sobre os paraísos fiscais</a></strong>, <em>with Fabiana Rocha.</em> Valor Econômico, 08/11/2021. (PT-BR). <a href="./files/paraisos.jpeg">[img]</a></p>
-<p><strong><a href="https://jornal.usp.br/artigos/afinal-a-taxacao-de-dividendos-reduz-o-investimento/">Afinal, a taxação de dividendos reduz o investimento?</a></strong>, <em>with Fabiana Rocha and Luis Meloni.</em> Jornal da USP, 19/07/2021. (PT-BR).</p>
+<p><strong><a
+href="https://valor.globo.com/opiniao/coluna/atencao-aos-gastos-tributarios.ghtml">Atenção
+aos gastos tributários</a></strong>, <em>with Fabiana Rocha and Luis
+Meloni.</em> Valor Econômico, 03/02/2022. (PT-BR). <a
+href="./files/gastos-tributarios.png">[img]</a></p>
+<p><strong><a
+href="https://valor.globo.com/opiniao/coluna/para-entender-um-pouco-sobre-os-paraisos-fiscais.ghtml">Para
+entender um pouco sobre os paraísos fiscais</a></strong>, <em>with
+Fabiana Rocha.</em> Valor Econômico, 08/11/2021. (PT-BR). <a
+href="./files/paraisos.jpeg">[img]</a></p>
+<p><strong><a
+href="https://jornal.usp.br/artigos/afinal-a-taxacao-de-dividendos-reduz-o-investimento/">Afinal,
+a taxação de dividendos reduz o investimento?</a></strong>, <em>with
+Fabiana Rocha and Luis Meloni.</em> Jornal da USP, 19/07/2021.
+(PT-BR).</p>
 </div>
 
 &nbsp;
 <hr />
-<p style="text-align: center;">Created by Pedro Forquesato. Last updated: February, 2022.</p>
+<p style="text-align: center;">Created by Pedro Forquesato. Last updated: April, 2022.</p>
 <p style="text-align: center;"><span style="color: #707070;">MIT License - Copyright © 2022. </span></p>
 
 <!-- Add icon library -->
