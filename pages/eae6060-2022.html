@@ -15,19 +15,16 @@
 
 <title>EAE6060-78: Public Finance</title>
 
-<script>// Hide empty <a> tag within highlighted CodeBlock for screen reader accessibility (see https://github.com/jgm/pandoc/issues/6352#issuecomment-626106786) -->
-// v0.0.1
-// Written by JooYoung Seo (jooyoung@psu.edu) and Atsushi Yasumoto on June 1st, 2020.
-
-document.addEventListener('DOMContentLoaded', function() {
-  const codeList = document.getElementsByClassName("sourceCode");
-  for (var i = 0; i < codeList.length; i++) {
-    var linkList = codeList[i].getElementsByTagName('a');
-    for (var j = 0; j < linkList.length; j++) {
-      if (linkList[j].innerHTML === "") {
-        linkList[j].setAttribute('aria-hidden', 'true');
-      }
-    }
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
   }
 });
 </script>
@@ -54,7 +51,8 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="inner">
 <header>
 <h1 class="title toc-ignore">EAE6060-78: Public Finance</h1>
-<h3 class="author">Prof: Pedro Forquesato<br /><a href="mailto:pforquesato@usp.br" class="email">pforquesato@usp.br</a><br />Faculdade de Economia, Administração e Contabilidade<br />Universidade de São Paulo</h3>
+<h3 class="author">Prof: Pedro Forquesato<br /><a href="mailto:pforquesato@usp.br" class="email">pforquesato@usp.br</a><br />Faculdade de Economia,
+Administração e Contabilidade<br />Universidade de São Paulo</h3>
 <h3 class="date">2022/2</h3>
 </header>
 
@@ -64,276 +62,710 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <div id="overview" class="section level2">
 <h2>Overview</h2>
-<p>This sequence of bimester courses covers modern theory and evidence on public finance. In modern economies, the public sector is responsible for over one third of the economy and one-fifth of the employment. Moreover, a large share (in some countries over half) of the national income is absorved and redistributed through taxation. Therefore, understanding the effects and optimal implementation of tax systems is essential to a good economy.</p>
-<p>In the first bimester course we cover behavioral responses to taxation, as well as optimal labor income and consumption taxation. In the second bimester, we cover corporate and capital taxation, cost-benefit analyisis and social security. Throughout, our focus will be on understanding the techniques for empirically estimating relevant statistics for public policy.</p>
+<p>This sequence of bimester courses covers modern theory and evidence
+in public finance. In modern economies, the public sector is responsible
+for over one third of the economy and one-fifth of the employment.
+Moreover, a large share (in some countries over half) of the national
+income is absorved and redistributed through taxation. Therefore,
+understanding the effects and optimal implementation of tax systems is
+essential to a good economy.</p>
+<p>In the first bimester course we cover behavioral responses to
+taxation, as well as optimal labor income and consumption taxation. In
+the second bimester, we cover corporate and capital taxation,
+cost-benefit analyisis and social security. Throughout, our focus will
+be on understanding the techniques for empirically estimating relevant
+statistics for public policy.</p>
 </div>
 <div id="readings" class="section level2">
 <h2>Readings</h2>
-<div id="week-1.-introduction-to-public-finance" class="section level3">
-<h3>Week 1. Introduction to public finance</h3>
-<p>(<span class="math inline">\(*\)</span>) <strong>Atkinson &amp; Stiglitz, chs. 1 and 11.</strong></p>
-<p>Giambiagi, F., Alem, A. and S. Pinto (2017). “Finanças Públicas,” Elsevier Brasil, cap. 10.</p>
-<p>Musgrave, R. (1985). “A Brief History of Fiscal Doctrine,” Handbook of Pub. Econ., vol. 1, 1-59.</p>
-<p>Auerbach, A. and K. Hassett (2002). “A New Measure of Horizontal Equity,” American Economic Review, 1116-1125.</p>
-<p>Diamond, P. and E. Saez (2011). “The case for a progressive tax: from basic research to policy recommendations,” Journal of Economic Perspectives, 25(4), 165-90.</p>
-<p>Alvaredo, F., Atkinson, A., T. Piketty and E. Saez (2013). “The Top 1 Percent in International and Historical Perspective,” Journal of Economic Perspectives 27 (3), 3-20.</p>
-<p>(<span class="math inline">\(*\)</span>) <strong>Kleven, H. (2014). “How Can Scandinavians Tax So Much?,” Journal of Economic Perspectives 28(4), pp. 77–98.</strong></p>
-<p>Piketty, T. (2014). “Capital in the Twenty-First Century,” Harvard University Press. Chs. 13 to 16.</p>
+<div id="topic-1.-introduction-to-public-finance" class="section level3">
+<h3>Topic 1. Introduction to public finance</h3>
+<p>(<span class="math inline">\(*\)</span>) <strong>Atkinson &amp;
+Stiglitz, chs. 1 and 11.</strong></p>
+<p>Giambiagi, F., Alem, A. and S. Pinto (2017). “Finanças Públicas,”
+Elsevier Brasil, cap. 10.</p>
+<p>Musgrave, R. (1985). “A Brief History of Fiscal Doctrine,” Handbook
+of Pub. Econ., vol. 1, 1-59.</p>
+<p>Auerbach, A. and K. Hassett (2002). “A New Measure of Horizontal
+Equity,” American Economic Review, 1116-1125.</p>
+<p>Diamond, P. and E. Saez (2011). “The case for a progressive tax: from
+basic research to policy recommendations,” Journal of Economic
+Perspectives, 25(4), 165-90.</p>
+<p>Alvaredo, F., Atkinson, A., T. Piketty and E. Saez (2013). “The Top 1
+Percent in International and Historical Perspective,” Journal of
+Economic Perspectives 27 (3), 3-20.</p>
+<p>(<span class="math inline">\(*\)</span>) <strong>Kleven, H. (2014).
+“How Can Scandinavians Tax So Much?,” Journal of Economic Perspectives
+28(4), pp. 77–98.</strong></p>
+<p>Piketty, T. (2014). “Capital in the Twenty-First Century,” Harvard
+University Press. Chs. 13 to 16.</p>
 </div>
-<div id="week-2.-incidence" class="section level3">
-<h3>Week 2. Incidence</h3>
-<p>(<span class="math inline">\(*\)</span>) <strong>Salanié, ch. 1.</strong></p>
-<p>Kotlikoff, L. and L. Summers (1987). “Tax Incidence,” Handbook of Pub. Econ., vol. 2, pp. 1043-1092.</p>
-<p>Fullerton, D. and G. Metcalf (2002). “Tax Incidence,” Handbook of Pub. Econ., vol. 4, ch. 23.</p>
-<p>Poterba, J. (1984). “Tax Subsidies to Owner-Occupied Housing: An Asset Market Approach,” Quarterly Journal of Economics 99, 729-752.</p>
-<p>Gruber, J. (1994). “The Incidence of Mandated Maternity Benefits,” American Economic Review, 84(3), 622-641.</p>
-<p>Gruber, J. (1997). “The Incidence of Payroll Taxation: Evidence from Chile,” Journal of Labor Economics 15, S73-S91.</p>
-<p>Gruber, J. and B. Koszegi (2004). “Tax Incidence When Individuals Are Time-Inconsistent: The Case Of Cigarette Excise Taxes,” Journal of Public Economics 88, 1959-1987.</p>
-<p>Politi, R. B. and E. Mattos (2011). “Ad‐valorem tax incidence and after‐tax price adjustments: evidence from Brazilian basic basket food,” Canadian Journal of Economics 44(4): 1438-1470.</p>
-<p>(<span class="math inline">\(*\)</span>) <strong>Harding, M., Leibtag, E. and M. Lovenheim (2012). “The Heterogeneous Geographic and Socioeconomic Incidence of Cigarette Taxes: Evidence from Neilsen Homescan Data,” American Economic Journal: Economic Policy 4, pp. 169-198.</strong></p>
-<p>Weyl, E. and M. Fabinger (2013). “Pass-through as an economic tool: Principles of incidence under imperfect competition,” Journal of Political Economy, 121(3), 528-583.</p>
-<p>Harju, J., Kosonen, T., and O. Skans (2018). “Firm Types, Price-Setting Strategies, and Consumption Tax Incidence?,” Journal of Public Economics 165, 48-72.</p>
-<p>(<span class="math inline">\(*\)</span>) <strong>Benzarti, Y. and D. Carloni (2019). “Who Really Benefits from Consumption Tax Cuts? Evidence from a Large VAT Reform in France,” American Economic Journal: Economic Policy.</strong></p>
-<p>Sachs, D., Tsyvinski, A. and N. Werquin (2020). “Nonlinear tax incidence and optimal taxation in general equilibrium,” Econometrica, 88(2), 469-493.</p>
-<p>Benzarti, Y., Carloni, D., Harju, J. and T. Kosonen (2020). “What Goes Up May Not Come Down: Asymmetric Incidence of Value-Added Taxes,” Journal of Political Economy, 128:12, pp. 4438-4474.</p>
-<p>(<span class="math inline">\(*\)</span>) <strong>Ganapati, S., Shapiro, J. and R. Walker. (2020). “Energy cost pass-through in US manufacturing: Estimates and implications for carbon taxes,” American Economic Journal: Applied Economics, 12(2), 303-42.</strong></p>
+<div id="topic-2.-tax-incidence" class="section level3">
+<h3>Topic 2. Tax incidence</h3>
+<p>(<span class="math inline">\(*\)</span>) <strong>Salanié,
+ch. 1.</strong></p>
+<p>Kotlikoff, L. and L. Summers (1987). “Tax Incidence,” Handbook of
+Pub. Econ., vol. 2, pp. 1043-1092.</p>
+<p>Fullerton, D. and G. Metcalf (2002). “Tax Incidence,” Handbook of
+Pub. Econ., vol. 4, ch. 23.</p>
+<p>Poterba, J. (1984). “Tax Subsidies to Owner-Occupied Housing: An
+Asset Market Approach,” Quarterly Journal of Economics 99, 729-752.</p>
+<p>Gruber, J. (1994). “The Incidence of Mandated Maternity Benefits,”
+American Economic Review, 84(3), 622-641.</p>
+<p>Gruber, J. (1997). “The Incidence of Payroll Taxation: Evidence from
+Chile,” Journal of Labor Economics 15, S73-S91.</p>
+<p>Gruber, J. and B. Koszegi (2004). “Tax Incidence When Individuals Are
+Time-Inconsistent: The Case Of Cigarette Excise Taxes,” Journal of
+Public Economics 88, 1959-1987.</p>
+<p>Politi, R. B. and E. Mattos (2011). “Ad‐valorem tax incidence and
+after‐tax price adjustments: evidence from Brazilian basic basket food,”
+Canadian Journal of Economics 44(4): 1438-1470.</p>
+<p>(<span class="math inline">\(*\)</span>) <strong>Harding, M.,
+Leibtag, E. and M. Lovenheim (2012). “The Heterogeneous Geographic and
+Socioeconomic Incidence of Cigarette Taxes: Evidence from Neilsen
+Homescan Data,” American Economic Journal: Economic Policy 4,
+pp. 169-198.</strong></p>
+<p>Weyl, E. and M. Fabinger (2013). “Pass-through as an economic tool:
+Principles of incidence under imperfect competition,” Journal of
+Political Economy, 121(3), 528-583.</p>
+<p>Harju, J., Kosonen, T., and O. Skans (2018). “Firm Types,
+Price-Setting Strategies, and Consumption Tax Incidence?,” Journal of
+Public Economics 165, 48-72.</p>
+<p>(<span class="math inline">\(*\)</span>) <strong>Benzarti, Y. and D.
+Carloni (2019). “Who Really Benefits from Consumption Tax Cuts? Evidence
+from a Large VAT Reform in France,” American Economic Journal: Economic
+Policy.</strong></p>
+<p>Sachs, D., Tsyvinski, A. and N. Werquin (2020). “Nonlinear tax
+incidence and optimal taxation in general equilibrium,” Econometrica,
+88(2), 469-493.</p>
+<p>Benzarti, Y., Carloni, D., Harju, J. and T. Kosonen (2020). “What
+Goes Up May Not Come Down: Asymmetric Incidence of Value-Added Taxes,”
+Journal of Political Economy, 128:12, pp. 4438-4474.</p>
+<p>(<span class="math inline">\(*\)</span>) <strong>Ganapati, S.,
+Shapiro, J. and R. Walker. (2020). “Energy cost pass-through in US
+manufacturing: Estimates and implications for carbon taxes,” American
+Economic Journal: Applied Economics, 12(2), 303-42.</strong></p>
 </div>
-<div id="week-3.-efficiency-costs-of-taxation" class="section level3">
-<h3>Week 3. Efficiency costs of taxation</h3>
-<p>(<span class="math inline">\(*\)</span>) <strong>Salanié, ch. 2.</strong></p>
-<p>Auerbach, A. (1985). “The Theory of Excess Burden and Optimal Taxation,” Handbook of Pub. Econ., vol. 1, pp. 61-127.</p>
-<p>Auerbach, A. and J. Hines (2002). “Taxation and Economic Efficiency,” Handbook of Pub. Econ., vol. 3, ch. 21.</p>
-<p>Hausman, J. (1981). “Exact Consumers Surplus and Deadweight Loss”, American Economic Review 81, 622-676.</p>
-<p>Hausman, J. and W. Newey (1995). “Nonparametric Estimation of Exact Consumers Surplus and Deadweight Loss,” Econometrica 63, 1445-1476.</p>
-<p>(<span class="math inline">\(*\)</span>) <strong>Goulder, L. and R. Williams (2003). “The Substantial Bias from Ignoring General Equilibrium Effects in Estimating Excess Burden, and a Practical Solution,” Journal of Political Economy 111, 898-927.</strong></p>
-<p>Albouy, D. (2009). “The Unequal Geographic Burden of Federal Taxation,” Journal of Political Economy, vol. 117(4), pages 635-667, 08.</p>
-<p>Bento, A., Goulder, L., Jacobsen, M. and R. von Haefen (2009). “Distributional and Efficiency Impacts of Increased US Gasoline Taxes,” American Economic Review, vol. 99(3), pages 667-99.</p>
-<p>Chetty, R. (2009). “Sufficient Statistics for Welfare Analysis: A Bridge Between Structural and Reduced-Form Methods,” Annual Review of Economics 1: 451-488.</p>
-<p>Gorodnichenko, Y., Martinez-Vazquez, J. and K. Sabirianova Peter (2009). “Myth and reality of flat tax reform: Micro estimates of tax evasion response and welfare effects in Russia,” Journal of Political economy, 117(3), 504-554.</p>
-<p>Heckman, J. (2010). “Building Bridges between Structural and Program Evaluation Approaches to Evaluating Policy,” Journal of Economic Literature, vol. 48(2), pages 356-98.</p>
-<p>Alesina, A., Ichino, A. and L. Karabarbounis (2011). “Gender Based Taxation and the Division of Family Chores,” American Economic Journal: Economic Policy, 1-40.</p>
-<p>Einav, L., Knoepfle, D., Levin, J. and N. Sundaresan (2014). “Sales Taxes and Internet Commerce,” American Economic Review, 1-26.</p>
-<p>(<span class="math inline">\(*\)</span>) <strong>Kleven, H. J. (2021). Sufficient statistics revisited. Annual Review of Economics, 13:515-38.</strong></p>
+<div id="topic-3.-efficiency-costs-of-taxation" class="section level3">
+<h3>Topic 3. Efficiency costs of taxation</h3>
+<p>(<span class="math inline">\(*\)</span>) <strong>Salanié,
+ch. 2.</strong></p>
+<p>Auerbach, A. (1985). “The Theory of Excess Burden and Optimal
+Taxation,” Handbook of Pub. Econ., vol. 1, pp. 61-127.</p>
+<p>Auerbach, A. and J. Hines (2002). “Taxation and Economic Efficiency,”
+Handbook of Pub. Econ., vol. 3, ch. 21.</p>
+<p>Hausman, J. (1981). “Exact Consumers Surplus and Deadweight Loss”,
+American Economic Review 81, 622-676.</p>
+<p>Hausman, J. and W. Newey (1995). “Nonparametric Estimation of Exact
+Consumers Surplus and Deadweight Loss,” Econometrica 63, 1445-1476.</p>
+<p>(<span class="math inline">\(*\)</span>) <strong>Goulder, L. and R.
+Williams (2003). “The Substantial Bias from Ignoring General Equilibrium
+Effects in Estimating Excess Burden, and a Practical Solution,” Journal
+of Political Economy 111, 898-927.</strong></p>
+<p>Albouy, D. (2009). “The Unequal Geographic Burden of Federal
+Taxation,” Journal of Political Economy, vol. 117(4), pages 635-667,
+08.</p>
+<p>Bento, A., Goulder, L., Jacobsen, M. and R. von Haefen (2009).
+“Distributional and Efficiency Impacts of Increased US Gasoline Taxes,”
+American Economic Review, vol. 99(3), pages 667-99.</p>
+<p>Chetty, R. (2009). “Sufficient Statistics for Welfare Analysis: A
+Bridge Between Structural and Reduced-Form Methods,” Annual Review of
+Economics 1: 451-488.</p>
+<p>Gorodnichenko, Y., Martinez-Vazquez, J. and K. Sabirianova Peter
+(2009). “Myth and reality of flat tax reform: Micro estimates of tax
+evasion response and welfare effects in Russia,” Journal of Political
+economy, 117(3), 504-554.</p>
+<p>Heckman, J. (2010). “Building Bridges between Structural and Program
+Evaluation Approaches to Evaluating Policy,” Journal of Economic
+Literature, vol. 48(2), pages 356-98.</p>
+<p>Alesina, A., Ichino, A. and L. Karabarbounis (2011). “Gender Based
+Taxation and the Division of Family Chores,” American Economic Journal:
+Economic Policy, 1-40.</p>
+<p>Einav, L., Knoepfle, D., Levin, J. and N. Sundaresan (2014). “Sales
+Taxes and Internet Commerce,” American Economic Review, 1-26.</p>
+<p>(<span class="math inline">\(*\)</span>) <strong>Kleven, H. J.
+(2021). Sufficient statistics revisited. Annual Review of Economics,
+13:515-38.</strong></p>
 </div>
-<div id="week-4.-labor-income-taxation" class="section level3">
-<h3>Week 4. Labor income taxation</h3>
+<div id="topic-4.-labor-income-taxation" class="section level3">
+<h3>Topic 4. Labor income taxation</h3>
 <p>Salanié, ch. 4.</p>
 <p>Mirrlees review, chs. 2 and 3.</p>
-<p>Stiglitz, J. (1987). “Pareto Efficient and Optimal Taxation and the New New Welfare Economics,” Handbook of Pub. Econ., vol. 2, 991-1041.</p>
-<p>(<span class="math inline">\(*\)</span>) <strong>Piketty, T. and E. Saez (2013). “Optimal Labor Income Taxation,” Handbook of Pub. Econ., vol. 5.</strong></p>
-<p>Akerlof, G. (1978). “The Economics of Tagging as Applied to the Optimal Income Tax”, American Economic Review, 68(1), 8-19.</p>
-<p>R. Burgess and N. Stern (1993). “Taxation and Development,” Journal of Economic Literature, 31(2), 762-830.</p>
-<p>Saez, E. (2001). “Using Elasticities to Derive Optimal Income Tax Rates,” Review of Economics Studies, 68, 205-229.</p>
-<p>Eissa, N., Kleven, H. and C. Kreiner (2008). “Evaluation of Four Tax Reforms in the United States: Labor Supply and Welfare Effects for Single Mothers,” Journal of Public Economics 92, 795-816.</p>
-<p>Beaudry, P., Blackorby, C. and D. Szalay (2009). “Taxes and Employment Subsidies in Optimal Redistribution Programs,” American Economic Review 99, 216-242.</p>
-<p>(<span class="math inline">\(*\)</span>) <strong>Chetty, R. (2009). “Is the Taxable Income Elasticity Sufficient to Calculate Deadweight Loss? The Implications of Evasion and Avoidance,” American Economic Journal: Economic Policy: 1(2): 31–52.</strong></p>
-<p>Kleven, H., Kreiner, C. and E. Saez (2009). “The Optimal Income Taxation of Couples,” Econometrica, 77, pp. 537–560.</p>
-<p>Chetty, R., Friedman, J., Olsen, T. and L. Pistaferri (2011). “Adjustment Costs, Firm Responses, and Micro vs. Macro Labor Supply Elasticities: Evidence from Danish Tax Records,” Quarterly Journal of Economics 126, 749-804.</p>
-<p>Keane, M. (2011). “Labor Supply and Taxes: A Survey,” Journal of Economic Literature, 49 , 961-1075.</p>
-<p>Chetty, R. (2012). “Bounds on Elasticities with Optimization Frictions: A Synthesis of Micro and Macro Evidence on Labor Supply,” Econometrica 80, 969-1018.</p>
-<p>Rothschild, C. and F. Scheuer (2013). “Redistributive taxation in the Roy model,” The Quarterly Journal of Economics, 128(2), 623-668.</p>
-<p>Kleven, H., Landais, C., Saez, E. and E. Schultz (2014). “Migration and Wage Effects of Taxing Top Earners: Evidence from the Foreigners’ Tax Scheme in Denmark,” Quarterly Journal of Economics 129, 333-378.</p>
-<p>(<span class="math inline">\(*\)</span>) <strong>Piketty, T., Saez, E., and S. Stantcheva (2014). “Optimal Taxation of Top Labor Incomes: A Tale of Three Elasticities,” American Economic Journal: Economic Policy, 6(1), 230-71.</strong></p>
-<p>Stantcheva, S. (2014). “Optimal income taxation with adverse selection in the labour market,” Review of Economic Studies, 81(3), 1296-1329.</p>
-<p>Gelber, A. (2014). “Taxation and Earnings of Husbands and Wives: Evidence from Sweden,” Review of Economics and Statistics 96, 287-305.</p>
-<p>Romer, C. and D. Romer (2014). “The Incentive Effects of Marginal Tax Rates: Evidence from the Interwar Era,” American Economic Journal: Economic Policy, 6, Number 3, 242-281.</p>
-<p>(<span class="math inline">\(*\)</span>) <strong>Akcigit, U., Baslandze, S., and S. Stantcheva (2016). “Taxation and the international mobility of inventors,” American Economic Review, 106(10), 2930-81.</strong></p>
-<p>Ales, L. and C. Sleet (2016). “Taxing top CEO incomes,” American Economic Review, 106(11), 3331-66.</p>
-<p>Rothschild, C. and F. Scheuer (2016). “Optimal taxation with rent-seeking,” The Review of Economic Studies, 83(3), 1225-1262.</p>
-<p>Saez, E. and S. Stantcheva (2016). “Generalized social marginal welfare weights for optimal tax theory,” American Economic Review, 106(1), 24-45.</p>
-<p>Scheuer, F. and I. Werning (2017). “The taxation of superstars,” The Quarterly Journal of Economics, 132(1), 211-270.</p>
-<p>Mertens, K. and J. Olea (2018). “Marginal Tax Rates and Income: New Time Series Evidence,” Quarterly Journal of Economics 133,1803-1884.</p>
-<p>Agrawal, D. and D. Foremny (2019). “Relocation of the rich: Migration in response to top tax rate changes from Spanish reforms,” Review of Economics and Statistics, 101(2), 214-232.</p>
-<p>Bell, A., Chetty, R., Jaravel, X., Petkova, N. and J. Van Reenen (2019). “Do tax cuts produce more Einsteins? The impacts of financial incentives versus exposure to innovation on the supply of inventors,” Journal of the European Economic Association.</p>
-<p>Tortarolo, D., Guillermo, C. and V. Castillo (2019). “It takes two to tango: labor responses to an income tax holiday in Argentina,” UC Berkeley working paper.</p>
-<p>Kleven, H., Landais, C., Muñoz, M. and S. Stantcheva (2020). “Taxation and migration: evidence and policy implications,” Journal of Economic Perspectives, 34 (2). pp. 119-142.</p>
-<p>Rauh, J. and R. Shyu (2020). “Behavioral responses to state income taxation of high earners: evidence from California,” National Bureau of Economic Research No. w26349.</p>
-<p>Tazhitdinova, A. (2020). “Increasing Hours Worked: Moonlighting Responses to a Large Tax Reform,” NBER Working Paper No. 27726</p>
-<p>Stantcheva, S. (2020). “Dynamic taxation,” Annual Review of Economics, 12, 801-831.</p>
-<p>Akcigit, U., Grigsby, J., Nicholas, T., &amp; Stantcheva, S. (2022). “Taxation and Innovation in the Twentieth Century,” The Quarterly Journal of Economics, 137(1), 329-385.</p>
+<p>Stiglitz, J. (1987). “Pareto Efficient and Optimal Taxation and the
+New New Welfare Economics,” Handbook of Pub. Econ., vol. 2,
+991-1041.</p>
+<p>(<span class="math inline">\(*\)</span>) <strong>Piketty, T. and E.
+Saez (2013). “Optimal Labor Income Taxation,” Handbook of Pub. Econ.,
+vol. 5.</strong></p>
+<p>Akerlof, G. (1978). “The Economics of Tagging as Applied to the
+Optimal Income Tax”, American Economic Review, 68(1), 8-19.</p>
+<p>R. Burgess and N. Stern (1993). “Taxation and Development,” Journal
+of Economic Literature, 31(2), 762-830.</p>
+<p>Feldstein, M. (1999). “Tax Avoidance and the Deadweight Loss of the
+Income Tax,” Review of Economics and Statistics, 81(4), 674-680.</p>
+<p>Saez, E. (2001). “Using Elasticities to Derive Optimal Income Tax
+Rates,” Review of Economics Studies, 68, 205-229.</p>
+<p>Gruber, J. and E. Saez (2002). “The elasticity of taxable income:
+evidence and implications,” Journal of Public Economics, 84(1),
+1-32.</p>
+<p>Eissa, N., Kleven, H. and C. Kreiner (2008). “Evaluation of Four Tax
+Reforms in the United States: Labor Supply and Welfare Effects for
+Single Mothers,” Journal of Public Economics 92, 795-816.</p>
+<p>Beaudry, P., Blackorby, C. and D. Szalay (2009). “Taxes and
+Employment Subsidies in Optimal Redistribution Programs,” American
+Economic Review 99, 216-242.</p>
+<p>(<span class="math inline">\(*\)</span>) <strong>Chetty, R. (2009).
+“Is the Taxable Income Elasticity Sufficient to Calculate Deadweight
+Loss? The Implications of Evasion and Avoidance,” American Economic
+Journal: Economic Policy: 1(2): 31–52.</strong></p>
+<p>Kleven, H., Kreiner, C. and E. Saez (2009). “The Optimal Income
+Taxation of Couples,” Econometrica, 77, pp. 537–560.</p>
+<p>Saez, E. (2010). “Do Tax Filers Bunch at Kink Points?,” American
+Economic Journal: Economic Policy 2, 180-212.</p>
+<p>(<span class="math inline">\(*\)</span>) <strong>Chetty, R.,
+Friedman, J. N., Olsen, T., and L. Pistaferri (2011). “Adjustment costs,
+firm responses, and micro vs. macro labor supply elasticities: Evidence
+from Danish tax records,” The Quarterly Journal of Economics, 126(2),
+749-804.</strong></p>
+<p>Keane, M. (2011). “Labor Supply and Taxes: A Survey,” Journal of
+Economic Literature, 49 , 961-1075.</p>
+<p>Chetty, R. (2012). “Bounds on Elasticities with Optimization
+Frictions: A Synthesis of Micro and Macro Evidence on Labor Supply,”
+Econometrica 80, 969-1018.</p>
+<p>Saez, E., Slemrod, J. and S. Giertz (2012). “The Elasticity of
+Taxable Income with Respect to Marginal Tax Rates: A Critical Review,”
+Journal of Economic Literature 50, 3-50.</p>
+<p>(<span class="math inline">\(*\)</span>) <strong>Kleven, H. and M.
+Waseem (2013). “Using notches to uncover optimization frictions and
+structural elasticities: Theory and evidence from Pakistan,” The
+Quarterly Journal of Economics, 128(2), 669-723.</strong></p>
+<p>Rothschild, C. and F. Scheuer (2013). “Redistributive taxation in the
+Roy model,” The Quarterly Journal of Economics, 128(2), 623-668.</p>
+<p>Bastani, S. and H. Selin (2014). “Bunching and Non-Bunching at Kink
+Points of the Swedish Tax Schedule,” Journal of Public Economics 109,
+36-49.</p>
+<p>Kleven, H., Landais, C., Saez, E. and E. Schultz (2014). “Migration
+and Wage Effects of Taxing Top Earners: Evidence from the Foreigners’
+Tax Scheme in Denmark,” Quarterly Journal of Economics 129, 333-378.</p>
+<p>(<span class="math inline">\(*\)</span>) <strong>Piketty, T., Saez,
+E., and S. Stantcheva (2014). “Optimal Taxation of Top Labor Incomes: A
+Tale of Three Elasticities,” American Economic Journal: Economic Policy,
+6(1), 230-71.</strong></p>
+<p>Stantcheva, S. (2014). “Optimal income taxation with adverse
+selection in the labour market,” Review of Economic Studies, 81(3),
+1296-1329.</p>
+<p>Gelber, A. (2014). “Taxation and Earnings of Husbands and Wives:
+Evidence from Sweden,” Review of Economics and Statistics 96,
+287-305.</p>
+<p>Romer, C. and D. Romer (2014). “The Incentive Effects of Marginal Tax
+Rates: Evidence from the Interwar Era,” American Economic Journal:
+Economic Policy, 6, Number 3, 242-281.</p>
+<p>(<span class="math inline">\(*\)</span>) <strong>Akcigit, U.,
+Baslandze, S., and S. Stantcheva (2016). “Taxation and the international
+mobility of inventors,” American Economic Review, 106(10),
+2930-81.</strong></p>
+<p>Ales, L. and C. Sleet (2016). “Taxing top CEO incomes,” American
+Economic Review, 106(11), 3331-66.</p>
+<p>Kleven, H. (2016). “Bunching,” Annual Review of Economics 8,
+435-464.</p>
+<p>Rothschild, C. and F. Scheuer (2016). “Optimal taxation with
+rent-seeking,” The Review of Economic Studies, 83(3), 1225-1262.</p>
+<p>Saez, E. and S. Stantcheva (2016). “Generalized social marginal
+welfare weights for optimal tax theory,” American Economic Review,
+106(1), 24-45.</p>
+<p>Scheuer, F. and I. Werning (2017). “The taxation of superstars,” The
+Quarterly Journal of Economics, 132(1), 211-270.</p>
+<p>Mertens, K. and J. Olea (2018). “Marginal Tax Rates and Income: New
+Time Series Evidence,” Quarterly Journal of Economics 133,1803-1884.</p>
+<p>Agrawal, D. and D. Foremny (2019). “Relocation of the rich: Migration
+in response to top tax rate changes from Spanish reforms,” Review of
+Economics and Statistics, 101(2), 214-232.</p>
+<p>Bell, A., Chetty, R., Jaravel, X., Petkova, N. and J. Van Reenen
+(2019). “Do tax cuts produce more Einsteins? The impacts of financial
+incentives versus exposure to innovation on the supply of inventors,”
+Journal of the European Economic Association.</p>
+<p>Tortarolo, D., Guillermo, C. and V. Castillo (2019). “It takes two to
+tango: labor responses to an income tax holiday in Argentina,” UC
+Berkeley working paper.</p>
+<p>Farhi, E. and X. Gabaix (2020). “Optimal taxation with behavioral
+agents,” American Economic Review, 110(1), 298-336.</p>
+<p>Gelber, A. M., Jones, D., &amp; Sacks, D. W. (2020). “Estimating
+adjustment frictions using nonlinear budget sets: Method and evidence
+from the earnings test,” American Economic Journal: Applied Economics,
+12(1), 1-31.</p>
+<p>Kleven, H., Landais, C., Muñoz, M. and S. Stantcheva (2020).
+“Taxation and migration: evidence and policy implications,” Journal of
+Economic Perspectives, 34 (2). pp. 119-142.</p>
+<p>Mortenson, J. and A. Whitten (2020). “Bunching to Maximize Tax
+Credits: Evidence from Kinks in the US Tax Schedule,” American Economic
+Journal: Economic Policy, 12 (3): 402-32.</p>
+<p>Rauh, J. and R. Shyu (2020). “Behavioral responses to state income
+taxation of high earners: evidence from California,” National Bureau of
+Economic Research No. w26349.</p>
+<p>Stantcheva, S. (2020). “Dynamic taxation,” Annual Review of
+Economics, 12, 801-831.</p>
+<p>Blomquist, S., Newey, W. K., Kumar, A., &amp; Liang, C. Y. (2021). On
+bunching and identification of the taxable income elasticity. Journal of
+Political Economy, 129(8).</p>
+<p>Akcigit, U., Grigsby, J., Nicholas, T., &amp; Stantcheva, S. (2022).
+“Taxation and Innovation in the Twentieth Century,” The Quarterly
+Journal of Economics, 137(1), 329-385.</p>
+<p>Tazhitdinova, A. (2022). “Increasing Hours Worked: Moonlighting
+Responses to a Large Tax Reform,” AEJ: Economic Policy 14(1):
+473-500.</p>
 </div>
-<div id="week-5.-consumption-taxation" class="section level3">
-<h3>Week 5. Consumption taxation</h3>
-<p>(<span class="math inline">\(*\)</span>) <strong>Salanié, chs. 3 and 5.</strong></p>
+<div id="topic-5.-consumption-taxation" class="section level3">
+<h3>Topic 5. Consumption taxation</h3>
+<p>(<span class="math inline">\(*\)</span>) <strong>Salanié, chs. 3 and
+5.</strong></p>
 <p>Mirrlees review, ch. 4.</p>
-<p>Gordon, R. and S. Nielsen (1997). “Tax evasion in an open economy:: Value-added vs. income taxation,” Journal of Public Economics, 66(2), 173-197.</p>
-<p>Gruber, J. and B. Köszegi (2001). “Is addiction ‘rational’? Theory and evidence,” The Quarterly Journal of Economics, 116(4), 1261-1303.</p>
-<p>O’Donoghue, T. and M. Rabin (2006). “Optimal Sin Taxes,” Journal of Public Economics 90: 1825-1849.</p>
-<p>Carbonnier, C. (2007). “Who pays sales taxes? Evidence from French VAT reforms, 1987–1999,” Journal of Public Economics, 91(5-6), 1219-1229.</p>
-<p>Boadway, R. and M. Sato (2009). “Optimal Tax Design and Enforcement with an Informal Sector.” American Economic Journal: Economic Policy, 1(1): 1–27.</p>
-<p>De Paula, A. and J. Scheinkman (2010). “Value-added taxes, chain effects, and informality,” American Economic Journal: Macroeconomics, 2(4), 195-221.</p>
-<p>Keen, M. and B. Lockwood (2010). “The value added tax: Its causes and consequences,” Journal of Development Economics, 92(2), 138-151.</p>
-<p>Besley, T., Meads, N. and P. Surico (2014). “The Incidence of Transactions Taxes: Evidence from a Stamp Duty Holiday,” Journal of Public Economics 119, 61-70.</p>
-<p>Keen, M. and J. Slemrod (2017). “Optimal Tax Administration,” Journal of Public Economics 152, 133-142.</p>
-<p>Slemrod, J., Collins, B., Hoopes, J. L., Reck, D., &amp; Sebastiani, M. (2017). “Does credit-card information reporting improve small-business tax compliance?,” Journal of Public Economics, 149, 1-19.</p>
-<p>(<span class="math inline">\(*\)</span>) <strong>Alcott, H., Lockwood, B. and D. Taubinsky (2019). “Regressive Sin Taxes with an Application to the Optimal Soda Tax,” Quarterly Journal of Economics 134, 1557-1626.</strong></p>
-<p>Gadenne, L., Nandi, T. K., &amp; Rathelot, R. (2019). “Taxation and Supplier Networks: Evidence from India,” Working Paper No. W19/21, Institute for Fiscal Studies.</p>
-<p>(<span class="math inline">\(*\)</span>) <strong>Naritomi, J. (2019). “Consumers as Tax Auditors,” American Economic Review 109, 3031-3072.</strong></p>
-<p>Slemrod, J. (2019). “Tax compliance and enforcement,” Journal of Economic Literature, 57(4), 904-54.</p>
-<p>Bachas, P. J., Gadenne, L. and A. Jensen (2020). “Informality, Consumption Taxes and Redistribution,” World Bank Policy Research Working Paper n. 9267.</p>
-</div>
-<div id="week-6.-topics-behavioral-public-finance-and-bunching" class="section level3">
-<h3>Week 6. Topics: behavioral public finance and bunching</h3>
-<p>Feldstein, M. (1999). “Tax Avoidance and the Deadweight Loss of the Income Tax,” Review of Economics and Statistics, 81(4), 674-680.</p>
-<p>Gruber, J. and E. Saez (2002). “The elasticity of taxable income: evidence and implications,” Journal of Public Economics, 84(1), 1-32.</p>
-<p>(<span class="math inline">\(*\)</span>) <strong>Chetty, R., Looney, A. and K. Kroft (2009). “Salience and Taxation: Theory and Evidence,” American Economic Review 99, 1145-1177.</strong></p>
-<p>Saez, E. (2010). “Do Tax Filers Bunch at Kink Points?,” American Economic Journal: Economic Policy 2, 180-212.</p>
-<p>(<span class="math inline">\(*\)</span>) <strong>Chetty, R., Friedman, J. N., Olsen, T., and L. Pistaferri (2011). “Adjustment costs, firm responses, and micro vs. macro labor supply elasticities: Evidence from Danish tax records,” The Quarterly Journal of Economics, 126(2), 749-804.</strong></p>
-<p>Saez, E., Slemrod, J. and S. Giertz (2012). “The Elasticity of Taxable Income with Respect to Marginal Tax Rates: A Critical Review,” Journal of Economic Literature 50, 3-50.</p>
-<p>Chetty, R. , Friedman, J. and E. Saez (2013). “Using Differences in Knowledge Across Neighborhoods to Uncover the Impacts of the EITC on Earnings,” American Economic Review 103, 2683-2721.</p>
-<p>Chetty, R. and E. Saez (2013). “Teaching the Tax Code: Earnings Responses to an Experiment with EITC Recipients,” American Economic Journal: Applied Economics 5, 1-31.</p>
-<p>Kleven, H. and M. Waseem (2013). “Using notches to uncover optimization frictions and structural elasticities: Theory and evidence from Pakistan,” The Quarterly Journal of Economics, 128(2), 669-723.</p>
-<p>Bastani, S. and H. Selin (2014). “Bunching and Non-Bunching at Kink Points of the Swedish Tax Schedule,” Journal of Public Economics 109, 36-49.</p>
-<p>Kleven, H. (2016). “Bunching,” Annual Review of Economics 8, 435-464.</p>
-<p>Best, M. and H. Kleven (2018). “Housing market responses to transaction taxes: Evidence from notches and stimulus in the UK,” The Review of Economic Studies, 85(1), 157-193.</p>
-<p>Liu, L., Lockwood, B., Almunia, M. and E. Tam (2019). “VAT notches, voluntary registration, and bunching: Theory and UK evidence,” Review of Economics and Statistics, 1-45.</p>
-<p>Best, M., Cloyne, J., Ilzetzki, E. and H. Kleven (2020). “Estimating the elasticity of intertemporal substitution using mortgage notches,” The Review of Economic Studies, 87(2), 656-690.</p>
-<p>Kroft, K., Laliberté, J., Vizcaíno, R. and M. Notowidigdo (2020). “Salience and Taxation with Imperfect Competition,” National Bureau of Economic Research No. w27409.</p>
-<p>Farhi, E. and X. Gabaix (2020). “Optimal taxation with behavioral agents,” American Economic Review, 110(1), 298-336.</p>
-<p>Bradley, S. and N. Feldman (2020). “Hidden Baggage: Behavioral Responses to Changes in Airline Ticket Tax Disclosure,” American Economic Journal: Economic Policy, 12 (4): 58-87.</p>
-<p>Mortenson, J. and A. Whitten (2020). “Bunching to Maximize Tax Credits: Evidence from Kinks in the US Tax Schedule,” American Economic Journal: Economic Policy, 12 (3): 402-32.</p>
-<p>Gelber, A. M., Jones, D., &amp; Sacks, D. W. (2020). “Estimating adjustment frictions using nonlinear budget sets: Method and evidence from the earnings test,” American Economic Journal: Applied Economics, 12(1), 1-31.</p>
-<p>Blomquist, S., Newey, W. K., Kumar, A., &amp; Liang, C. Y. (2021). On bunching and identification of the taxable income elasticity. Journal of Political Economy, 129(8).</p>
+<p>Gordon, R. and S. Nielsen (1997). “Tax evasion in an open economy::
+Value-added vs. income taxation,” Journal of Public Economics, 66(2),
+173-197.</p>
+<p>Gruber, J. and B. Köszegi (2001). “Is addiction ‘rational’? Theory
+and evidence,” The Quarterly Journal of Economics, 116(4),
+1261-1303.</p>
+<p>O’Donoghue, T. and M. Rabin (2006). “Optimal Sin Taxes,” Journal of
+Public Economics 90: 1825-1849.</p>
+<p>Carbonnier, C. (2007). “Who pays sales taxes? Evidence from French
+VAT reforms, 1987–1999,” Journal of Public Economics, 91(5-6),
+1219-1229.</p>
+<p>Boadway, R. and M. Sato (2009). “Optimal Tax Design and Enforcement
+with an Informal Sector.” American Economic Journal: Economic Policy,
+1(1): 1–27.</p>
+<p>(<span class="math inline">\(*\)</span>) <strong>Chetty, R., Looney,
+A. and K. Kroft (2009). “Salience and Taxation: Theory and Evidence,”
+American Economic Review 99, 1145-1177.</strong></p>
+<p>De Paula, A. and J. Scheinkman (2010). “Value-added taxes, chain
+effects, and informality,” American Economic Journal: Macroeconomics,
+2(4), 195-221.</p>
+<p>Keen, M. and B. Lockwood (2010). “The value added tax: Its causes and
+consequences,” Journal of Development Economics, 92(2), 138-151.</p>
+<p>Besley, T., Meads, N. and P. Surico (2014). “The Incidence of
+Transactions Taxes: Evidence from a Stamp Duty Holiday,” Journal of
+Public Economics 119, 61-70.</p>
+<p>Keen, M. and J. Slemrod (2017). “Optimal Tax Administration,” Journal
+of Public Economics 152, 133-142.</p>
+<p>Slemrod, J., Collins, B., Hoopes, J. L., Reck, D., &amp; Sebastiani,
+M. (2017). “Does credit-card information reporting improve
+small-business tax compliance?,” Journal of Public Economics, 149,
+1-19.</p>
+<p>Best, M. and H. Kleven (2018). “Housing market responses to
+transaction taxes: Evidence from notches and stimulus in the UK,” The
+Review of Economic Studies, 85(1), 157-193.</p>
+<p>(<span class="math inline">\(*\)</span>) <strong>Alcott, H.,
+Lockwood, B. and D. Taubinsky (2019). “Regressive Sin Taxes with an
+Application to the Optimal Soda Tax,” Quarterly Journal of Economics
+134, 1557-1626.</strong></p>
+<p>Liu, L., Lockwood, B., Almunia, M. and E. Tam (2019). “VAT notches,
+voluntary registration, and bunching: Theory and UK evidence,” Review of
+Economics and Statistics, 1-45.</p>
+<p>Gadenne, L., Nandi, T. K., &amp; Rathelot, R. (2019). “Taxation and
+Supplier Networks: Evidence from India,” Working Paper No. W19/21,
+Institute for Fiscal Studies.</p>
+<p>(<span class="math inline">\(*\)</span>) <strong>Naritomi, J. (2019).
+“Consumers as Tax Auditors,” American Economic Review 109,
+3031-3072.</strong></p>
+<p>Slemrod, J. (2019). “Tax compliance and enforcement,” Journal of
+Economic Literature, 57(4), 904-54.</p>
+<p>Bachas, P. J., Gadenne, L. and A. Jensen (2020). “Informality,
+Consumption Taxes and Redistribution,” World Bank Policy Research
+Working Paper n. 9267.</p>
+<p>Bradley, S. and N. Feldman (2020). “Hidden Baggage: Behavioral
+Responses to Changes in Airline Ticket Tax Disclosure,” American
+Economic Journal: Economic Policy, 12 (4): 58-87.</p>
+<p>Kroft, K., Laliberté, J., Vizcaíno, R. and M. Notowidigdo (2020).
+“Salience and Taxation with Imperfect Competition,” National Bureau of
+Economic Research No. w27409.</p>
 <hr />
 </div>
-<div id="week-7.-capital-taxation" class="section level3">
-<h3>Week 7. Capital taxation</h3>
-<p>Sandmo, A. (1985) “The Effects of Taxation on Savings and Risk-Taking”, Handbook of Pub. Econ. vol. 1, ch. 5.</p>
-<p>Kopczuk, W. (2013). “Taxation of Intergenerational Transfers and Wealth,” Handbook of Pub. Econ., vol. 5.</p>
-<p>(<span class="math inline">\(*\)</span>) <strong>Kopczuk, W. (2007). “Bequest and tax planning: Evidence from estate tax returns,” The Quarterly Journal of Economics, 122(4), 1801-1854.</strong></p>
-<p>Kopczuk, W., &amp; Lupton, J. P. (2007). “To leave or not to leave: The distribution of bequest motives,” The Review of Economic Studies, 74(1), 207-235.</p>
-<p>De Nardi, M., French, E., &amp; Jones, J. B. (2010). Why do the elderly save? The role of medical expenses. Journal of political economy, 118(1), 39-75.</p>
-<p>Farhi, E., &amp; Werning, I. (2010). “Progressive estate taxation,” The Quarterly Journal of Economics, 125(2), 635-673.</p>
-<p>Piketty, T. (2011). “On the long-run evolution of inheritance: France 1820–2050,” The Quarterly Journal of Economics, 126(3), 1071-1131.</p>
-<p>Scheve, K., &amp; Stasavage, D. (2012). “Democracy, war, and wealth: lessons from two centuries of inheritance taxation,” American Political Science Review, 106(1), 81-102.</p>
-<p>(<span class="math inline">\(*\)</span>) <strong>Piketty, T., &amp; Saez, E. (2013). “A theory of optimal inheritance taxation,” Econometrica, 81(5), 1851-1886.</strong></p>
-<p>Zucman, G. (2013). “The missing wealth of nations: Are Europe and the US net debtors or net creditors?,” The Quarterly Journal of Economics, 128(3), 1321-1364.</p>
-<p>(<span class="math inline">\(*\)</span>) <strong>Chetty, R., Friedman, J. N., Leth-Petersen, S., Nielsen, T. H., &amp; Olsen, T. (2014). “Active vs. passive decisions and crowd-out in retirement savings accounts: Evidence from Denmark,” The Quarterly Journal of Economics, 129(3), 1141-1219.</strong></p>
-<p>Piketty, T., &amp; Zucman, G. (2014). “Capital is back: Wealth-income ratios in rich countries 1700–2010,” The Quarterly Journal of Economics, 129(3), 1255-1310.</p>
-<p>Saez, E., &amp; Zucman, G. (2016). “Wealth inequality in the United States since 1913: Evidence from capitalized income tax data,” The Quarterly Journal of Economics, 131(2), 519-578.</p>
-<p>Scheuer, F., &amp; Wolitzky, A. (2016). “Capital taxation under political constraints,” American Economic Review, 106(8), 2304-28.</p>
-<p>Seim, D. (2017). “Behavioral responses to wealth taxes: Evidence from Sweden,” American Economic Journal: Economic Policy, 9(4), 395-421.</p>
-<p>Lockwood, L. M. (2018). “Incidental bequests and the choice to self-insure late-life risks,” American Economic Review, 108(9), 2513-50.</p>
-<p>Saez, E., &amp; Stantcheva, S. (2018). “A simpler theory of optimal capital taxation,” Journal of Public Economics, 162, 120-142.</p>
-<p>Fagereng, A., Guiso, L., Malacrino, D., &amp; Pistaferri, L. (2020). “Heterogeneity and persistence in returns to wealth,” Econometrica, 88(1), 115-170.</p>
-<p>(<span class="math inline">\(*\)</span>) <strong>Jakobsen, K., Jakobsen, K., Kleven, H., &amp; Zucman, G. (2020). “Wealth taxation and wealth accumulation: Theory and evidence from Denmark,” The Quarterly Journal of Economics, 135(1), 329-388.</strong></p>
-<p>Kindermann, F., Mayr, L., &amp; Sachs, D. (2020). “Inheritance taxation and wealth effects on the labor supply of heirs,” Journal of Public Economics, 191, 104127.</p>
-<p>Agersnap, O., &amp; Zidar, O. (2021). “The tax elasticity of capital gains and revenue-maximizing rates,” American Economic Review: Insights, 3(4), 399-416.</p>
-<p>Boissel, C., &amp; Matray, A. (2021). “Higher dividend taxes, no problem! evidence from taxing entrepreneurs in france,” working paper.</p>
+<div id="topic-6.-capital-taxation" class="section level3">
+<h3>Topic 6. Capital taxation</h3>
+<p>Sandmo, A. (1985) “The Effects of Taxation on Savings and
+Risk-Taking”, Handbook of Pub. Econ. vol. 1, ch. 5.</p>
+<p>Kopczuk, W. (2013). “Taxation of Intergenerational Transfers and
+Wealth,” Handbook of Pub. Econ., vol. 5., ch. 6.</p>
+<p>Mirrlees review, chs. 8 and 10.</p>
+<p>(<span class="math inline">\(*\)</span>) <strong>Kopczuk, W. (2007).
+“Bequest and tax planning: Evidence from estate tax returns,” The
+Quarterly Journal of Economics, 122(4), 1801-1854.</strong></p>
+<p>Kopczuk, W., &amp; Lupton, J. P. (2007). “To leave or not to leave:
+The distribution of bequest motives,” The Review of Economic Studies,
+74(1), 207-235.</p>
+<p>De Nardi, M., French, E., &amp; Jones, J. B. (2010). Why do the
+elderly save? The role of medical expenses. Journal of political
+economy, 118(1), 39-75.</p>
+<p>Farhi, E., &amp; Werning, I. (2010). “Progressive estate taxation,”
+The Quarterly Journal of Economics, 125(2), 635-673.</p>
+<p>Piketty, T. (2011). “On the long-run evolution of inheritance: France
+1820–2050,” The Quarterly Journal of Economics, 126(3), 1071-1131.</p>
+<p>Scheve, K., &amp; Stasavage, D. (2012). “Democracy, war, and wealth:
+lessons from two centuries of inheritance taxation,” American Political
+Science Review, 106(1), 81-102.</p>
+<p>(<span class="math inline">\(*\)</span>) <strong>Piketty, T., &amp;
+Saez, E. (2013). “A theory of optimal inheritance taxation,”
+Econometrica, 81(5), 1851-1886.</strong></p>
+<p>Zucman, G. (2013). “The missing wealth of nations: Are Europe and the
+US net debtors or net creditors?,” The Quarterly Journal of Economics,
+128(3), 1321-1364.</p>
+<p>(<span class="math inline">\(*\)</span>) <strong>Chetty, R.,
+Friedman, J. N., Leth-Petersen, S., Nielsen, T. H., &amp; Olsen, T.
+(2014). “Active vs. passive decisions and crowd-out in retirement
+savings accounts: Evidence from Denmark,” The Quarterly Journal of
+Economics, 129(3), 1141-1219.</strong></p>
+<p>Piketty, T., &amp; Zucman, G. (2014). “Capital is back: Wealth-income
+ratios in rich countries 1700–2010,” The Quarterly Journal of Economics,
+129(3), 1255-1310.</p>
+<p>Kopczuk, W., &amp; Munroe, D. (2015). “Mansion tax: The effect of
+transfer taxes on the residential real estate market,” American economic
+Journal: economic policy, 7(2), 214-57.</p>
+<p>Saez, E., &amp; Zucman, G. (2016). “Wealth inequality in the United
+States since 1913: Evidence from capitalized income tax data,” The
+Quarterly Journal of Economics, 131(2), 519-578.</p>
+<p>Scheuer, F., &amp; Wolitzky, A. (2016). “Capital taxation under
+political constraints,” American Economic Review, 106(8), 2304-28.</p>
+<p>Alvaredo, F., Garbinti, B., &amp; Piketty, T. (2017). “On the share
+of inheritance in aggregate wealth: Europe and the USA, 1900–2010,”
+Economica, 84(334), 239-260.</p>
+<p>Seim, D. (2017). “Behavioral responses to wealth taxes: Evidence from
+Sweden,” American Economic Journal: Economic Policy, 9(4), 395-421.</p>
+<p>Goupille-Lebret, J., &amp; Infante, J. (2018). “Behavioral responses
+to inheritance tax: Evidence from notches in France,” Journal of Public
+Economics, 168, 21-34.</p>
+<p>Lockwood, L. M. (2018). “Incidental bequests and the choice to
+self-insure late-life risks,” American Economic Review, 108(9),
+2513-50.</p>
+<p>Saez, E., &amp; Stantcheva, S. (2018). “A simpler theory of optimal
+capital taxation,” Journal of Public Economics, 162, 120-142.</p>
+<p>Best, M., Cloyne, J., Ilzetzki, E. and H. Kleven (2020). “Estimating
+the elasticity of intertemporal substitution using mortgage notches,”
+The Review of Economic Studies, 87(2), 656-690.</p>
+<p>Fagereng, A., Guiso, L., Malacrino, D., &amp; Pistaferri, L. (2020).
+“Heterogeneity and persistence in returns to wealth,” Econometrica,
+88(1), 115-170.</p>
+<p>(<span class="math inline">\(*\)</span>) <strong>Jakobsen, K.,
+Jakobsen, K., Kleven, H., &amp; Zucman, G. (2020). “Wealth taxation and
+wealth accumulation: Theory and evidence from Denmark,” The Quarterly
+Journal of Economics, 135(1), 329-388.</strong></p>
+<p>Kindermann, F., Mayr, L., &amp; Sachs, D. (2020). “Inheritance
+taxation and wealth effects on the labor supply of heirs,” Journal of
+Public Economics, 191, 104127.</p>
+<p>Agersnap, O., &amp; Zidar, O. (2021). “The tax elasticity of capital
+gains and revenue-maximizing rates,” American Economic Review: Insights,
+3(4), 399-416.</p>
+<p>Boissel, C., &amp; Matray, A. (2021). “Higher dividend taxes, no
+problem! evidence from taxing entrepreneurs in france,” working
+paper.</p>
 </div>
-<div id="week-8.-corporate-taxation" class="section level3">
-<h3>Week 8. Corporate taxation</h3>
-<p>Auerbach, A. J., &amp; Hassett, K. A. (2003). “On the marginal source of investment funds,” Journal of Public Economics, 87(1), 205-232.</p>
-<p>Chetty, R., &amp; Saez, E. (2005). “Dividend taxes and corporate behavior: Evidence from the 2003 dividend tax cut,” The Quarterly Journal of Economics, 120(3), 791-833.</p>
-<p>(<span class="math inline">\(*\)</span>) <strong>Monteiro, J. C., &amp; Assunção, J. J. (2012). “Coming out of the shadows? Estimating the impact of bureaucracy simplification and tax cut on formality in Brazilian microenterprises,” Journal of Development Economics, 99(1), 105-115.</strong></p>
-<p>Keen, M. and K. Konrad (2013). “The Theory of International Tax Competition and Coordination,” Handbook of Pub. Econ., vol. 5.</p>
-<p>(<span class="math inline">\(*\)</span>) <strong>Saez, E., M. Matsaganis, and P. Tsakloglou (2012). “Earnings Determination and Taxes: Evidence From a Cohort-Based Payroll Tax Reform in Greece,” Quarterly Journal of Economics, 493-533.</strong></p>
-<p>Devereux, M. P., Liu, L., &amp; Loretz, S. (2014). “The elasticity of corporate taxable income: New evidence from UK tax records,” American Economic Journal: Economic Policy, 6(2), 19-53.</p>
-<p>Best, M., Brockmeyer, A., Kleven, H., Spinnewijn, J. and M. Waseem (2015). “Production versus revenue efficiency with limited tax capacity: theory and evidence from Pakistan,” Journal of Political Economy, 123(6), 1311-1355.</p>
-<p>(<span class="math inline">\(*\)</span>) <strong>Yagan, D. (2015). “Capital tax reform and the real economy: The effects of the 2003 dividend tax cut,” American Economic Review, 105(12), 3531-63.</strong></p>
-<p>(<span class="math inline">\(*\)</span>) <strong>Serrato, J. and O. Zidar (2016). “Who Benefits from State Corporate Tax Cuts? A Local Labor Markets Approach with Heterogeneous Firms,” American Economic Review 106, 2582-2624.</strong></p>
-<p><strong>See also:</strong> Malgouyres, C., Mayer, T., &amp; Mazet-Sonilhac, C. (2022). “Who Benefits from State Corporate Tax Cuts? A Local Labor Markets Approach with Heterogeneous Firms: Comment,” American Economic Review, forthcoming.</p>
-<p>Alstadsæter, A., Jacob, M., &amp; Michaely, R. (2017). “Do dividend taxes affect corporate investment?,” Journal of Public Economics, 151, 74-83.</p>
-<p>Fuest, C., Peichl, A., &amp; Siegloch, S. (2018). “Do higher corporate taxes reduce wages? Micro evidence from Germany,” American Economic Review, 108(2), 393-418.</p>
-<p>Ohrn, E. (2018). “The effect of corporate taxation on investment and financial policy: Evidence from the DPAD,” American Economic Journal: Economic Policy, 10(2), 272-301.</p>
-<p>Giroud, X., &amp; Rauh, J. (2019). “State taxation and the reallocation of business activity: Evidence from establishment-level data,” Journal of Political Economy, 127(3), 1262-1316.</p>
-<p>Saez, E., Schoefer, B., &amp; Seim, D. (2019). “Payroll taxes, firm behavior, and rent sharing: Evidence from a young workers’ tax cut in Sweden,” American Economic Review, 109(5), 1717-63.</p>
-<p>Baker, S. R., Sun, S. T., &amp; Yannelis, C. (2020). “Corporate taxes and retail prices,” working paper.</p>
-<p>Lobel, F., Scot, T., &amp; Zúniga, P. (2020). “Corporate taxation and evasion responses: Evidence from a minimum tax in Honduras,” working paper.</p>
-<p>Chen, Z., Liu, Z., Suárez Serrato, J. C., &amp; Xu, D. Y. (2021). “Notching R&amp;D investment with corporate income tax cuts in China,” American Economic Review, 111(7), 2065-2100.</p>
+<div id="topic-7.-corporate-taxation" class="section level3">
+<h3>Topic 7. Corporate taxation</h3>
+<p>Auerbach (2002). “Taxation and corporate financial policy,” Handbook
+of Pub. Econ., vol. 3, ch. 19.</p>
+<p>Keen, M. and K. Konrad (2013). “The Theory of International Tax
+Competition and Coordination,” Handbook of Pub. Econ., vol. 5.,
+ch. 5.</p>
+<p>Mirrlees review, chs. 9 and 11.</p>
+<p>Auerbach, A. J., &amp; Hassett, K. A. (2003). “On the marginal source
+of investment funds,” Journal of Public Economics, 87(1), 205-232.</p>
+<p>Chetty, R., &amp; Saez, E. (2005). “Dividend taxes and corporate
+behavior: Evidence from the 2003 dividend tax cut,” The Quarterly
+Journal of Economics, 120(3), 791-833.</p>
+<p>(<span class="math inline">\(*\)</span>) <strong>Monteiro, J. C.,
+&amp; Assunção, J. J. (2012). “Coming out of the shadows? Estimating the
+impact of bureaucracy simplification and tax cut on formality in
+Brazilian microenterprises,” Journal of Development Economics, 99(1),
+105-115.</strong></p>
+<p>(<span class="math inline">\(*\)</span>) <strong>Saez, E., M.
+Matsaganis, and P. Tsakloglou (2012). “Earnings Determination and Taxes:
+Evidence From a Cohort-Based Payroll Tax Reform in Greece,” Quarterly
+Journal of Economics, 493-533.</strong></p>
+<p>Devereux, M. P., Liu, L., &amp; Loretz, S. (2014). “The elasticity of
+corporate taxable income: New evidence from UK tax records,” American
+Economic Journal: Economic Policy, 6(2), 19-53.</p>
+<p>Best, M., Brockmeyer, A., Kleven, H., Spinnewijn, J. and M. Waseem
+(2015). “Production versus revenue efficiency with limited tax capacity:
+theory and evidence from Pakistan,” Journal of Political Economy,
+123(6), 1311-1355.</p>
+<p>(<span class="math inline">\(*\)</span>) <strong>Yagan, D. (2015).
+“Capital tax reform and the real economy: The effects of the 2003
+dividend tax cut,” American Economic Review, 105(12),
+3531-63.</strong></p>
+<p>(<span class="math inline">\(*\)</span>) <strong>Serrato, J. and O.
+Zidar (2016). “Who Benefits from State Corporate Tax Cuts? A Local Labor
+Markets Approach with Heterogeneous Firms,” American Economic Review
+106, 2582-2624.</strong></p>
+<p><strong>See also:</strong> Malgouyres, C., Mayer, T., &amp;
+Mazet-Sonilhac, C. (2022). “Who Benefits from State Corporate Tax Cuts?
+A Local Labor Markets Approach with Heterogeneous Firms: Comment,”
+American Economic Review, forthcoming.</p>
+<p>Alstadsæter, A., Jacob, M., &amp; Michaely, R. (2017). “Do dividend
+taxes affect corporate investment?,” Journal of Public Economics, 151,
+74-83.</p>
+<p>Fuest, C., Peichl, A., &amp; Siegloch, S. (2018). “Do higher
+corporate taxes reduce wages? Micro evidence from Germany,” American
+Economic Review, 108(2), 393-418.</p>
+<p>Ohrn, E. (2018). “The effect of corporate taxation on investment and
+financial policy: Evidence from the DPAD,” American Economic Journal:
+Economic Policy, 10(2), 272-301.</p>
+<p>Giroud, X., &amp; Rauh, J. (2019). “State taxation and the
+reallocation of business activity: Evidence from establishment-level
+data,” Journal of Political Economy, 127(3), 1262-1316.</p>
+<p>Saez, E., Schoefer, B., &amp; Seim, D. (2019). “Payroll taxes, firm
+behavior, and rent sharing: Evidence from a young workers’ tax cut in
+Sweden,” American Economic Review, 109(5), 1717-63.</p>
+<p>Baker, S. R., Sun, S. T., &amp; Yannelis, C. (2020). “Corporate taxes
+and retail prices,” working paper.</p>
+<p>Lobel, F., Scot, T., &amp; Zúniga, P. (2020). “Corporate taxation and
+evasion responses: Evidence from a minimum tax in Honduras,” working
+paper.</p>
+<p>Chen, Z., Liu, Z., Suárez Serrato, J. C., &amp; Xu, D. Y. (2021).
+“Notching R&amp;D investment with corporate income tax cuts in China,”
+American Economic Review, 111(7), 2065-2100.</p>
 </div>
-<div id="week-9.-tax-compliance" class="section level3">
-<h3>Week 9. Tax compliance</h3>
+<div id="topic-8.-tax-compliance" class="section level3">
+<h3>Topic 8. Tax compliance</h3>
+<p>(<span class="math inline">\(*\)</span>) <strong>Slemrod, J. and S.
+Yitzhaki (2002). “Tax Avoidance, Evasion and Administration”, Handbook
+of Pub. Econ., vol. 3, ch. 22.</strong></p>
 <p>Mirrlees review, ch. 12.</p>
-<p>(<span class="math inline">\(*\)</span>) <strong>Slemrod, J. and S. Yitzhaki (2002). “Tax Avoidance, Evasion and Administration”, Handbook of Pub. Econ., vol. 3, ch. 22.</strong></p>
-<p>Bertrand, M., Mehta, P., &amp; Mullainathan, S. (2002). “Ferreting out tunneling: An application to Indian business groups,” The Quarterly Journal of Economics, 117(1), 121-148.</p>
-<p>(<span class="math inline">\(*\)</span>) <strong>Kleven, H. J., Knudsen, M. B., Kreiner, C. T., Pedersen, S., &amp; Saez, E. (2011). Unwilling or unable to cheat? Evidence from a tax audit experiment in Denmark. Econometrica, 79(3), 651-692.</strong></p>
-<p>Johannesen, N., &amp; Zucman, G. (2014). “The end of bank secrecy? An evaluation of the G20 tax haven crackdown,” American Economic Journal: Economic Policy, 6(1), 65-91.</p>
-<p>Pomeranz, D. (2015). “No Taxation without Information: Deterrence and Self-Enforcement in the Value Added Tax,” American Economic Review, 105(8), pp. 2539–69.</p>
-<p>Dwenger, N., Kleven, H., Rasul, I., &amp; Rincke, J. (2016). “Extrinsic and intrinsic motivations for tax compliance: Evidence from a field experiment in Germany,” American Economic Journal: Economic Policy, 8(3), 203-32.</p>
-<p>Alstadsæter, A., Johannesen, N., &amp; Zucman, G. (2018). “Who owns the wealth in tax havens? Macro evidence and implications for global inequality,” Journal of Public Economics, 162, 89-100.</p>
-<p>(<span class="math inline">\(*\)</span>) <strong>Alstadsæter, A., Johannesen, N., &amp; Zucman, G. (2019). “Tax evasion and inequality,” American Economic Review, 109(6), 2073-2103.</strong></p>
+<p>Andreoni, J., Erard, B., &amp; Feinstein, J. (1998). “Tax
+compliance,” Journal of Economic Literature, 36(2), 818-860.</p>
+<p>Bertrand, M., Mehta, P., &amp; Mullainathan, S. (2002). “Ferreting
+out tunneling: An application to Indian business groups,” The Quarterly
+Journal of Economics, 117(1), 121-148.</p>
+<p>(<span class="math inline">\(*\)</span>) <strong>Kleven, H. J.,
+Knudsen, M. B., Kreiner, C. T., Pedersen, S., &amp; Saez, E. (2011).
+“Unwilling or unable to cheat? Evidence from a tax audit experiment in
+Denmark,” Econometrica, 79(3), 651-692.</strong></p>
+<p>Johannesen, N., &amp; Zucman, G. (2014). “The end of bank secrecy? An
+evaluation of the G20 tax haven crackdown,” American Economic Journal:
+Economic Policy, 6(1), 65-91.</p>
+<p>Pomeranz, D. (2015). “No Taxation without Information: Deterrence and
+Self-Enforcement in the Value Added Tax,” American Economic Review,
+105(8), pp. 2539–69.</p>
+<p>Dwenger, N., Kleven, H., Rasul, I., &amp; Rincke, J. (2016).
+“Extrinsic and intrinsic motivations for tax compliance: Evidence from a
+field experiment in Germany,” American Economic Journal: Economic
+Policy, 8(3), 203-32.</p>
+<p>Alstadsæter, A., Johannesen, N., &amp; Zucman, G. (2018). “Who owns
+the wealth in tax havens? Macro evidence and implications for global
+inequality,” Journal of Public Economics, 162, 89-100.</p>
+<p>(<span class="math inline">\(*\)</span>) <strong>Alstadsæter, A.,
+Johannesen, N., &amp; Zucman, G. (2019). “Tax evasion and inequality,”
+American Economic Review, 109(6), 2073-2103.</strong></p>
 </div>
-<div id="week-10.-cost-benefit-analysis" class="section level3">
-<h3>Week 10. Cost-benefit analysis</h3>
-<p>Viscusi, W. K. (1993). “The value of risks to life and health,” Journal of Economic Literature, 31(4), 1912-1946.</p>
-<p>Slemrod, J., &amp; Yitzhaki, S. (2001). “Integrating expenditure and tax decisions: the marginal cost of funds and the marginal benefit of projects,” National Tax Journal, 54(2), 189-201.</p>
-<p>Kleven, H. J., &amp; Kreiner, C. T. (2006). “The marginal cost of public funds: Hours of work versus labor force participation,” Journal of Public Economics, 90(10-11), 1955-1973.</p>
-<p>Jacobs, B., Jongen, E. L., &amp; Zoutman, F. T. (2017). “Revealed social preferences of Dutch political parties,” Journal of Public Economics, 156, 81-100.</p>
-<p>(<span class="math inline">\(*\)</span>) <strong>Finkelstein, A., Hendren, N., &amp; Luttmer, E. F. (2019). “The value of Medicaid: Interpreting results from the Oregon health insurance experiment,” Journal of Political Economy, 127(6), 2836-2874.</strong></p>
-<p>Hendren, N. (2020). “Measuring economic efficiency using inverse-optimum weights,” Journal of public Economics, 187, 104-198.</p>
-<p>(<span class="math inline">\(*\)</span>) <strong>Hendren, N., &amp; Sprung-Keyser, B. (2020). “A unified welfare analysis of government policies,” The Quarterly Journal of Economics, 135(3), 1209-1318.</strong></p>
+<div id="topic-9.-social-security" class="section level3">
+<h3>Topic 9. Social security</h3>
+<p>Feldstein, M. and J. Liebman (2002). “Social Security,” Handbook of
+Pub. Econ., vol. 4, ch. 32.</p>
+<p>Bernheim, B. D., Skinner, J., &amp; Weinberg, S. (2001). What
+accounts for the variation in retirement wealth among US households?.
+American Economic Review, 91(4), 832-857.</p>
+<p>Attanasio, O. P., &amp; Rohwedder, S. (2003). “Pension wealth and
+household saving: Evidence from pension reforms in the United Kingdom,”
+American Economic Review, 93(5), 1499-1521.</p>
+<p>Autor, D. H., &amp; Duggan, M. G. (2003). “The rise in the disability
+rolls and the decline in unemployment,” The Quarterly Journal of
+Economics, 118(1), 157-206.</p>
+<p>(<span class="math inline">\(*\)</span>) <strong>Chetty, R. (2008).
+“Moral hazard versus liquidity and optimal unemployment insurance,”
+Journal of Political Economy, 116(2), 173-234.</strong></p>
+<p>Chetty, R. and E. Saez (2010). “Optimal taxation and social insurance
+with endogenous private insurance,” American Economic Journal: Economic
+Policy, 2(2), 85-114.</p>
+<p>Einav, L., Finkelstein, A. and M. Cullen (2010). “Estimating welfare
+in insurance markets using variation in prices,” The Quarterly Journal
+of Economics, 125(3), 877-921.</p>
+<p>Maestas, N., Mullen, K. J., &amp; Strand, A. (2013). “Does disability
+insurance receipt discourage work? Using examiner assignment to estimate
+causal effects of SSDI receipt,” American Economic Review, 103(5),
+1797-1829.</p>
+<p>Blundell, R., Graber, M., &amp; Mogstad, M. (2015). “Labor income
+dynamics and the insurance from taxes, transfers, and the family,”
+Journal of Public Economics, 127, 58-73.</p>
+<p>Landais, C. (2015). “Assessing the welfare effects of unemployment
+benefits using the regression kink design,” American Economic Journal:
+Economic Policy, 7(4), 243-78.</p>
+<p>(<span class="math inline">\(*\)</span>) <strong>Gelber, A., Moore,
+T. J., &amp; Strand, A. (2017). “The effect of disability insurance
+payments on beneficiaries’ earnings,” American Economic Journal:
+Economic Policy, 9(3), 229-61.</strong></p>
+<p>Carvalho, C. C., Corbi, R., &amp; Narita, R. (2018). “Unintended
+consequences of unemployment insurance: Evidence from stricter
+eligibility criteria in Brazil,” Economics Letters, 162, 157-161.</p>
+<p>Kostøl, A., Mogstad, M., &amp; Setzler, B. (2019). “Disability
+benefits, consumption insurance, and household labor supply,” American
+Economic Review, 109(7), 2613-54.</p>
+<p>Finkelstein, A., Hendren, N., &amp; Luttmer, E. F. (2019). “The value
+of Medicaid: Interpreting results from the Oregon health insurance
+experiment,” Journal of Political Economy, 127(6), 2836-2874.</p>
+<p>Finkelstein, A., Hendren, N., &amp; Shepard, M. (2019). “Subsidizing
+health insurance for low-income adults: Evidence from Massachusetts,”
+American Economic Review, 109(4), 1530-67.</p>
+<p>Ganong, P., &amp; Noel, P. (2019). “Consumer spending during
+unemployment: Positive and normative implications,” American economic
+review, 109(7), 2383-2424.</p>
+<p>Gerard, F., &amp; Gonzaga, G. (2021). “Informal labor and the
+efficiency cost of social programs: Evidence from unemployment insurance
+in Brazil,” American Economic Journal: Economic Policy, 13(3),
+167-206.</p>
+<p>(<span class="math inline">\(*\)</span>) <strong>Gerard, F., &amp;
+Naritomi, J. (2021). “Job displacement insurance and (the lack of)
+consumption-smoothing,” American Economic Review, 111(3),
+899-942.</strong></p>
+<p>Landais, C., &amp; Spinnewijn, J. (2021). “The value of unemployment
+insurance,” The Review of Economic Studies, 88(6), 3041-3085.</p>
+<p>Seibold, A. (2021). “Reference points for retirement behavior:
+Evidence from german pension discontinuities,” American Economic Review,
+111(4), 1126-65.</p>
 </div>
-<div id="week-11.-social-security" class="section level3">
-<h3>Week 11. Social security</h3>
-<p>Feldstein, M. and J. Liebman (2002). “Social Security,” Handbook of Pub. Econ., vol. 4, ch. 32.</p>
-<p>Moffitt, R. (2002). “Welfare Programs and Labor Supply,” Handbook of Pub. Econ., vol. 4, ch. 34.</p>
-<p>(<span class="math inline">\(*\)</span>) <strong>Saez, E. (2002). “Optimal Income Transfer Programs: Intensive Versus Extensive Labor Supply Responses,” Quarterly Journal of Economics 117, 1039-1073.</strong></p>
-<p>Attanasio, O. P., &amp; Rohwedder, S. (2003). “Pension wealth and household saving: Evidence from pension reforms in the United Kingdom,” American Economic Review, 93(5), 1499-1521.</p>
-<p>(<span class="math inline">\(*\)</span>) <strong>Chetty, R. (2008). “Moral hazard versus liquidity and optimal unemployment insurance,” Journal of Political Economy, 116(2), 173-234.</strong></p>
-<p>Chetty, R. and E. Saez (2010). “Optimal taxation and social insurance with endogenous private insurance,” American Economic Journal: Economic Policy, 2(2), 85-114.</p>
-<p>Einav, L., Finkelstein, A. and M. Cullen (2010). “Estimating welfare in insurance markets using variation in prices,” The Quarterly Journal of Economics, 125(3), 877-921.</p>
-<p>Maestas, N., Mullen, K. J., &amp; Strand, A. (2013). “Does disability insurance receipt discourage work? Using examiner assignment to estimate causal effects of SSDI receipt,” American Economic Review, 103(5), 1797-1829.</p>
-<p>Blundell, R., Graber, M., &amp; Mogstad, M. (2015). “Labor income dynamics and the insurance from taxes, transfers, and the family,” Journal of Public Economics, 127, 58-73.</p>
-<p>Landais, C. (2015). “Assessing the welfare effects of unemployment benefits using the regression kink design,” American Economic Journal: Economic Policy, 7(4), 243-78.</p>
-<p>Gelber, A., Moore, T. J., &amp; Strand, A. (2017). “The effect of disability insurance payments on beneficiaries’ earnings,” American Economic Journal: Economic Policy, 9(3), 229-61.</p>
-<p>Carvalho, C. C., Corbi, R., &amp; Narita, R. (2018). “Unintended consequences of unemployment insurance: Evidence from stricter eligibility criteria in Brazil,” Economics Letters, 162, 157-161.</p>
-<p>Kostøl, A., Mogstad, M., &amp; Setzler, B. (2019). “Disability benefits, consumption insurance, and household labor supply,” American Economic Review, 109(7), 2613-54.</p>
-<p>Finkelstein, A., Hendren, N., &amp; Shepard, M. (2019). “Subsidizing health insurance for low-income adults: Evidence from Massachusetts,” American Economic Review, 109(4), 1530-67.</p>
-<p>Ganong, P., &amp; Noel, P. (2019). “Consumer spending during unemployment: Positive and normative implications,” American economic review, 109(7), 2383-2424.</p>
-<p>Kleven, H. (2019). “The EITC and the extensive margin: A reappraisal,” National Bureau of Economic Research No. w26405.</p>
-<p>Lieber, E. M., &amp; Lockwood, L. M. (2019). “Targeting with in-kind transfers: Evidence from Medicaid home care,” American Economic Review, 109(4), 1461-85.</p>
-<p>Agersnap, O., Jensen, A., &amp; Kleven, H. (2020). “The welfare magnet hypothesis: Evidence from an immigrant welfare scheme in Denmark,” American Economic Review: Insights, 2(4), 527-42.</p>
-<p>Gerard, F., &amp; Gonzaga, G. (2021). “Informal labor and the efficiency cost of social programs: Evidence from unemployment insurance in Brazil,” American Economic Journal: Economic Policy, 13(3), 167-206.</p>
-<p>(<span class="math inline">\(*\)</span>) <strong>Gerard, F., &amp; Naritomi, J. (2021). “Job displacement insurance and (the lack of) consumption-smoothing,” American Economic Review, 111(3), 899-942.</strong></p>
-<p>Landais, C., &amp; Spinnewijn, J. (2021). “The value of unemployment insurance,” The Review of Economic Studies, 88(6), 3041-3085.</p>
+<div id="topic-10.-welfare-programs" class="section level3">
+<h3>Topic 10. Welfare programs</h3>
+<p>Moffitt, R. (2002). “Welfare Programs and Labor Supply,” Handbook of
+Pub. Econ., vol. 4, ch. 34.</p>
+<p>(<span class="math inline">\(*\)</span>) <strong>Saez, E. (2002).
+“Optimal Income Transfer Programs: Intensive Versus Extensive Labor
+Supply Responses,” Quarterly Journal of Economics 117,
+1039-1073.</strong></p>
+<p>Duflo, E. (2003). “Grandmothers and granddaughters: old‐age pensions
+and intrahousehold allocation in South Africa,” The World Bank Economic
+Review, 17(1), 1-25.</p>
+<p>Rothstein, J. (2010). “Is the EITC as good as an NIT? Conditional
+cash transfers and tax incidence,” American economic Journal: economic
+policy, 2(1), 177-208.</p>
+<p>Chetty, R., Friedman, J. N., &amp; Saez, E. (2013). “Using
+Differences in Knowledge across Neighborhoods to Uncover the Impacts of
+the EITC on Earnings,” American Economic Review, 103(7), 2683-2721.</p>
+<p>Chetty, R. and E. Saez (2013). “Teaching the Tax Code: Earnings
+Responses to an Experiment with EITC Recipients,” American Economic
+Journal: Applied Economics 5, 1-31.</p>
+<p>Dahl, G. B., Kostøl, A. R., &amp; Mogstad, M. (2014). “Family welfare
+cultures,” The Quarterly Journal of Economics, 129(4), 1711-1752.</p>
+<p>Muralidharan, K., Niehaus, P., &amp; Sukhtankar, S. (2017). “General
+equilibrium effects of (improving) public employment programs:
+Experimental evidence from India,” working paper.</p>
+<p>Kleven, H. (2019). “The EITC and the extensive margin: A
+reappraisal,” National Bureau of Economic Research No. w26405.</p>
+<p>Lieber, E. M., &amp; Lockwood, L. M. (2019). “Targeting with in-kind
+transfers: Evidence from Medicaid home care,” American Economic Review,
+109(4), 1461-85.</p>
+<p>Agersnap, O., Jensen, A., &amp; Kleven, H. (2020). “The welfare
+magnet hypothesis: Evidence from an immigrant welfare scheme in
+Denmark,” American Economic Review: Insights, 2(4), 527-42.</p>
 </div>
-<div id="week-12.-public-sector-employment" class="section level3">
-<h3>Week 12. Public sector employment</h3>
-<p>Menezes-Filho, N., &amp; Pazello, E. (2007). “Do teachers’ wages matter for proficiency? Evidence from a funding reform in Brazil,” Economics of Education Review, 26(6), 660-672.</p>
-<p>Muralidharan, K., &amp; Sundararaman, V. (2011). “Teacher performance pay: Experimental evidence from India,” Journal of Political Economy, 119(1), 39-77.</p>
-<p>Iyer, L., &amp; Mani, A. (2012). “Traveling agents: political change and bureaucratic turnover in India,” Review of Economics and Statistics, 94(3), 723-739.</p>
-<p>(<span class="math inline">\(*\)</span>) <strong>Dal Bó, E., Finan, F., &amp; Rossi, M. A. (2013). “Strengthening state capabilities: The role of financial incentives in the call to public service,” The Quarterly Journal of Economics, 128(3), 1169-1218.</strong></p>
-<p>Ashraf, N., Bandiera, O., &amp; Jack, B. K. (2014). “No margin, no mission? A field experiment on incentives for public service delivery,” Journal of Public Economics, 120, 1-17.</p>
-<p>Khan, A. Q., Khwaja, A. I., &amp; Olken, B. A. (2016). “Tax farming redux: Experimental evidence on performance pay for tax collectors,” The Quarterly Journal of Economics, 131(1), 219-271.</p>
-<p>Alva, C., Neilson, C., Bobba, M., Nieddu, M., &amp; Leon, G. (2017). “Teacher wages, student achievement, and the recruitment of talent in rural Peru,” working paper.</p>
-<p>(<span class="math inline">\(*\)</span>) <strong>Brollo, F., Forquesato, P., &amp; Gozzi, J. C. (2017). “To the victor belongs the spoils? Party membership and public sector employment in Brazil,” working paper.</strong></p>
-<p>Finan, F., Olken, B. A., &amp; Pande, R. (2017). “The personnel economics of the developing state,” Handbook of Economic Field Experiments, vol. 2, 467-514.</p>
-<p>Hanna, R., &amp; Wang, S. Y. (2017). “Dishonesty and selection into public service: Evidence from India,” American Economic Journal: Economic Policy, 9(3), 262-90.</p>
-<p>Rasul, I., &amp; Rogger, D. (2018). “Management of bureaucrats and public service delivery: Evidence from the nigerian civil service,” The Economic Journal, 128(608), 413-446.</p>
-<p>Xu, G. (2018). “The costs of patronage: Evidence from the british empire,” American Economic Review, 108(11), 3170-98.</p>
-<p>Ornaghi, A. (2019). “Civil service reforms: Evidence from US police departments,” working paper.</p>
-<p>Araujo, F. (2020). “Selection Bias and the Returns to Public-Sector Employment,” working paper.</p>
-<p>Bertrand, M., Burgess, R., Chawla, A., &amp; Xu, G. (2020). “The glittering prizes: Career incentives and bureaucrat performance,” The Review of Economic Studies, 87(2), 626-655.</p>
-<p>Colonnelli, E., Prem, M., &amp; Teso, E. (2020). “Patronage and selection in public sector organizations,” American Economic Review, 110(10), 3071-99.</p>
-<p>Dahis, R., Schiavon, L., &amp; Scot, T. (2020). “Selecting top bureaucrats: Admission exams and performance in Brazil,” working paper.</p>
-<p>Voth, J., &amp; Xu, G. (2020). “Discretion and destruction: promotions, performance, and patronage in the Royal Navy,” working paper.</p>
-<p>(<span class="math inline">\(*\)</span>) <strong>Banerjee, A., Chattopadhyay, R., Duflo, E., Keniston, D., &amp; Singh, N. (2021). “Improving police performance in Rajasthan, India: Experimental evidence on incentives, managerial autonomy, and training,” American Economic Journal: Economic Policy, 13(1), 36-66.</strong></p>
-<p>Moreira, D., &amp; Pérez, S. (2021). “Civil service reform and organizational practices: Evidence from the Pendleton act,” working paper.</p>
-<p>Weaver, J. (2021). ’Jobs for sale: Corruption and misallocation in hiring,&quot; American Economic Review, 111(10), 3093-3122.</p>
-<p>(<span class="math inline">\(*\)</span>) <strong>Akhtari, M., D. Moreira, and L. Trucco (2022). “Political Turnover, Bureaucratic Turnover, and the Quality of Public Services,” American Economic Review, 112 (2): 442-93.</strong></p>
+<div id="topic-11.-public-sector-employment" class="section level3">
+<h3>Topic 11. Public sector employment</h3>
+<p>Evans, P., &amp; Rauch, J. E. (1999). “Bureaucracy and growth: A
+cross-national analysis of the effects of ‘Weberian’ state structures on
+economic growth,” American sociological review, 748-765.</p>
+<p>Menezes-Filho, N., &amp; Pazello, E. (2007). “Do teachers’ wages
+matter for proficiency? Evidence from a funding reform in Brazil,”
+Economics of Education Review, 26(6), 660-672.</p>
+<p>Muralidharan, K., &amp; Sundararaman, V. (2011). “Teacher performance
+pay: Experimental evidence from India,” Journal of Political Economy,
+119(1), 39-77.</p>
+<p>Iyer, L., &amp; Mani, A. (2012). “Traveling agents: political change
+and bureaucratic turnover in India,” Review of Economics and Statistics,
+94(3), 723-739.</p>
+<p>(<span class="math inline">\(*\)</span>) <strong>Dal Bó, E., Finan,
+F., &amp; Rossi, M. A. (2013). “Strengthening state capabilities: The
+role of financial incentives in the call to public service,” The
+Quarterly Journal of Economics, 128(3), 1169-1218.</strong></p>
+<p>Ashraf, N., Bandiera, O., &amp; Jack, B. K. (2014). “No margin, no
+mission? A field experiment on incentives for public service delivery,”
+Journal of Public Economics, 120, 1-17.</p>
+<p>Bardhan, P. (2016). “State and development: The need for a
+reappraisal of the current literature,” Journal of Economic Literature,
+54(3), 862-92.</p>
+<p>Khan, A. Q., Khwaja, A. I., &amp; Olken, B. A. (2016). “Tax farming
+redux: Experimental evidence on performance pay for tax collectors,” The
+Quarterly Journal of Economics, 131(1), 219-271.</p>
+<p>Alva, C., Neilson, C., Bobba, M., Nieddu, M., &amp; Leon, G. (2017).
+“Teacher wages, student achievement, and the recruitment of talent in
+rural Peru,” working paper.</p>
+<p>(<span class="math inline">\(*\)</span>) <strong>Brollo, F.,
+Forquesato, P., &amp; Gozzi, J. C. (2017). “To the victor belongs the
+spoils? Party membership and public sector employment in Brazil,”
+working paper.</strong></p>
+<p>Finan, F., Olken, B. A., &amp; Pande, R. (2017). “The personnel
+economics of the developing state,” Handbook of Economic Field
+Experiments, vol. 2, 467-514.</p>
+<p>Hanna, R., &amp; Wang, S. Y. (2017). “Dishonesty and selection into
+public service: Evidence from India,” American Economic Journal:
+Economic Policy, 9(3), 262-90.</p>
+<p>Rasul, I., &amp; Rogger, D. (2018). “Management of bureaucrats and
+public service delivery: Evidence from the nigerian civil service,” The
+Economic Journal, 128(608), 413-446.</p>
+<p>Xu, G. (2018). “The costs of patronage: Evidence from the british
+empire,” American Economic Review, 108(11), 3170-98.</p>
+<p>Ornaghi, A. (2019). “Civil service reforms: Evidence from US police
+departments,” working paper.</p>
+<p>Araujo, F. (2020). “Selection Bias and the Returns to Public-Sector
+Employment,” working paper.</p>
+<p>Bertrand, M., Burgess, R., Chawla, A., &amp; Xu, G. (2020). “The
+glittering prizes: Career incentives and bureaucrat performance,” The
+Review of Economic Studies, 87(2), 626-655.</p>
+<p>Colonnelli, E., Prem, M., &amp; Teso, E. (2020). “Patronage and
+selection in public sector organizations,” American Economic Review,
+110(10), 3071-99.</p>
+<p>Dahis, R., Schiavon, L., &amp; Scot, T. (2020). “Selecting top
+bureaucrats: Admission exams and performance in Brazil,” working
+paper.</p>
+<p>Voth, J., &amp; Xu, G. (2020). “Discretion and destruction:
+promotions, performance, and patronage in the Royal Navy,” working
+paper.</p>
+<p>(<span class="math inline">\(*\)</span>) <strong>Banerjee, A.,
+Chattopadhyay, R., Duflo, E., Keniston, D., &amp; Singh, N. (2021).
+“Improving police performance in Rajasthan, India: Experimental evidence
+on incentives, managerial autonomy, and training,” American Economic
+Journal: Economic Policy, 13(1), 36-66.</strong></p>
+<p>Moreira, D., &amp; Pérez, S. (2021). “Civil service reform and
+organizational practices: Evidence from the Pendleton act,” working
+paper.</p>
+<p>Weaver, J. (2021). ’Jobs for sale: Corruption and misallocation in
+hiring,” American Economic Review, 111(10), 3093-3122.</p>
+<p>(<span class="math inline">\(*\)</span>) <strong>Akhtari, M., D.
+Moreira, and L. Trucco (2022). “Political Turnover, Bureaucratic
+Turnover, and the Quality of Public Services,” American Economic Review,
+112 (2): 442-93.</strong></p>
 </div>
 </div>
 <div id="bibliography" class="section level2">
 <h2>Bibliography</h2>
-<p>Textbooks mentioned above (and strongly recommended reading in general) are:</p>
+<p>Textbooks mentioned above (and strongly recommended reading in
+general) are:</p>
 <ol style="list-style-type: decimal">
-<li>Mirrlees, J. and S. Adam (2010). “Dimensions of tax design: the Mirrlees review,” Oxford University Press.</li>
+<li>Mirrlees, J. and S. Adam (2010). “Dimensions of tax design: the
+Mirrlees review,” Oxford University Press.</li>
 <li>Salanie, B. (2011). “The Economics of Taxation,” MIT press.</li>
-<li>Atkinson, A. and J. Stiglitz (2015). “Lectures on Public Economics: Updated Edition,” Princeton University Press.</li>
-<li>Handbooks of Public Economics (many authors and years), volumes 1 to 5.</li>
+<li>Atkinson, A. and J. Stiglitz (2015). “Lectures on Public Economics:
+Updated Edition,” Princeton University Press.</li>
+<li>Handbooks of Public Economics (many authors and years), volumes 1 to
+5.</li>
 </ol>
 </div>
 <div id="course-requirements" class="section level2">
 <h2>Course requirements</h2>
-<p>To successfully complete this sequence, <em>each bimester</em> students will have to submit <strong>two referee reports</strong> and <strong>present one paper</strong> from the reading list of that course (or by instructor’s discretion).</p>
-<p>At the end of the Public Finance sequence (usually, the semester), the student is also required to <strong>replicate a research article</strong> from the bibliography.</p>
+<p>To successfully complete this sequence, <em>each bimester</em>
+students will have to submit <strong>two referee reports</strong> and
+<strong>present one paper</strong> from the reading list of that course
+(or by instructor’s discretion).</p>
+<p>At the end of the Public Finance sequence (usually, the semester),
+the student is also required to <strong>replicate a research
+article</strong> from the bibliography.</p>
 </div>
 <div id="office-hours" class="section level2">
 <h2>Office Hours</h2>
 <p>Office hours can be scheduled with the link available on <a href="https://edisciplinas.usp.br">Moodle</a>.</p>
 <p><br />
 </p>
+<!-- ### Week 10. Cost-benefit analysis -->
+<!-- Viscusi, W. K. (1993). "The value of risks to life and health," Journal of Economic Literature, 31(4), 1912-1946. -->
+<!-- Slemrod, J., & Yitzhaki, S. (2001). "Integrating expenditure and tax decisions: the marginal cost of funds and the marginal benefit of projects," National Tax Journal, 54(2), 189-201. -->
+<!-- Kleven, H. J., & Kreiner, C. T. (2006). "The marginal cost of public funds: Hours of work versus labor force participation," Journal of Public Economics, 90(10-11), 1955-1973. -->
+<!-- Jacobs, B., Jongen, E. L., & Zoutman, F. T. (2017). "Revealed social preferences of Dutch political parties," Journal of Public Economics, 156, 81-100. -->
+<!-- Hendren, N. (2020). "Measuring economic efficiency using inverse-optimum weights," Journal of public Economics, 187, 104-198. -->
+<!-- ($*$) **Hendren, N., & Sprung-Keyser, B. (2020). "A unified welfare analysis of government policies," The Quarterly Journal of Economics, 135(3), 1209-1318.** -->
 </div>
 </div>
 </div>
