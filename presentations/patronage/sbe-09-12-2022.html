@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Who Benefits from Political Connections in Brazilian Municipalities</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Pedro Forquesato pforquesato@usp.br" />
+    <script src="libs/header-attrs-2.18/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Who Benefits from Political Connections in Brazilian Municipalities
+]
+.author[
+### Pedro Forquesato<br/><a href="mailto:pforquesato@usp.br" class="email">pforquesato@usp.br</a>
+]
+.institute[
+### Universidade de São Paulo (FEA/USP)<br/><a href="http://www.pedroforquesato.com" class="uri">http://www.pedroforquesato.com</a>
+]
+.date[
+### SBE Meeting 2022<br/>December 9th, 2022
+]
+
+---
+
+class: inverse, middle, center
+
+# Introduction
+
+---
+class: middle
+
+## Introduction
+
+Improving bureaucratic quality in developing countries is essential for better provision of public goods and for economic development
+
+Recent evidence has shown that political connections frequently determine entry into the government service, especially at the local level (patronage)
+
+Patronage in public hiring is when politicians use their appointment power of public workers to reward supporters or friends
+
+---
+class: middle
+## Motivation
+
+The use of public resources to reward political supporters might reduce efficiency and welfare: it distorts public good provision and leads to rent-seeking
+
+However, this does not have to be so: if workers hired for their political connection are nonetheless well educated and competent, then even if ubiquitous, patronage will not be very harmful to state capacity
+
+Understanding what motivates it and who is selected to patronage appointments then is important to improve bureaucratic efficiency
+
+---
+class: middle
+
+## This paper
+
+We compare in close elections the municipal employment outcomes of affiliates to the party that narrowly won with affiliates to the party that narrowly lost (RDD)
+
+Proceeding from that, we train a machine learning causal forest model to estimate heterogeneity in the conditional average treatment effects (CATE), that is, the effect of patronage conditional on worker characteristics
+
+Better understanding *who* benefits the most from patronage hopefully will allow us to better understand what is behind it and its effects
+
+---
+class: middle
+
+## Outline of results
+
+Being politically connected to the elected mayor has strong *causal* effect on the probability of being employed in municipal sector, and on public sector wages, especially in management and white collar occupations
+
+This effect is stronger for more highly educated employees, suggesting positive selection of political connections to the public sector, although estimated ability is lower
+
+The effect is also stronger for the newly affiliated, indicating that these hires are to reward political supporters (patronage), and that connection to the mayor is more important than to the party
+
+---
+class: middle
+## Literature review
+
+Our paper relates to a growing literature on determinants of public bureaucracy efficiency, especially in developing countries: Akhtari et al (2022), Dahis, Schiavon, &amp; Scot (2020), Moreira &amp; Perez (2022), Weaver (2021), Xu (2018)
+
+Particularly to the causal estimation of the effect of being a supporter of elected mayors on public employment in municipalities, with a focus on Brazil: Barbosa and Ferreira (2019), Brassiolo et al. (2020), Brollo et al. (2017), Colonnelli et al. (2020)
+
+This paper also relates to a recent literature on machine learning tools for causal analysis, particularly estimating heterogeneity in treatment effects: Athey &amp; Wager (2019), Chernozhukov, Demirer, Duflo, &amp; Fernandez-Val (2018), Hsu &amp; Shen, (2019), Nie &amp; Wager (2021), Wager &amp; Athey (2018)
+
+---
+class: inverse, middle, center
+
+# Data and institutional background
+
+---
+class: middle
+
+## Brazilian municipalities
+
+Brazil is a federation democracy with 5,570 municipalities &amp;mdash; we restrict to municipalities under 200,000 voters, which have a plurality system
+
+Most public goods, especially education and health care, are provided by municipalities &amp;mdash; they account for almost 60% of public employment and 6.25% of Brazilian working force
+
+Brazil has a sizable public wage premium, but mostly federal and (to a lesser degree) state employees: the average wage for municipality workers (2017) was US$600/month
+
+---
+class: middle
+
+## Party affiliation and political parties
+
+Our measure of political support is party affiliation: it gives us enough observations to train our causal forest
+
+11 million party affiliates in Brazil (2008), over 6% of the entire electorate: PT, PSDB, and PMDB, had then almost 1.5 million affiliates each
+
+New party affiliations are heavily concentrated on months exactly one year before the election &amp;mdash; presumably, this is due to mayoral candidates bringing supporters to influence intra-party democracy
+
+---
+class: middle
+
+## Data
+
+Municipality employment from RAIS (Relação Anual de Informações Sociais), administrative data gathered by the Brazilian federal government, which registers the universe of formal (public and private) labor relations in Brazil
+
+Unfortunately, no information on informal employment relations, but contains the entirety of public employees (our focus)
+
+Merge this information with open access party affiliation records by name and electoral results for 2004-16 municipal elections
+
+---
+class: middle
+
+&lt;img src="figs/table1.png" width="75%" style="display: block; margin: auto;" /&gt;
+
+---
+class: middle
+
+&lt;img src="figs/corrplot.png" width="65%" style="display: block; margin: auto;" /&gt;
+
+
+---
+class: inverse, middle, center
+
+# Empirical strategy
+
+
+---
+class: middle
+## Empirical strategy
+
+I investigate the effect of being affiliated to the party of the winning candidate (in close elections), `\(W_i\)`, in five outcomes related to public sector employment `\(Y_i\)`, and how this differ for affiliates with different covariates/features `\(X_i\)`:
+
+1. being employed in the the municipal public sector;
+2. inverse hyperbolic sine of wages; 
+3. being employed in a blue collar municipal occupation; 
+4. being employed in a white collar municipal occupation; and
+5. being employed in a managerial municipal occupation.
+
+---
+class: middle
+## Empirical strategy
+
+Consider an independent and identically distributed sample of size `\(n\)`, that contains pre-treatment covariates (features) `\(X_i\)` of dimension `\(d\)`, a real-valued response `\(Y_i\)` and a treatment `\(W_i \in \{0, 1\}\)`
+
+I employ the potential outcomes framework, and we are interested in estimating conditional average treatment effects (CATE) of the form `$$\tau (x) \equiv \mathbb{E} [ Y_i (1) − Y_i (0) | X_i = x],$$`
+
+where `\(Y_i(1)\)` is the outcome `\(i\)` gets when treated and `\(Y_i(0)\)` when untreated
+
+
+---
+class: middle
+## Identification assumption
+
+I adopt the **local randomization framework**: in close elections, treatment assignment (election victory) is effectively random
+
+This assumption implies unconfoundedness: `\(\{ Y_i (1), Y_i (0) \} \perp W_i | X_i\)`, an assumption sufficient for identification of conditional average treatment effects in our environment
+
+Our identification assumption is that electoral performance varies continuously with non-observable attributes, so in a sufficiently close interval from zero margin of victory, our treatment `\(W_i\)` is as good as random
+
+---
+class: middle
+## Random forest
+
+A basic machine learning method is decision trees, where the space of features is divided by binary partitioning and we predict the regression with the mean of the dependent variable within each rectangle
+
+The binary partition is chosen with a *greedy algorithm* that chooses the splitting variable and splitting point in order to minimize sum of squared of errors
+
+Random forests are a ensemble learning method that aggregates the result of many random decision trees trained on random subsets of the original data with a random subsample of features
+
+---
+class: middle
+## Causal forest
+
+A recent literature has employed random forests suitably modified to estimate causal effects, both average treatment effects (ATE) and conditional average treatment effects (CATE) - we use the package `grf` in `R` (Athey et al, 2019)
+
+The idea is that as in a binary decision tree, we divide the feature space in rectangles, and compute the ATE within each leaf
+
+Athey and Imbens (2016) introduced the idea of *honest partitioning*, where we use half the sample to define the leaves and another subsample to estimate CATE using those leaves
+
+---
+class: middle
+## Causal forest
+
+I nonparametrically estimate conditional expectations `\(Y (x) = \mathbb{E} [ Y_i | X_i = x]\)` and `\(W (x) = \mathbb{E} [ W_i | X_i = x]\)` using a boosting regression forest
+
+Then I center the outcome and treatment by the keep-one-out expectations `\(\tilde{W}_i = W_i − W^{(−1)}(x)\)` and `\(\tilde{Y}_i = Y_i − Y^{(−1)}(x)\)`
+
+I then compute random forest weights for each value of `\(x\)` and use them to do a projection of locally weighted outcomes on locally weighted treatment values
+
+---
+class: middle
+
+&lt;img src="figs/figure1.png" width="75%" style="display: block; margin: auto;" /&gt;
+
+Estimated propensity scores `\(W(x)\)` vary little from 50% in all thresholds, suggesting that near the election cut-off assignment is as good as random
+
+---
+class: middle
+
+&lt;img src="figs/figure2a.png" width="75%" style="display: block; margin: auto;" /&gt;&lt;img src="figs/figure2b.png" width="75%" style="display: block; margin: auto;" /&gt;
+
+
+---
+class: inverse, middle, center
+
+# Results
+
+---
+class: middle
+
+## Average treatment effect
+
+Being politically connected to the mayor’s party causally increases municipal employment by 8.3 p.p., a 39.5% increase over the baseline &amp;mdash; but with large variations
+
+While for managerial positions the effect is a 256% increase over the 1.6% baseline, for white collar occupations 35.4% and for blue collar just 9.3% 
+
+Managerial public workers account for only 14.6% of municipal employees in our sample, they respond for 49% of the effect of political connections on municipal employment
+
+---
+class: middle
+
+&lt;img src="figs/figure3.png" width="75%" style="display: block; margin: auto;" /&gt;&lt;img src="figs/figure3b.png" width="75%" style="display: block; margin: auto;" /&gt;
+
+---
+class: middle
+## Best linear predictor of CATE
+
+But a previous literature, including Brollo et al (2017), has already established an effect of political connections on municipal employment &amp;mdash; our main contribution is study heterogeneity in treatment effect
+
+We do so by studying how conditional treatment effects vary by individual characteristics &amp;mdash; we start by finding the best linear predictor of CATE given our features
+
+This gives us what characteristics are related to a stronger treatment effect of being politically connected to the mayor on municipal employment
+
+---
+class: middle
+## Best linear predictor of CATE
+
+Although the ATE estimate is causal (given the local randomization framework), the same is not true for heterogeneity analysis
+
+However, we improve upon previous exercises because our linear predictor is projected on municipality, year, and party dummies and considers all sources of heterogeneity at once
+
+Although still not causal, this makes the analysis more robust than simple interactions tried in previous research
+
+---
+class: middle
+
+&lt;img src="figs/table2-1.png" width="75%" style="display: block; margin: auto;" /&gt;
+
+
+---
+class: middle
+
+&lt;img src="figs/table2-2.png" width="75%" style="display: block; margin: auto;" /&gt;
+
+---
+class: middle
+## Best linear predictor of CATE
+
+We find that older and male workers benefit the most from patronage: each year above the mean adds 0.25p.p. to treatment effect, and being male adds 5 p.p. to the causal probability of being hired when connected to the mayor
+
+In terms of worker quality, unlike previous literature, we find that the well educated are positively selected: while treatment effect is essentially 0 for those with incomplete high-school, it is 12.1 p.p. for the university educated
+
+On the other hand, if we proxy worker ability by individual fixed effects in a Mincerian equation, then we find that treatment effect is decreasing in ability
+
+---
+class: middle
+## Best linear predictor of CATE
+
+Finally, another contribution of our research is to note that being affiliated to the party of the winning mayor is more valuable for those newly affiliated: each year of party tenure corresponds to 0.42 p.p. lower TE (5% of the ATE)
+
+As aforementioned, the year before the election is when most party affiliation occurs, presumably to affect intra-party election &amp;mdash; I conjecture that for these affiliates patronage could be more significant
+
+And indeed it is the case: newly affiliated workers are associated with 4.4 p.p. higher TE of political connections, half of the ATE
+
+---
+class: middle
+## Classification analysis
+
+The best linear predictor of CATE is one way of aggregating CATE estimates, another is to define subgroups by their treatment effect size and analyze the different average characteristics in each group
+
+We divide the sample by quartile of CATE size on municipal employment, and compare the most affected quartile with the least affected quartile
+
+Treatment is highly heterogeneous: while the most affected quartile has CATE of 0.21 (std. 0.004), 3x the ATE, the least affected group has economically insignificant effect of 0.01 (std. 0.002).
+
+
+---
+class: middle
+
+&lt;img src="figs/table3.png" width="55%" style="display: block; margin: auto;" /&gt;
+
+---
+class: middle
+## Classification analysis
+
+We see that the most affected group is slightly younger, but much more educated: the share with university education is 4 times higher than in the least affected group
+
+2/3 of the most affected group are unemployed, the rest mostly working in government &amp;mdash; the least affected group is almost entirely working, mostly on private sector and in blue collar occupations.
+
+Finally, the highest quartile is on average affiliated to the mayor’s party for 4 years, with 11% of them affiliated the year before the election, while for the lowest quartile it is 11 years, and only 1.8% of them new affiliates.
+
+---
+class: middle
+
+## Conclusion
+
+The fact that newly affiliated party members are more likely to be hired by political connections indicates that these hirings are indeed a form of patronage (versus, for example, ideological match)
+
+However, we find that these patronage workers are *positively* selected on education &amp;mdash; on the other hand, they have lower estimated ability, tenure and are more likely to be unemployed
+
+A possible interpretation of these results is that mayors use their appointing power to reward political supporters that are observationally of good quality, but do not have good stable jobs in the private sector
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

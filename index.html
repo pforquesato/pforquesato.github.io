@@ -13,7 +13,7 @@
 
 <title>Pedro Forquesato</title>
 
-<script src="site_libs/header-attrs-2.15/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.18/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
@@ -186,8 +186,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -195,16 +195,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -357,7 +350,7 @@ being affiliated to the party of the winning mayor on public employment.
 Presentations: Federal University of Rio de Janeiro (July, 2022), LACEA
 Annual Meeting (November, 2022), Brazilian Econometric Society
 (December, 2022). <a
-href="./presentations/patronage/lacea-01-11-2022.html">[Slides]</a> <a
+href="./presentations/patronage/sbe-09-12-2022.html">[Slides]</a> <a
 href="https://www.youtube.com/watch?v=QObH1Iz7guk">[Video]</a>.</p>
 <p><strong><a
 href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3028937">To
@@ -386,7 +379,8 @@ href="https://www.dropbox.com/s/tmgd1xvht5m2a3b/work_ethic_final.pdf?dl=0">[Prep
 approach</strong>, <em>with Fabiana Rocha and Kauany Souza</em>.
 Presentations: 3rd Brazilian Meeting on Family and Gender Economics
 (September, 2022), ANPEC Annual Meeting (December, 2022). Working paper
-coming soon.</p>
+coming soon. <a
+href="./presentations/breadwinner/breadwinner_anpec.pdf">[Slides]</a>.</p>
 <hr />
 </div>
 </div>
@@ -421,7 +415,7 @@ Fabiana Rocha and Luis Meloni.</em> Jornal da USP, 19/07/2021.
 
 &nbsp;
 <hr />
-<p style="text-align: center;">Created by Pedro Forquesato. Last updated: October, 2022.</p>
+<p style="text-align: center;">Created by Pedro Forquesato. Last updated: December, 2022.</p>
 <p style="text-align: center;"><span style="color: #707070;">MIT License - Copyright © 2022. </span></p>
 
 <!-- Add icon library -->
