@@ -1,0 +1,103 @@
+---
+title: "O novo arcabouço fiscal"
+author: "Pedro Forquesato<br/>Departamento de Economia<br/>FEA/USP<br/>http://www.pedroforquesato.com"
+institute: "Comentário - Reuniao do Grupo de Conjuntura da Fipe"
+date: "23 de junho de 2023"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+
+---
+class: inverse, middle, center
+
+```{r, load_refs, include=FALSE, cache=FALSE}
+library(RefManageR)
+BibOptions(check.entries = FALSE,
+           bib.style = "alphabetic",
+           cite.style = "alphabetic",
+           style = "markdown",
+           hyperlink = FALSE,
+           dashed = FALSE)
+myBib <- ReadBib("./esp_bib.bib", check = FALSE)
+```
+
+# Novo arcabouço fiscal
+
+---
+class: middle
+
+```{r, echo=FALSE, out.width = '80%'}
+knitr::include_graphics("figs/aula-1-grafico-1.png")
+```
+
+`r Citep(myBib, "piketty2018capital")`
+
+
+---
+class: middle
+
+```{r, echo=FALSE, out.width = '90%'}
+knitr::include_graphics("figs/eae0310-8-22.png")
+```
+
+(Giambiagi & Alem)
+
+---
+class: middle
+
+```{r, echo=FALSE, out.width = '100%'}
+knitr::include_graphics("figs/eae0310-8-10.png")
+```
+
+(Boletim CTB 2019) 
+
+
+---
+class: middle
+
+```{r, echo=FALSE, out.width = '100%'}
+knitr::include_graphics("figs/cofog.png")
+```
+
+(Boletim COFOG 2022)
+
+---
+class: middle
+
+```{r, echo=FALSE, out.width = '80%', fig.align="center"}
+knitr::include_graphics("figs/eae0310-1-6.png")
+```
+
+[(Atlas do Estado Brasileiro/IPEA)](https://www.ipea.gov.br/atlasestado/)
+
+---
+class: middle
+
+```{r, echo=FALSE, out.width = '100%'}
+knitr::include_graphics("figs/orair1.png")
+```
+
+`r Citep(myBib, "orair")`
+
+---
+class: middle
+
+```{r, echo=FALSE, out.width = '100%'}
+knitr::include_graphics("figs/orair2.png")
+```
+
+`r Citep(myBib, "orair")`
+
+---
+class:middle
+# Referências
+<small>
+```{r refs, echo=FALSE, results="asis"}
+PrintBibliography(myBib, start=1)
+```
+</small>
+
